@@ -24,7 +24,7 @@ CREATE TABLE [Ward] (
 	[TypeID] int,
 	[Status] varchar(25),
 	PRIMARY KEY ([WardID]),
-	FOREIGN KEY ([TypeID]) REFERENCES WardType
+	FOREIGN KEY ([TypeID]) REFERENCES WardType ([Type])
 );
 
 CREATE TABLE [Patient] (
@@ -65,6 +65,6 @@ CREATE TABLE [Consultant] (
 	[PatientRegNum] int,
 	[DoctorID] int,
 	PRIMARY KEY ([PatientRegNum], [DoctorID]),
-	FOREIGN KEY ([PatientRegNum]) REFERENCES PatientRegistration,
+	FOREIGN KEY ([PatientRegNum]) REFERENCES PatientRegistration ([RegistrationNumber]),
 	FOREIGN KEY ([DoctorID]) REFERENCES Doctor
 );
