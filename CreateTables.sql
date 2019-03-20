@@ -54,8 +54,7 @@ CREATE TABLE [PatientRegistration] (
 	[WardID] int,
 	PRIMARY KEY ([RegistrationNumber]),
 	FOREIGN KEY ([PID]) REFERENCES Patient,
-	FOREIGN KEY ([WardID]) REFERENCES Ward,
-	FOREIGN KEY ([Consultant]) REFERENCES Doctor
+	FOREIGN KEY ([WardID]) REFERENCES Ward
 );
 
 CREATE TABLE [Consultant] (
