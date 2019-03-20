@@ -52,6 +52,10 @@ CREATE TABLE [PatientRegistration] (
 	[RegistrationNumber] int,
 	[PID] int,
 	[WardID] int,
+	[Day] int,
+	[Month] int,
+	[Year] int,
+	[Time] varchar(5), /*__:__ (24 hour format) */
 	PRIMARY KEY ([RegistrationNumber]),
 	FOREIGN KEY ([PID]) REFERENCES Patient,
 	FOREIGN KEY ([WardID]) REFERENCES Ward

@@ -114,7 +114,7 @@ BEGIN
 		@RandWID,
 		CAST(ROUND(@ID * RAND(), 0) as int) % 32,
 		CAST(ROUND(@ID * RAND(), 0) as int) % 13,
-		ROUND(@ID * RAND(), 0) + 1000,
+		ROUND(@ID * RAND(), 0) + 2000,
 		CAST(@ID % 25 as varchar(10)) + ':' + CAST(@ID % 60 as varchar(10))
 	)	
 	SET @ID = @ID + 1
