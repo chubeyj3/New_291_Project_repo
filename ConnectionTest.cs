@@ -22,31 +22,6 @@ namespace CMPT291_Project
 			}
 
 			db.closeConnection();
-
-			//string connString;
-			//SqlConnection cnn;
-
-			//connString = @"Data Source=" + dataSource + ";Initial Catalog=" + dbName
-			//	+ ";User Id=" + username + ";Password=" + password;
-			//cnn = new SqlConnection(connString);
-			//cnn.Open();
-
-
-			//SqlCommand comm;
-			//SqlDataReader dataReader;
-			//string sql;
-
-			//sql = "SELECT FirstName FROM Patient";
-			//comm = new SqlCommand(sql, cnn);
-			//dataReader = comm.ExecuteReader();
-
-			//while (dataReader.Read())
-			//{
-			//	System.Console.WriteLine(dataReader.GetValue(0));
-			//}
-
-
-			//cnn.Close();
 		}
 	}
 }
