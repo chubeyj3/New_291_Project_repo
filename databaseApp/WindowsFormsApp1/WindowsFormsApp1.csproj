@@ -46,17 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\..\Desktop\school\cmpt291-project\databaseApp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="..\..\..\..\Desktop\school\cmpt291-project\databaseApp.Designer.cs">
-      <DependentUpon>databaseApp.cs</DependentUpon>
-    </Compile>
     <Compile Include="container.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="container.Designer.cs">
       <DependentUpon>container.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dashboard.Designer.cs">
+      <DependentUpon>dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="dashboardButton.cs">
       <SubType>Component</SubType>
@@ -78,8 +78,8 @@
     <Compile Include="sideBar.Designer.cs">
       <DependentUpon>sideBar.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="..\..\..\..\Desktop\school\cmpt291-project\databaseApp.resx">
-      <DependentUpon>databaseApp.cs</DependentUpon>
+    <EmbeddedResource Include="dashboard.resx">
+      <DependentUpon>dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="dashboardButton.resx">
       <DependentUpon>dashboardButton.cs</DependentUpon>
