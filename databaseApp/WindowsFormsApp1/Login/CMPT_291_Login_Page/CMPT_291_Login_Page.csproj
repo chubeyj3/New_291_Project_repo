@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9C3A47AB-3F44-4CBA-8D9E-2D9A6D0B41FA}</ProjectGuid>
+    <ProjectGuid>{6ED238ED-3458-4E97-9EAF-EE72A6B926CD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WindowsFormsApp1</RootNamespace>
-    <AssemblyName>WindowsFormsApp1</AssemblyName>
+    <RootNamespace>CMPT_291_Login_Page</RootNamespace>
+    <AssemblyName>CMPT_291_Login_Page</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,24 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="container.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="container.Designer.cs">
-      <DependentUpon>container.cs</DependentUpon>
-    </Compile>
-    <Compile Include="dashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="dashboard.Designer.cs">
-      <DependentUpon>dashboard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="dashboardButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="dashboardButton.Designer.cs">
-      <DependentUpon>dashboardButton.cs</DependentUpon>
-    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,24 +54,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="query_panel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="query_panel.Designer.cs">
-      <DependentUpon>query_panel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="sideBar.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="sideBar.Designer.cs">
-      <DependentUpon>sideBar.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="dashboard.resx">
-      <DependentUpon>dashboard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="dashboardButton.resx">
-      <DependentUpon>dashboardButton.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,12 +66,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="query_panel.resx">
-      <DependentUpon>query_panel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="sideBar.resx">
-      <DependentUpon>sideBar.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

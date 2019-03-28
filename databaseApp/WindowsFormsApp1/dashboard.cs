@@ -18,7 +18,7 @@ namespace WindowsFormsApp1
         public dashboard()
         {
             InitializeComponent();
-            BackColor = ColorTranslator.FromHtml("#25282F");
+            //BackColor = ColorTranslator.FromHtml("#25282F");
             currentView = homePage;
             previousView = homePage;
             queryView.Visible = false;
@@ -48,7 +48,7 @@ namespace WindowsFormsApp1
 
         private void panel1_Paint_1(object sender, PaintEventArgs e)
         {
-            panel1.BackColor = ColorTranslator.FromHtml("#4a9c8a");
+            //panel1.BackColor = ColorTranslator.FromHtml("#4a9c8a");
         }
 
         private void setView(Panel newView)

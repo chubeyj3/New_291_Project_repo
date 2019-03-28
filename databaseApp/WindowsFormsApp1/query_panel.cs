@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
         public query_panel()
         {
             InitializeComponent();
-            BackColor = ColorTranslator.FromHtml("#25282F");
+            //BackColor = ColorTranslator.FromHtml("#25282F");
             Size = new System.Drawing.Size(925, 541);
         }
     }
