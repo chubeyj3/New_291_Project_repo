@@ -74,5 +74,10 @@ namespace WindowsFormsApp1
         {
             setView(homePage);
         }
+
+        private void sideBar1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

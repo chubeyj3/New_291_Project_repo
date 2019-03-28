@@ -10,13 +10,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class sideBar : FlowLayoutPanel
+    public partial class sideBar : Panel
     {
         public sideBar()
         {
             InitializeComponent();
-
-            Dock = DockStyle.Left;
             BackColor = ColorTranslator.FromHtml("#1e2025");
         }
 
