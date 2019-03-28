@@ -16,5 +16,21 @@ namespace CMPT_291_Login_Page
         {
             InitializeComponent();
         }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            if(isValidUser("test", "password123"))
+            {
+                this.Hide();
+                var dash = new WindowsFormsApp1.dashboard();
+                dash.Show();
+            }
+        }
+
+        private bool isValidUser(string username, string password)
+        {
+            //TODO: Actually do login functionality here
+            return true;
+        }
     }
 }
