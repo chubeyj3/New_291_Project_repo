@@ -30,7 +30,14 @@ namespace CMPT_291_Login_Page
         private bool isValidUser(string username, string password)
         {
             //TODO: Actually do login functionality here
+            setupDatabase();
             return true;
+        }
+
+        private void setupDatabase()
+        {
+            //TODO: connect to the database and pull in the information after login is verified
+            return;
         }
     }
 }

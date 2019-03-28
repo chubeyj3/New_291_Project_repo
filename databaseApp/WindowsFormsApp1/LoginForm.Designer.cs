@@ -48,7 +48,7 @@
             this.panel1.Controls.Add(this.usernameLabel);
             this.panel1.Controls.Add(this.loginButton);
             this.panel1.Location = new System.Drawing.Point(188, 102);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(225, 122);
             this.panel1.TabIndex = 0;
@@ -56,7 +56,7 @@
             // passwordTextbox
             // 
             this.passwordTextbox.Location = new System.Drawing.Point(82, 54);
-            this.passwordTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.passwordTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.passwordTextbox.Name = "passwordTextbox";
             this.passwordTextbox.Size = new System.Drawing.Size(121, 20);
             this.passwordTextbox.TabIndex = 4;
@@ -64,7 +64,7 @@
             // usernameTextbox
             // 
             this.usernameTextbox.Location = new System.Drawing.Point(82, 25);
-            this.usernameTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.usernameTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.usernameTextbox.Name = "usernameTextbox";
             this.usernameTextbox.Size = new System.Drawing.Size(121, 20);
             this.usernameTextbox.TabIndex = 3;
@@ -92,9 +92,9 @@
             // loginButton
             // 
             this.loginButton.Location = new System.Drawing.Point(112, 85);
-            this.loginButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(2);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(56, 19);
+            this.loginButton.Size = new System.Drawing.Size(56, 23);
             this.loginButton.TabIndex = 0;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
@@ -107,7 +107,7 @@
             this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(586, 368);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LoginForm";
             this.Text = "Login";
             this.panel1.ResumeLayout(false);

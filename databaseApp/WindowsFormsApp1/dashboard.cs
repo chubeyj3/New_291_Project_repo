@@ -79,5 +79,10 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void dashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
