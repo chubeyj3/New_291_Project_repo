@@ -68,3 +68,10 @@ CREATE TABLE [Consultant] (
 	FOREIGN KEY ([PatientRegNum]) REFERENCES PatientRegistration ([RegistrationNumber]),
 	FOREIGN KEY ([DoctorID]) REFERENCES Doctor
 );
+
+CREATE TABLE [User](
+	[Username] varchar(50),
+	[Password] varchar(50),
+	[AccessLevel] int,
+	PRIMARY KEY ([Username])
+);
