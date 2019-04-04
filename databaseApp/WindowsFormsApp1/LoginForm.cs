@@ -7,11 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using CMPT291_Project;
 
 namespace CMPT_291_Login_Page
 {
     public partial class LoginForm : Form
     {
+        
+        SqlDataReader reader;
+        DBManager db;
+
         public LoginForm()
         {
             InitializeComponent();
@@ -19,7 +25,7 @@ namespace CMPT_291_Login_Page
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if(isValidUser("test", "password123"))
+            if(isValidUser())
             {
                 this.Hide();
                 var dash = new WindowsFormsApp1.dashboard();
@@ -27,11 +33,22 @@ namespace CMPT_291_Login_Page
             }
         }
 
-        private bool isValidUser(string username, string password)
+        private bool isValidUser()
         {
             //TODO: Actually do login functionality here
-            setupDatabase();
-            return true;
+            db = new DBManager("Data Source=LAPTOP-STRPANMF;Initial Catalog=291Project;Integrated Security=True");
+            reader = db.query("SELECT * FROM MedSystemUser;");
+            while (reader.Read())
+            {
+                if(reader.GetString(0) == this.usernameTextbox.Text && reader.GetString(1) == this.passwordTextbox.Text)
+                {
+                    db.closeConnection();
+                    return true;
+                }
+            }
+
+            db.closeConnection();
+            return false;
         }
 
         private void setupDatabase()
