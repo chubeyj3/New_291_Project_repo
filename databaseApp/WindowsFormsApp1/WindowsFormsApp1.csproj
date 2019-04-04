@@ -84,6 +84,11 @@
     <Compile Include="sideBar.Designer.cs">
       <DependentUpon>sideBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="_291ProjectDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_291ProjectDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,6 +122,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="_291ProjectDataSet.xsc">
+      <DependentUpon>_291ProjectDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_291ProjectDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_291ProjectDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_291ProjectDataSet.xss">
+      <DependentUpon>_291ProjectDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

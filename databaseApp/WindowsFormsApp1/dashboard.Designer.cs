@@ -28,26 +28,102 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.homePage = new System.Windows.Forms.Panel();
+            this._291ProjectDataSet = new WindowsFormsApp1._291ProjectDataSet();
+            this.projectDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.doctorTableAdapter1 = new WindowsFormsApp1._291ProjectDataSetTableAdapters.DoctorTableAdapter();
+            this.queryView = new WindowsFormsApp1.query_panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.doctorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.departmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dutyDetailsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sideBar1 = new WindowsFormsApp1.sideBar();
             this.backButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dashboardButton1 = new WindowsFormsApp1.dashboardButton();
             this.dashboardButton2 = new WindowsFormsApp1.dashboardButton();
-            this.queryView = new WindowsFormsApp1.query_panel();
             this.container1 = new WindowsFormsApp1.container();
-            this.homePage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._291ProjectDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectDataSetBindingSource)).BeginInit();
+            this.queryView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.sideBar1.SuspendLayout();
             this.SuspendLayout();
             // 
             // homePage
             // 
             this.homePage.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.homePage.Controls.Add(this.queryView);
             this.homePage.Location = new System.Drawing.Point(212, 0);
             this.homePage.Name = "homePage";
             this.homePage.Size = new System.Drawing.Size(952, 571);
             this.homePage.TabIndex = 1;
+            // 
+            // _291ProjectDataSet
+            // 
+            this._291ProjectDataSet.DataSetName = "_291ProjectDataSet";
+            this._291ProjectDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // projectDataSetBindingSource
+            // 
+            this.projectDataSetBindingSource.DataMember = "Doctor";
+            this.projectDataSetBindingSource.DataSource = this._291ProjectDataSet;
+            // 
+            // doctorTableAdapter1
+            // 
+            this.doctorTableAdapter1.ClearBeforeFill = true;
+            // 
+            // queryView
+            // 
+            this.queryView.Controls.Add(this.textBox1);
+            this.queryView.Controls.Add(this.dataGridView1);
+            this.queryView.Location = new System.Drawing.Point(217, 0);
+            this.queryView.Name = "queryView";
+            this.queryView.Size = new System.Drawing.Size(949, 574);
+            this.queryView.TabIndex = 3;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(142, 20);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(569, 20);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.doctorIDDataGridViewTextBoxColumn,
+            this.departmentIDDataGridViewTextBoxColumn,
+            this.dutyDetailsDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.projectDataSetBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 75);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(925, 493);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // doctorIDDataGridViewTextBoxColumn
+            // 
+            this.doctorIDDataGridViewTextBoxColumn.DataPropertyName = "DoctorID";
+            this.doctorIDDataGridViewTextBoxColumn.HeaderText = "DoctorID";
+            this.doctorIDDataGridViewTextBoxColumn.Name = "doctorIDDataGridViewTextBoxColumn";
+            // 
+            // departmentIDDataGridViewTextBoxColumn
+            // 
+            this.departmentIDDataGridViewTextBoxColumn.DataPropertyName = "DepartmentID";
+            this.departmentIDDataGridViewTextBoxColumn.HeaderText = "DepartmentID";
+            this.departmentIDDataGridViewTextBoxColumn.Name = "departmentIDDataGridViewTextBoxColumn";
+            // 
+            // dutyDetailsDataGridViewTextBoxColumn
+            // 
+            this.dutyDetailsDataGridViewTextBoxColumn.DataPropertyName = "DutyDetails";
+            this.dutyDetailsDataGridViewTextBoxColumn.HeaderText = "DutyDetails";
+            this.dutyDetailsDataGridViewTextBoxColumn.Name = "dutyDetailsDataGridViewTextBoxColumn";
             // 
             // sideBar1
             // 
@@ -127,13 +203,6 @@
             this.dashboardButton2.Text = "View 2";
             this.dashboardButton2.UseVisualStyleBackColor = false;
             // 
-            // queryView
-            // 
-            this.queryView.Location = new System.Drawing.Point(3, 0);
-            this.queryView.Name = "queryView";
-            this.queryView.Size = new System.Drawing.Size(949, 574);
-            this.queryView.TabIndex = 3;
-            // 
             // container1
             // 
             this.container1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -148,6 +217,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1157, 571);
+            this.Controls.Add(this.queryView);
             this.Controls.Add(this.sideBar1);
             this.Controls.Add(this.homePage);
             this.Controls.Add(this.container1);
@@ -155,7 +225,11 @@
             this.Text = "Hospital Database";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.dashboard_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.homePage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._291ProjectDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectDataSetBindingSource)).EndInit();
+            this.queryView.ResumeLayout(false);
+            this.queryView.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.sideBar1.ResumeLayout(false);
             this.sideBar1.PerformLayout();
             this.ResumeLayout(false);
@@ -171,6 +245,14 @@
         private System.Windows.Forms.Panel homePage;
         private container container1;
         private query_panel queryView;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource projectDataSetBindingSource;
+        private _291ProjectDataSet _291ProjectDataSet;
+        private _291ProjectDataSetTableAdapters.DoctorTableAdapter doctorTableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doctorIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn departmentIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dutyDetailsDataGridViewTextBoxColumn;
     }
 }
 
