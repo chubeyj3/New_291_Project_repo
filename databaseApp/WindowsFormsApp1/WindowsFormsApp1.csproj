@@ -84,6 +84,9 @@
     <Compile Include="sideBar.Designer.cs">
       <DependentUpon>sideBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="_291ProjectDataSet.cs">
+      <DependentUpon>_291ProjectDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="_291ProjectDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

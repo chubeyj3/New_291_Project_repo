@@ -22,14 +22,21 @@ namespace WindowsFormsApp1
             currentView = homePage;
             previousView = homePage;
             queryView.Visible = false;
-
-            
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            {
+                try
+                {
+                    this.doctorTableAdapter1.Fill(this._291ProjectDataSet.Doctor);
+                }
+                catch (System.Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show(ex.Message);
+                }
 
+            }
         }
 
         /**
@@ -85,8 +92,17 @@ namespace WindowsFormsApp1
             Application.Exit();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+
+        private void fillToolStripButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                this.doctorTableAdapter1.Fill(this._291ProjectDataSet.Doctor);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
 
         }
 
