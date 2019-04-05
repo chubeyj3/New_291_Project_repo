@@ -165,6 +165,7 @@ namespace WindowsFormsApp1
             object contents = dgDoctor.Rows[e.RowIndex].Cells[0].Value;
             sql_select += contents.ToString();
 
+            lblDoctorViewTitle.Visible = true;
             lblDoctorViewTitle.Text = sql_select;
             lblDoctorViewTitle.Refresh();
 

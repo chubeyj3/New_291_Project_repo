@@ -36,6 +36,7 @@
             this.patientTableAdapter = new WindowsFormsApp1._291ProjectDataSetTableAdapters.PatientTableAdapter();
             this.container1 = new WindowsFormsApp1.container();
             this.doctorView = new WindowsFormsApp1.query_panel();
+            this.lblDoctorViewTitle = new System.Windows.Forms.Label();
             this.dgDoctor = new System.Windows.Forms.DataGridView();
             this.doctorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.departmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,7 +64,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnDoctorView = new WindowsFormsApp1.dashboardButton();
             this.btnPatientView = new WindowsFormsApp1.dashboardButton();
-            this.lblDoctorViewTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._291ProjectDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
@@ -131,6 +131,18 @@
             this.doctorView.TabIndex = 3;
             this.doctorView.Paint += new System.Windows.Forms.PaintEventHandler(this.queryView_Paint);
             // 
+            // lblDoctorViewTitle
+            // 
+            this.lblDoctorViewTitle.AutoSize = true;
+            this.lblDoctorViewTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblDoctorViewTitle.Location = new System.Drawing.Point(4, 9);
+            this.lblDoctorViewTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDoctorViewTitle.Name = "lblDoctorViewTitle";
+            this.lblDoctorViewTitle.Size = new System.Drawing.Size(35, 13);
+            this.lblDoctorViewTitle.TabIndex = 2;
+            this.lblDoctorViewTitle.Text = "label2";
+            this.lblDoctorViewTitle.Visible = false;
+            // 
             // dgDoctor
             // 
             this.dgDoctor.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -197,12 +209,14 @@
             // lblPatientViewTitle
             // 
             this.lblPatientViewTitle.AutoSize = true;
+            this.lblPatientViewTitle.ForeColor = System.Drawing.SystemColors.Control;
             this.lblPatientViewTitle.Location = new System.Drawing.Point(2, 8);
             this.lblPatientViewTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPatientViewTitle.Name = "lblPatientViewTitle";
             this.lblPatientViewTitle.Size = new System.Drawing.Size(35, 13);
             this.lblPatientViewTitle.TabIndex = 3;
             this.lblPatientViewTitle.Text = "label2";
+            this.lblPatientViewTitle.Visible = false;
             // 
             // dgPatient
             // 
@@ -299,7 +313,7 @@
             this.dgDepartment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgDepartment.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgDepartment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgDepartment.Location = new System.Drawing.Point(0, 138);
+            this.dgDepartment.Location = new System.Drawing.Point(0, 34);
             this.dgDepartment.Margin = new System.Windows.Forms.Padding(2);
             this.dgDepartment.MaximumSize = new System.Drawing.Size(933, 537);
             this.dgDepartment.MinimumSize = new System.Drawing.Size(900, 488);
@@ -444,16 +458,6 @@
             this.btnPatientView.Text = "Patients";
             this.btnPatientView.UseVisualStyleBackColor = false;
             this.btnPatientView.Click += new System.EventHandler(this.dashboardButton2_Click);
-            // 
-            // lblDoctorViewTitle
-            // 
-            this.lblDoctorViewTitle.AutoSize = true;
-            this.lblDoctorViewTitle.Location = new System.Drawing.Point(4, 9);
-            this.lblDoctorViewTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDoctorViewTitle.Name = "lblDoctorViewTitle";
-            this.lblDoctorViewTitle.Size = new System.Drawing.Size(35, 13);
-            this.lblDoctorViewTitle.TabIndex = 2;
-            this.lblDoctorViewTitle.Text = "label2";
             // 
             // dashboard
             // 
