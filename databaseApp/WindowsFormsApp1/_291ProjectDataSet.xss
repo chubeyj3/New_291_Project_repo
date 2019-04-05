@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:Consultant" ZOrder="16" X="397" Y="70" Height="115" Width="207" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:Department" ZOrder="15" X="928" Y="70" Height="115" Width="214" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
-    <Shape ID="DesignTable:Doctor" ZOrder="14" X="674" Y="70" Height="153" Width="184" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
+    <Shape ID="DesignTable:Doctor" ZOrder="14" X="674" Y="72" Height="191" Width="184" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="140" />
     <Shape ID="DesignTable:Patient" ZOrder="13" X="397" Y="497" Height="229" Width="186" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
     <Shape ID="DesignTable:PatientContactInfo" ZOrder="12" X="653" Y="497" Height="153" Width="254" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
     <Shape ID="DesignTable:PatientRegistration" ZOrder="11" X="70" Y="70" Height="210" Width="257" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
@@ -21,11 +21,11 @@
       <RoutePoints>
         <Point>
           <X>674</X>
-          <Y>127</Y>
+          <Y>129</Y>
         </Point>
         <Point>
           <X>604</X>
-          <Y>127</Y>
+          <Y>129</Y>
         </Point>
       </RoutePoints>
     </Connector>
@@ -45,11 +45,11 @@
       <RoutePoints>
         <Point>
           <X>928</X>
-          <Y>127</Y>
+          <Y>129</Y>
         </Point>
         <Point>
           <X>858</X>
-          <Y>127</Y>
+          <Y>129</Y>
         </Point>
       </RoutePoints>
     </Connector>

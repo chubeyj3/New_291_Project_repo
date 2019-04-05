@@ -38,10 +38,6 @@
             this.doctorView = new WindowsFormsApp1.query_panel();
             this.lblDoctorViewTitle = new System.Windows.Forms.Label();
             this.dgDoctor = new System.Windows.Forms.DataGridView();
-            this.doctorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.departmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dutyDetailsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientView = new WindowsFormsApp1.query_panel();
             this.lblPatientViewTitle = new System.Windows.Forms.Label();
             this.dgPatient = new System.Windows.Forms.DataGridView();
@@ -64,6 +60,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnDoctorView = new WindowsFormsApp1.dashboardButton();
             this.btnPatientView = new WindowsFormsApp1.dashboardButton();
+            this._291ProjectDataSet1 = new WindowsFormsApp1._291ProjectDataSet();
+            this.doctorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.departmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dutyDetailsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._291ProjectDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
@@ -77,6 +80,7 @@
             this.wardsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgWards)).BeginInit();
             this.sideBar1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._291ProjectDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // doctorBindingSource
@@ -152,9 +156,11 @@
             this.dgDoctor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgDoctor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.doctorIDDataGridViewTextBoxColumn,
+            this.FirstName,
+            this.LastName,
             this.departmentIDDataGridViewTextBoxColumn,
-            this.dutyDetailsDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn});
+            this.nameDataGridViewTextBoxColumn,
+            this.dutyDetailsDataGridViewTextBoxColumn});
             this.dgDoctor.DataSource = this.doctorBindingSource;
             this.dgDoctor.Location = new System.Drawing.Point(0, 33);
             this.dgDoctor.Margin = new System.Windows.Forms.Padding(2);
@@ -164,34 +170,6 @@
             this.dgDoctor.Size = new System.Drawing.Size(933, 539);
             this.dgDoctor.TabIndex = 1;
             this.dgDoctor.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgDoctor_CellClick);
-            // 
-            // doctorIDDataGridViewTextBoxColumn
-            // 
-            this.doctorIDDataGridViewTextBoxColumn.DataPropertyName = "DoctorID";
-            this.doctorIDDataGridViewTextBoxColumn.HeaderText = "DoctorID";
-            this.doctorIDDataGridViewTextBoxColumn.Name = "doctorIDDataGridViewTextBoxColumn";
-            this.doctorIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // departmentIDDataGridViewTextBoxColumn
-            // 
-            this.departmentIDDataGridViewTextBoxColumn.DataPropertyName = "DepartmentID";
-            this.departmentIDDataGridViewTextBoxColumn.HeaderText = "DepartmentID";
-            this.departmentIDDataGridViewTextBoxColumn.Name = "departmentIDDataGridViewTextBoxColumn";
-            this.departmentIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dutyDetailsDataGridViewTextBoxColumn
-            // 
-            this.dutyDetailsDataGridViewTextBoxColumn.DataPropertyName = "DutyDetails";
-            this.dutyDetailsDataGridViewTextBoxColumn.HeaderText = "DutyDetails";
-            this.dutyDetailsDataGridViewTextBoxColumn.Name = "dutyDetailsDataGridViewTextBoxColumn";
-            this.dutyDetailsDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // patientView
             // 
@@ -459,6 +437,53 @@
             this.btnPatientView.UseVisualStyleBackColor = false;
             this.btnPatientView.Click += new System.EventHandler(this.dashboardButton2_Click);
             // 
+            // _291ProjectDataSet1
+            // 
+            this._291ProjectDataSet1.DataSetName = "_291ProjectDataSet";
+            this._291ProjectDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // doctorIDDataGridViewTextBoxColumn
+            // 
+            this.doctorIDDataGridViewTextBoxColumn.DataPropertyName = "DoctorID";
+            this.doctorIDDataGridViewTextBoxColumn.HeaderText = "DoctorID";
+            this.doctorIDDataGridViewTextBoxColumn.Name = "doctorIDDataGridViewTextBoxColumn";
+            this.doctorIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.HeaderText = "First";
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            // 
+            // LastName
+            // 
+            this.LastName.DataPropertyName = "LastName";
+            this.LastName.HeaderText = "Last";
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            // 
+            // departmentIDDataGridViewTextBoxColumn
+            // 
+            this.departmentIDDataGridViewTextBoxColumn.DataPropertyName = "DepartmentID";
+            this.departmentIDDataGridViewTextBoxColumn.HeaderText = "DepartmentID";
+            this.departmentIDDataGridViewTextBoxColumn.Name = "departmentIDDataGridViewTextBoxColumn";
+            this.departmentIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Dept";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dutyDetailsDataGridViewTextBoxColumn
+            // 
+            this.dutyDetailsDataGridViewTextBoxColumn.DataPropertyName = "DutyDetails";
+            this.dutyDetailsDataGridViewTextBoxColumn.HeaderText = "DutyDetails";
+            this.dutyDetailsDataGridViewTextBoxColumn.Name = "dutyDetailsDataGridViewTextBoxColumn";
+            this.dutyDetailsDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -489,6 +514,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgWards)).EndInit();
             this.sideBar1.ResumeLayout(false);
             this.sideBar1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._291ProjectDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -509,10 +535,6 @@
         private System.Windows.Forms.BindingSource patientBindingSource;
         private _291ProjectDataSetTableAdapters.PatientTableAdapter patientTableAdapter;
         private System.Windows.Forms.DataGridView dgDoctor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doctorIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn departmentIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dutyDetailsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
@@ -530,6 +552,13 @@
         private query_panel wardsPanel;
         private System.Windows.Forms.DataGridView dgWards;
         private System.Windows.Forms.Label lblDoctorViewTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doctorIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn departmentIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dutyDetailsDataGridViewTextBoxColumn;
+        private _291ProjectDataSet _291ProjectDataSet1;
     }
 }
 

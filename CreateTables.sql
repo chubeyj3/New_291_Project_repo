@@ -8,6 +8,8 @@ CREATE TABLE [Doctor] (
 	[DoctorID] int,
 	[DepartmentID] int,
 	[DutyDetails] varchar(100),
+	[FirstName] varchar(25),
+	[LastName] varchar(25),
 	PRIMARY KEY ([DoctorID]),
 	FOREIGN KEY ([DepartmentID]) REFERENCES Department
 );

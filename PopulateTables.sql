@@ -66,7 +66,9 @@ BEGIN
 	INSERT INTO Doctor VALUES (
 		@ID,
 		@RandDep,
-		'DUTY_DETAILS' + CAST(@ID as varchar(10))
+		'DUTY_DETAILS' + CAST(@ID as varchar(10)),
+		'FNAME' + CAST(@ID as varchar(10)),
+		'LNAME' + CAST(@ID as varchar(10))
 	)	
 	SET @ID = @ID + 1
 END
