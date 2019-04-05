@@ -36,7 +36,7 @@ namespace CMPT_291_Login_Page
         private bool isValidUser()
         {
             //TODO: Actually do login functionality here
-            db = new DBManager("Data Source=LAPTOP-STRPANMF;Initial Catalog=291Project;Integrated Security=True");
+            db = new DBManager(WindowsFormsApp1.Properties.Settings.Default._291ProjectConnectionString);
             reader = db.query("SELECT * FROM MedSystemUser;");
             while (reader.Read())
             {
