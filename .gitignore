@@ -110,3 +110,8 @@ UpgradeLog*.XML
 WinForms/AdamsLair.WinForms.xml
 
 *vs
+get-pip\.py
+
+*.ide-shm
+
+*.ide-wal
