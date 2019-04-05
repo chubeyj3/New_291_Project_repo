@@ -184,5 +184,20 @@ namespace WindowsFormsApp1
             SubQueryForm sqf = new SubQueryForm("Doctor's Patients", bind);
             sqf.Show();
         }
+
+        private void departmentDashboardButton_Click(object sender, EventArgs e)
+        {
+            setView(departmentPanel);
+            dgDepartment.BringToFront();
+
+            string query = "SELECT DepartmentID, Name FROM Department";
+            SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            sqlConnection.Open();
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, sqlConnection);
+            DataTable departmentTable = new DataTable();
+            sqlAdapter.Fill(departmentTable);
+
+            dgDepartment.DataSource = departmentTable;
+        }
     }
 }
