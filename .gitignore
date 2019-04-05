@@ -259,3 +259,16 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+
+*/databaseApp/WindowsFormsApp1/App.config
+[Bb]in
+[Oo]bj
+sql
+TestResults
+[Tt]est[Rr]esult*
+*.Cache
+ClientBin
+[Ss]tyle[Cc]op.*
+~$*
+*.dbmdl
+Generated_Code #added for RIA/Silverlight projects
