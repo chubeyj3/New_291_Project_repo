@@ -62,6 +62,8 @@
             this.btnDoctorView = new WindowsFormsApp1.dashboardButton();
             this.btnPatientView = new WindowsFormsApp1.dashboardButton();
             this.wardDashboardButton = new WindowsFormsApp1.dashboardButton();
+            this.wardsPanel = new WindowsFormsApp1.query_panel();
+            this.dgWards = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._291ProjectDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
@@ -73,6 +75,8 @@
             this.departmentPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDepartment)).BeginInit();
             this.sideBar1.SuspendLayout();
+            this.wardsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgWards)).BeginInit();
             this.SuspendLayout();
             // 
             // doctorBindingSource
@@ -105,6 +109,7 @@
             this.container1.Controls.Add(this.doctorView);
             this.container1.Controls.Add(this.patientView);
             this.container1.Controls.Add(this.departmentPanel);
+            this.container1.Controls.Add(this.wardsPanel);
             this.container1.Location = new System.Drawing.Point(292, 0);
             this.container1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.container1.MaximumSize = new System.Drawing.Size(4444, 4000);
@@ -422,6 +427,24 @@
             this.wardDashboardButton.TabIndex = 4;
             this.wardDashboardButton.Text = "Wards";
             this.wardDashboardButton.UseVisualStyleBackColor = false;
+            this.wardDashboardButton.Click += new System.EventHandler(this.wardDashboardButton_Click);
+            // 
+            // wardsPanel
+            // 
+            this.wardsPanel.Controls.Add(this.dgWards);
+            this.wardsPanel.Location = new System.Drawing.Point(2, 0);
+            this.wardsPanel.Name = "wardsPanel";
+            this.wardsPanel.Size = new System.Drawing.Size(1247, 706);
+            this.wardsPanel.TabIndex = 3;
+            // 
+            // dgWards
+            // 
+            this.dgWards.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgWards.Location = new System.Drawing.Point(0, 39);
+            this.dgWards.Name = "dgWards";
+            this.dgWards.RowTemplate.Height = 24;
+            this.dgWards.Size = new System.Drawing.Size(1244, 663);
+            this.dgWards.TabIndex = 0;
             // 
             // dashboard
             // 
@@ -452,6 +475,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgDepartment)).EndInit();
             this.sideBar1.ResumeLayout(false);
             this.sideBar1.PerformLayout();
+            this.wardsPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgWards)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -491,6 +516,8 @@
         private query_panel departmentPanel;
         private System.Windows.Forms.DataGridView dgDepartment;
         private dashboardButton wardDashboardButton;
+        private query_panel wardsPanel;
+        private System.Windows.Forms.DataGridView dgWards;
     }
 }
 
