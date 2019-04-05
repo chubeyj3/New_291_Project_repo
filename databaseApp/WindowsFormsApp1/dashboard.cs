@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using WindowsFormsApp1;
 
 namespace WindowsFormsApp1
 {
@@ -26,6 +27,10 @@ namespace WindowsFormsApp1
             currentView.Visible = true;
             patientView.Visible = false;
             //patientView1.Visible = false;
+            if(GlobalVariables.UserAccess == 2)
+            {
+                wardDashboardButton.Hide();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)

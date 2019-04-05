@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using CMPT291_Project;
+using WindowsFormsApp1;
 
 namespace CMPT_291_Login_Page
 {
@@ -42,6 +43,7 @@ namespace CMPT_291_Login_Page
             {
                 if(reader.GetString(0) == this.usernameTextbox.Text && reader.GetString(1) == this.passwordTextbox.Text)
                 {
+                    GlobalVariables.UserAccess = reader.GetInt32(2);
                     db.closeConnection();
                     return true;
                 }
