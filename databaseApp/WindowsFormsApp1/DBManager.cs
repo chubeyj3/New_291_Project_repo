@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 
-namespace WindowsFormsApp1
+namespace CMPT291_Project
 {
 	class DBManager
 	{
@@ -34,7 +34,6 @@ namespace WindowsFormsApp1
 
 			return dataReader;
 		}
-
         public SqlDataAdapter query_adapter(string sql_query)
         {
             SqlCommand comm = new SqlCommand(sql_query, this.conn);
@@ -42,7 +41,6 @@ namespace WindowsFormsApp1
 
             return da;
         }
-
 		public void closeConnection()
 		{
 			this.conn.Dispose();

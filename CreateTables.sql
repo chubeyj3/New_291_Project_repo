@@ -24,7 +24,7 @@ CREATE TABLE [Ward] (
 	[TypeID] int,
 	[Status] varchar(25),
 	PRIMARY KEY ([WardID]),
-	FOREIGN KEY ([TypeID]) REFERENCES WardType ([Type])
+	FOREIGN KEY ([TypeID]) REFERENCES WardType ([WardID])
 );
 
 CREATE TABLE [Patient] (
@@ -69,7 +69,7 @@ CREATE TABLE [Consultant] (
 	FOREIGN KEY ([DoctorID]) REFERENCES Doctor
 );
 
-CREATE TABLE [User](
+CREATE TABLE [MedSystemUser](
 	[Username] varchar(50),
 	[Password] varchar(50),
 	[AccessLevel] int,

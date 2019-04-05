@@ -65,12 +65,15 @@
     <Compile Include="dashboardButton.Designer.cs">
       <DependentUpon>dashboardButton.cs</DependentUpon>
     </Compile>
+
     <Compile Include="SubQueryForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SubQueryForm.Designer.cs">
       <DependentUpon>SubQueryForm.cs</DependentUpon>
     </Compile>
+
+    <Compile Include="DBManager.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
