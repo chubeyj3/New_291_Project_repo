@@ -122,7 +122,7 @@
             this.dgDoctor.RowTemplate.Height = 28;
             this.dgDoctor.Size = new System.Drawing.Size(1400, 829);
             this.dgDoctor.TabIndex = 1;
-            this.dgDoctor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgDoctor_CellContentClick_1);
+            this.dgDoctor.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgDoctor_CellClick);
             // 
             // doctorIDDataGridViewTextBoxColumn
             // 

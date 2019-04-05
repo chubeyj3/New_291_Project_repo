@@ -125,7 +125,37 @@ namespace WindowsFormsApp1
 
         }
 
-        private void dgDoctor_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dgDoctor_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string sql_select = "SELECT DISTINCT Patient.FirstName + ' ' + Patient.LastName "
+                + "FROM PatientRegistration, Consultant, Patient "
+                + "WHERE Consultant.PatientRegNum = PatientRegistration.RegistrationNumber "
+                + "AND Patient.PID = PatientRegistration.PID "
+                + "AND Consultant.DoctorID = ";
+            object contents = dgDoctor.Rows[e.RowIndex].Cells[0].Value;
+            sql_select += contents.ToString();
+
+            lblDoctorViewTitle.Text = sql_select;
+            lblDoctorViewTitle.Refresh();
+
+            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            SqlCommand comm = new SqlCommand();
+            comm.Connection = conn;
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = sql_select;
+
+            SqlDataAdapter sda = new SqlDataAdapter(comm);
+
+            DataTable doctorPatients = new DataTable();
+            sda.Fill(doctorPatients);
+            BindingSource bind = new BindingSource();
+            bind.DataSource = doctorPatients;
+
+            SubQueryForm sqf = new SubQueryForm("Doctor's Patients", bind);
+            sqf.Show();
+        }
+
+        private void dgDoctor_CellClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             string sql_select = "SELECT DISTINCT Patient.FirstName + ' ' + Patient.LastName "
                 + "FROM PatientRegistration, Consultant, Patient "
