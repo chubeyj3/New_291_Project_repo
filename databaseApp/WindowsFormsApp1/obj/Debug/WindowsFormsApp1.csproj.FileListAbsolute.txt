@@ -25,3 +25,18 @@ C:\Users\Kira\Desktop\school\cmpt291-project\databaseApp\WindowsFormsApp1\bin\De
 C:\Users\Kira\Desktop\school\cmpt291-project\databaseApp\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
 C:\Users\Kira\Desktop\school\cmpt291-project\databaseApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.dashboard.resources
 C:\Users\Kira\Desktop\school\cmpt291-project\databaseApp\WindowsFormsApp1\obj\Debug\CMPT_291_Login_Page.LoginForm.resources
+C:\Users\decos\OneDrive\Documents\School\Current Classes\CMPT\291\Project 1\cmpt291-project\databaseApp\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\decos\OneDrive\Documents\School\Current Classes\CMPT\291\Project 1\cmpt291-project\databaseApp\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\decos\OneDrive\Documents\School\Current Classes\CMPT\291\Project 1\cmpt291-project\databaseApp\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\decos\OneDrive\Documents\School\Current Classes\CMPT\291\Project 1\cmpt291-project\databaseApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.dashboard.resources
+C:\Users\decos\OneDrive\Documents\School\Current Classes\CMPT\291\Project 1\cmpt291-project\databaseApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.dashboardButton.resources
+C:\Users\decos\OneDrive\Documents\School\Current Classes\CMPT\291\Project 1\cmpt291-project\databaseApp\WindowsFormsApp1\obj\Debug\CMPT_291_Login_Page.LoginForm.resources
+C:\Users\decos\OneDrive\Documents\School\Current Classes\CMPT\291\Project 1\cmpt291-project\databaseApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\decos\OneDrive\Documents\School\Current Classes\CMPT\291\Project 1\cmpt291-project\databaseApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.query_panel.resources
+C:\Users\decos\OneDrive\Documents\School\Current Classes\CMPT\291\Project 1\cmpt291-project\databaseApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.sideBar.resources
+C:\Users\decos\OneDrive\Documents\School\Current Classes\CMPT\291\Project 1\cmpt291-project\databaseApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\decos\OneDrive\Documents\School\Current Classes\CMPT\291\Project 1\cmpt291-project\databaseApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\decos\OneDrive\Documents\School\Current Classes\CMPT\291\Project 1\cmpt291-project\databaseApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\decos\OneDrive\Documents\School\Current Classes\CMPT\291\Project 1\cmpt291-project\databaseApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\decos\OneDrive\Documents\School\Current Classes\CMPT\291\Project 1\cmpt291-project\databaseApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+C:\Users\decos\OneDrive\Documents\School\Current Classes\CMPT\291\Project 1\cmpt291-project\databaseApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.SubQueryForm.resources

@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.SuspendLayout();
-            // 
-            // query_panel
-            // 
-            this.Name = "query_panel";
             this.ResumeLayout(false);
 
         }

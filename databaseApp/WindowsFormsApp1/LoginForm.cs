@@ -21,9 +21,9 @@ namespace CMPT_291_Login_Page
         {
             if(isValidUser("test", "password123"))
             {
-                this.Hide();
                 var dash = new WindowsFormsApp1.dashboard();
                 dash.Show();
+                this.Hide();
             }
         }
 
@@ -38,6 +38,11 @@ namespace CMPT_291_Login_Page
         {
             //TODO: connect to the database and pull in the information after login is verified
             return;
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

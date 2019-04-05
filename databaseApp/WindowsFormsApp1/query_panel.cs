@@ -20,7 +20,6 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             //BackColor = ColorTranslator.FromHtml("#25282F");
-            Size = new System.Drawing.Size(925, 541);
         }
     }
 }

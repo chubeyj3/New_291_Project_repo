@@ -4,6 +4,9 @@
 
     partial class _291ProjectDataSet
     {
+        partial class ConsultantDataTable
+        {
+        }
     }
 }
 

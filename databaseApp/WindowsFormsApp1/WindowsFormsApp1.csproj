@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,6 +64,12 @@
     </Compile>
     <Compile Include="dashboardButton.Designer.cs">
       <DependentUpon>dashboardButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubQueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubQueryForm.Designer.cs">
+      <DependentUpon>SubQueryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -97,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="dashboardButton.resx">
       <DependentUpon>dashboardButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubQueryForm.resx">
+      <DependentUpon>SubQueryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -138,7 +148,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

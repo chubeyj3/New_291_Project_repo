@@ -4898,8 +4898,8 @@ namespace WindowsFormsApp1._291ProjectDataSetTableAdapters {
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Consultant] ([PatientRegNum], [DoctorID]) VALUES (@PatientRegN" +
-                "um, @DoctorID);\r\nSELECT PatientRegNum, DoctorID FROM Consultant WHERE (DoctorID " +
-                "= @DoctorID) AND (PatientRegNum = @PatientRegNum)";
+                "um, @DoctorID);\nSELECT PatientRegNum, DoctorID FROM Consultant WHERE (DoctorID =" +
+                " @DoctorID) AND (PatientRegNum = @PatientRegNum)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientRegNum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientRegNum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DoctorID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5199,8 +5199,8 @@ SELECT PatientRegNum, DoctorID FROM Consultant WHERE (DoctorID = @DoctorID) AND 
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Department] ([DepartmentID], [Name]) VALUES (@DepartmentID, @N" +
-                "ame);\r\nSELECT DepartmentID, Name FROM Department WHERE (DepartmentID = @Departme" +
-                "ntID)";
+                "ame);\nSELECT DepartmentID, Name FROM Department WHERE (DepartmentID = @Departmen" +
+                "tID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DepartmentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DepartmentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5532,8 +5532,8 @@ SELECT DepartmentID, Name FROM Department WHERE (DepartmentID = @DepartmentID)";
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        Doctor.DoctorID, Doctor.DepartmentID, Doctor.DutyDetails, Departmen" +
-                "t.Name\r\nFROM            Doctor INNER JOIN\r\n                         Department O" +
-                "N Doctor.DepartmentID = Department.DepartmentID";
+                "t.Name\nFROM            Doctor INNER JOIN\n                         Department ON " +
+                "Doctor.DepartmentID = Department.DepartmentID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6252,9 +6252,9 @@ SELECT PID, FirstName, LastName, Country, State, City, StreetAddress, PostalCode
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[PatientContactInfo] ([Contact], [PID], [ContactType], [Descrip" +
-                "tion]) VALUES (@Contact, @PID, @ContactType, @Description);\r\nSELECT Contact, PID" +
-                ", ContactType, Description FROM PatientContactInfo WHERE (Contact = @Contact) AN" +
-                "D (PID = @PID)";
+                "tion]) VALUES (@Contact, @PID, @ContactType, @Description);\nSELECT Contact, PID," +
+                " ContactType, Description FROM PatientContactInfo WHERE (Contact = @Contact) AND" +
+                " (PID = @PID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Contact", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Contact", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7140,8 +7140,8 @@ SELECT RegistrationNumber, PID, WardID, Day, Month, Year, Time FROM PatientRegis
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[User] ([Username], [Password], [AccessLevel]) VALUES (@Usernam" +
-                "e, @Password, @AccessLevel);\r\nSELECT Username, Password, AccessLevel FROM [User]" +
-                " WHERE (Username = @Username)";
+                "e, @Password, @AccessLevel);\nSELECT Username, Password, AccessLevel FROM [User] " +
+                "WHERE (Username = @Username)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7523,8 +7523,8 @@ SELECT Username, Password, AccessLevel FROM [User] WHERE (Username = @Username)"
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Ward] ([WardID], [Capacity], [TypeID], [Status]) VALUES (@Ward" +
-                "ID, @Capacity, @TypeID, @Status);\r\nSELECT WardID, Capacity, TypeID, Status FROM " +
-                "Ward WHERE (WardID = @WardID)";
+                "ID, @Capacity, @TypeID, @Status);\nSELECT WardID, Capacity, TypeID, Status FROM W" +
+                "ard WHERE (WardID = @WardID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WardID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WardID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Capacity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Capacity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7912,8 +7912,8 @@ SELECT WardID, Capacity, TypeID, Status FROM Ward WHERE (WardID = @WardID)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[WardType] ([WardID], [Type]) VALUES (@WardID, @Type);\r\nSELECT " +
-                "WardID, Type FROM WardType WHERE (WardID = @WardID)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[WardType] ([WardID], [Type]) VALUES (@WardID, @Type);\nSELECT W" +
+                "ardID, Type FROM WardType WHERE (WardID = @WardID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WardID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WardID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7921,7 +7921,7 @@ SELECT WardID, Capacity, TypeID, Status FROM Ward WHERE (WardID = @WardID)";
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[WardType] SET [WardID] = @WardID, [Type] = @Type WHERE (([WardID] =" +
                 " @Original_WardID) AND ((@IsNull_Type = 1 AND [Type] IS NULL) OR ([Type] = @Orig" +
-                "inal_Type)));\r\nSELECT WardID, Type FROM WardType WHERE (WardID = @WardID)";
+                "inal_Type)));\nSELECT WardID, Type FROM WardType WHERE (WardID = @WardID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WardID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WardID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

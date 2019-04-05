@@ -110,6 +110,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LoginForm";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
