@@ -199,5 +199,20 @@ namespace WindowsFormsApp1
 
             dgDepartment.DataSource = departmentTable;
         }
+
+        private void wardDashboardButton_Click(object sender, EventArgs e)
+        {
+            setView(wardsPanel);
+            dgWards.BringToFront();
+
+            string query = "SELECT * FROM Ward";
+            SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            sqlConnection.Open();
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, sqlConnection);
+            DataTable wardsTable = new DataTable();
+            sqlAdapter.Fill(wardsTable);
+
+            dgWards.DataSource = wardsTable;
+        }
     }
 }
