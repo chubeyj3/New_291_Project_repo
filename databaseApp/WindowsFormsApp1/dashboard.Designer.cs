@@ -36,8 +36,6 @@
             this.patientTableAdapter = new WindowsFormsApp1._291ProjectDataSetTableAdapters.PatientTableAdapter();
             this.container1 = new WindowsFormsApp1.container();
             this.doctorView = new WindowsFormsApp1.query_panel();
-            this.departmentPanel = new WindowsFormsApp1.query_panel();
-            this.dgDepartment = new System.Windows.Forms.DataGridView();
             this.lblDoctorViewTitle = new System.Windows.Forms.Label();
             this.dgDoctor = new System.Windows.Forms.DataGridView();
             this.doctorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,22 +53,25 @@
             this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.streetAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.postalCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.departmentPanel = new WindowsFormsApp1.query_panel();
+            this.dgDepartment = new System.Windows.Forms.DataGridView();
             this.sideBar1 = new WindowsFormsApp1.sideBar();
             this.departmentDashboardButton = new WindowsFormsApp1.dashboardButton();
             this.backButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnDoctorView = new WindowsFormsApp1.dashboardButton();
             this.btnPatientView = new WindowsFormsApp1.dashboardButton();
+            this.wardDashboardButton = new WindowsFormsApp1.dashboardButton();
             ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._291ProjectDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
             this.container1.SuspendLayout();
             this.doctorView.SuspendLayout();
-            this.departmentPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgDepartment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgDoctor)).BeginInit();
             this.patientView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPatient)).BeginInit();
+            this.departmentPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDepartment)).BeginInit();
             this.sideBar1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,26 +126,6 @@
             this.doctorView.Size = new System.Drawing.Size(1247, 706);
             this.doctorView.TabIndex = 3;
             this.doctorView.Paint += new System.Windows.Forms.PaintEventHandler(this.queryView_Paint);
-            // 
-            // departmentPanel
-            // 
-            this.departmentPanel.Controls.Add(this.dgDepartment);
-            this.departmentPanel.Location = new System.Drawing.Point(0, 0);
-            this.departmentPanel.Name = "departmentPanel";
-            this.departmentPanel.Size = new System.Drawing.Size(844, 441);
-            this.departmentPanel.TabIndex = 3;
-            // 
-            // dgDepartment
-            // 
-            this.dgDepartment.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dgDepartment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgDepartment.Location = new System.Drawing.Point(0, 39);
-            this.dgDepartment.MaximumSize = new System.Drawing.Size(1244, 661);
-            this.dgDepartment.MinimumSize = new System.Drawing.Size(1200, 600);
-            this.dgDepartment.Name = "dgDepartment";
-            this.dgDepartment.RowTemplate.Height = 24;
-            this.dgDepartment.Size = new System.Drawing.Size(1244, 661);
-            this.dgDepartment.TabIndex = 0;
             // 
             // lblDoctorViewTitle
             // 
@@ -304,11 +285,32 @@
             this.postalCodeDataGridViewTextBoxColumn.Name = "postalCodeDataGridViewTextBoxColumn";
             this.postalCodeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // departmentPanel
+            // 
+            this.departmentPanel.Controls.Add(this.dgDepartment);
+            this.departmentPanel.Location = new System.Drawing.Point(0, 0);
+            this.departmentPanel.Name = "departmentPanel";
+            this.departmentPanel.Size = new System.Drawing.Size(844, 441);
+            this.departmentPanel.TabIndex = 3;
+            // 
+            // dgDepartment
+            // 
+            this.dgDepartment.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dgDepartment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgDepartment.Location = new System.Drawing.Point(0, 39);
+            this.dgDepartment.MaximumSize = new System.Drawing.Size(1244, 661);
+            this.dgDepartment.MinimumSize = new System.Drawing.Size(1200, 600);
+            this.dgDepartment.Name = "dgDepartment";
+            this.dgDepartment.RowTemplate.Height = 24;
+            this.dgDepartment.Size = new System.Drawing.Size(1244, 661);
+            this.dgDepartment.TabIndex = 0;
+            // 
             // sideBar1
             // 
             this.sideBar1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.sideBar1.AutoSize = true;
             this.sideBar1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.sideBar1.Controls.Add(this.wardDashboardButton);
             this.sideBar1.Controls.Add(this.departmentDashboardButton);
             this.sideBar1.Controls.Add(this.backButton);
             this.sideBar1.Controls.Add(this.label1);
@@ -406,6 +408,21 @@
             this.btnPatientView.UseVisualStyleBackColor = false;
             this.btnPatientView.Click += new System.EventHandler(this.dashboardButton2_Click);
             // 
+            // wardDashboardButton
+            // 
+            this.wardDashboardButton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.wardDashboardButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
+            this.wardDashboardButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.wardDashboardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.wardDashboardButton.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.wardDashboardButton.Location = new System.Drawing.Point(3, 348);
+            this.wardDashboardButton.Margin = new System.Windows.Forms.Padding(2, 3, 3, 3);
+            this.wardDashboardButton.Name = "wardDashboardButton";
+            this.wardDashboardButton.Size = new System.Drawing.Size(283, 85);
+            this.wardDashboardButton.TabIndex = 4;
+            this.wardDashboardButton.Text = "Wards";
+            this.wardDashboardButton.UseVisualStyleBackColor = false;
+            // 
             // dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -427,12 +444,12 @@
             this.container1.PerformLayout();
             this.doctorView.ResumeLayout(false);
             this.doctorView.PerformLayout();
-            this.departmentPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgDepartment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgDoctor)).EndInit();
             this.patientView.ResumeLayout(false);
             this.patientView.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPatient)).EndInit();
+            this.departmentPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgDepartment)).EndInit();
             this.sideBar1.ResumeLayout(false);
             this.sideBar1.PerformLayout();
             this.ResumeLayout(false);
@@ -473,6 +490,7 @@
         private dashboardButton departmentDashboardButton;
         private query_panel departmentPanel;
         private System.Windows.Forms.DataGridView dgDepartment;
+        private dashboardButton wardDashboardButton;
     }
 }
 
