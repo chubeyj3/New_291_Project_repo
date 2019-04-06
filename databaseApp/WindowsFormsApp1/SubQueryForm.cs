@@ -7,26 +7,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace WindowsFormsApp1
 {
     public partial class SubQueryForm : Form
     {
-        public SubQueryForm(string init_title, BindingSource init_bind)
+        public SubQueryForm(string init_title, string query)
         {
             InitializeComponent();
             this.Text = init_title;
             lblTitle.Text = init_title;
             lblTitle.Refresh();
 
-            DataGridView dgv = new DataGridView();
-            dgv.DataSource = init_bind;
-            dgv.Refresh();
-            query_panel1.Controls.Add(dgv);
+            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            SqlCommand comm = new SqlCommand
+            {
+                Connection = conn,
+                CommandType = CommandType.Text,
+                CommandText = query
+            };
 
+            SqlDataAdapter sda = new SqlDataAdapter(comm);
+            DataTable doctorPatients = new DataTable();
+
+            sda.Fill(doctorPatients);
+
+            BindingSource bind = new BindingSource();
+            bind.DataSource = doctorPatients;
+
+            DataGridView dgv = new DataGridView();
+            dgv.DataSource = bind;
+            dgv.Width = query_panel1.Width;
+            dgv.Height = query_panel1.Height;
+            dgv.AutoResizeColumns();
+            query_panel1.Controls.Add(dgv);
         }
 
-        private void query_panel1_Paint(object sender, PaintEventArgs e)
+        private void SubQueryForm_Load(object sender, EventArgs e)
         {
 
         }

@@ -17,6 +17,7 @@ namespace WindowsFormsApp1
 
         private Panel currentView;
         private Panel previousView;
+        private int selectedRow = 0;
 
         public dashboard()
         {
@@ -26,19 +27,40 @@ namespace WindowsFormsApp1
             previousView = doctorView;
             currentView.Visible = true;
             patientView.Visible = false;
-            //patientView1.Visible = false;
+            departmentPanel.Visible = false;
+            wardsPanel.Visible = false;
+
             if(GlobalVariables.UserAccess == 2)
             {
                 wardDashboardButton.Hide();
+                pnlAddDoctor.Hide();
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the '_291ProjectDataSet.Doctor' table. You can move, or remove it, as needed.
+            this.doctorTableAdapter.Fill(this._291ProjectDataSet.Doctor);
+            // TODO: This line of code loads data into the '_291ProjectDataSet.Ward' table. You can move, or remove it, as needed.
+            this.wardTableAdapter.Fill(this._291ProjectDataSet.Ward);
+            // TODO: This line of code loads data into the '_291ProjectDataSet.Department' table. You can move, or remove it, as needed.
+            this.departmentTableAdapter.Fill(this._291ProjectDataSet.Department);
             // TODO: This line of code loads data into the '_291ProjectDataSet.Patient' table. You can move, or remove it, as needed.
             this.patientTableAdapter.Fill(this._291ProjectDataSet.Patient);
             // TODO: This line of code loads data into the '_291ProjectDataSet.Doctor' table. You can move, or remove it, as needed.
             this.doctorTableAdapter.Fill(this._291ProjectDataSet.Doctor);
+            
+
+            // Initialise combox box for department selection
+            string dept_id_name_query = "SELECT DepartmentID, Name FROM Department";
+            SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            sqlConnection.Open();
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(dept_id_name_query, sqlConnection);
+            DataTable deptTable = new DataTable();
+            sqlAdapter.Fill(deptTable);
+            cmbDoctorDepartmentSelect.DataSource = deptTable;
+            cmbDoctorDepartmentSelect.DisplayMember = "Name";
+            cmbDoctorDepartmentSelect.ValueMember = "DepartmentID";
         }
 
         /**
@@ -47,7 +69,6 @@ namespace WindowsFormsApp1
         private void dashboardButton1_Click(object sender, EventArgs e)
         {
             setView(doctorView);
-            
         }
 
         private void backButton_Paint(object sender, PaintEventArgs e)
@@ -66,7 +87,7 @@ namespace WindowsFormsApp1
             previousView = currentView;
             currentView = newView;
             currentView.Visible = true;
-            
+            selectedRow = 0;
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -130,67 +151,6 @@ namespace WindowsFormsApp1
 
         }
 
-        private void dgDoctor_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            string sql_select = "SELECT DISTINCT Patient.FirstName + ' ' + Patient.LastName "
-                + "FROM PatientRegistration, Consultant, Patient "
-                + "WHERE Consultant.PatientRegNum = PatientRegistration.RegistrationNumber "
-                + "AND Patient.PID = PatientRegistration.PID "
-                + "AND Consultant.DoctorID = ";
-            object contents = dgDoctor.Rows[e.RowIndex].Cells[0].Value;
-            sql_select += contents.ToString();
-
-            lblDoctorViewTitle.Text = sql_select;
-            lblDoctorViewTitle.Refresh();
-
-            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
-            SqlCommand comm = new SqlCommand();
-            comm.Connection = conn;
-            comm.CommandType = CommandType.Text;
-            comm.CommandText = sql_select;
-
-            SqlDataAdapter sda = new SqlDataAdapter(comm);
-
-            DataTable doctorPatients = new DataTable();
-            sda.Fill(doctorPatients);
-            BindingSource bind = new BindingSource();
-            bind.DataSource = doctorPatients;
-
-            SubQueryForm sqf = new SubQueryForm("Doctor's Patients", bind);
-            sqf.Show();
-        }
-
-        private void dgDoctor_CellClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            string sql_select = "SELECT DISTINCT Patient.FirstName + ' ' + Patient.LastName "
-                + "FROM PatientRegistration, Consultant, Patient "
-                + "WHERE Consultant.PatientRegNum = PatientRegistration.RegistrationNumber "
-                + "AND Patient.PID = PatientRegistration.PID "
-                + "AND Consultant.DoctorID = ";
-            object contents = dgDoctor.Rows[e.RowIndex].Cells[0].Value;
-            sql_select += contents.ToString();
-
-            lblDoctorViewTitle.Visible = true;
-            lblDoctorViewTitle.Text = sql_select;
-            lblDoctorViewTitle.Refresh();
-
-            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
-            SqlCommand comm = new SqlCommand();
-            comm.Connection = conn;
-            comm.CommandType = CommandType.Text;
-            comm.CommandText = sql_select;
-
-            SqlDataAdapter sda = new SqlDataAdapter(comm);
-
-            DataTable doctorPatients = new DataTable();
-            sda.Fill(doctorPatients);
-            BindingSource bind = new BindingSource();
-            bind.DataSource = doctorPatients;
-
-            SubQueryForm sqf = new SubQueryForm("Doctor's Patients", bind);
-            sqf.Show();
-        }
-
         private void departmentDashboardButton_Click(object sender, EventArgs e)
         {
             setView(departmentPanel);
@@ -219,6 +179,133 @@ namespace WindowsFormsApp1
             sqlAdapter.Fill(wardsTable);
 
             dgWards.DataSource = wardsTable;
+        }
+
+        private void btnExpandDoctor_Click(object sender, EventArgs e)
+        {
+            if (selectedRow < 0)
+                return;
+
+            string sql_select = "SELECT DISTINCT Patient.FirstName + ' ' + Patient.LastName as PatientName, "
+                + "CAST(PatientRegistration.[Year] as varchar(10)) "
+                + "+ ' ' + CAST(PatientRegistration.Month as varchar(10)) "
+                + "+ ' ' + CAST(PatientRegistration.Day as varchar(10)) as Admitted "
+                + "FROM PatientRegistration, Consultant, Patient "
+                + "WHERE Consultant.PatientRegNum = PatientRegistration.RegistrationNumber "
+                + "AND Patient.PID = PatientRegistration.PID "
+                + "AND Consultant.DoctorID = ";
+            object contents = dgDoctor.Rows[selectedRow].Cells[0].Value;
+            sql_select += contents.ToString();
+
+            SubQueryForm sqf = new SubQueryForm("Doctor #" + contents.ToString() + "'s Patient History", sql_select);
+            sqf.Show();
+        }
+
+        private void btnExpandPatient_Click(object sender, EventArgs e)
+        {
+            if (selectedRow < 0)
+                return;
+
+            string sql_select = "SELECT ConInfo.ContactType, ConInfo.Contact, ConInfo.Description "
+                + "FROM PatientContactInfo as ConInfo "
+                + "WHERE ConInfo.PID = ";
+            object contents = dgPatient.Rows[selectedRow].Cells[0].Value;
+            sql_select += contents.ToString();
+
+            SubQueryForm sqf = new SubQueryForm("Patient #" + contents.ToString() + "'s Contact Information", sql_select);
+            sqf.Show();
+
+        }
+
+        private void btnExpandDept_Click(object sender, EventArgs e)
+        {
+            if (selectedRow < 0)
+                return;
+
+            string sql_select = "SELECT Doctor.FirstName + ' ' + Doctor.LastName as Name "
+                   + "FROM Doctor "
+                   + "WHERE Doctor.DepartmentID = ";
+            object contents = dgDepartment.Rows[selectedRow].Cells[0].Value;
+            sql_select += contents.ToString();
+
+            SubQueryForm sqf = new SubQueryForm("Doctors in Department #" + contents.ToString(), sql_select);
+            sqf.Show();
+        }
+
+        private void btnExpandWard_Click(object sender, EventArgs e)
+        {
+            if (selectedRow < 0)
+                return;
+
+            string sql_select = "SELECT Patient.FirstName + ' ' + Patient.LastName as PatientName, "
+                + "CAST(PReg.[Year] as varchar(10)) "
+                + "+ ' ' + CAST(PReg.Month as varchar(10)) "
+                + "+ ' ' + CAST(PReg.Day as varchar(10)) as Admitted "
+                + "FROM Patient, Ward, PatientRegistration as PReg "
+                + "WHERE PReg.WardID = Ward.WardID "
+                + "AND Patient.PID = PReg.PID "
+                + "AND PReg.WardID = ";
+            object contents = dgWards.Rows[selectedRow].Cells[0].Value;
+            sql_select += contents.ToString();
+
+            SubQueryForm sqf = new SubQueryForm("Patients in Ward " + contents.ToString(), sql_select);
+            sqf.Show();
+        }
+
+        private void dgDoctor_CellClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+                selectedRow = e.RowIndex;
+        }
+
+        private void dgPatient_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+                selectedRow = e.RowIndex;
+        }
+
+        private void dgDepartment_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+                selectedRow = e.RowIndex;
+        }
+
+        private void dgWards_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+                selectedRow = e.RowIndex;
+        }
+
+        private void btnDoctorSubmit_Click(object sender, EventArgs e)
+        {
+            string max_id_query = "SELECT MAX(DoctorID) FROM Doctor";
+            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            conn.Open();
+            SqlCommand comm = new SqlCommand(max_id_query, conn);
+            SqlDataReader sql_reader = comm.ExecuteReader();
+            sql_reader.Read();
+            int next_id = (int) sql_reader[0];
+            next_id++;
+            sql_reader.Close();
+            conn.Close();
+
+            string insert_doc_query = "INSERT INTO Doctor Values ("
+                + next_id.ToString() + ", "
+                + cmbDoctorDepartmentSelect.SelectedValue + ", '"
+                + txbDoctorDuties.Text + "', '"
+                + txbDoctorFirstName.Text + "', '"
+                + txbDoctorLastName.Text + "')";
+            lblDoctorViewTitle.Text = insert_doc_query;
+
+            conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            conn.Open();
+            comm = new SqlCommand(insert_doc_query, conn);
+            comm.ExecuteNonQuery();
+            conn.Close();
+
+
+            doctorBindingSource.ResetBindings(false);
+            this.doctorTableAdapter.Fill(this._291ProjectDataSet.Doctor);
         }
     }
 }

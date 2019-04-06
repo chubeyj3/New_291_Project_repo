@@ -46,8 +46,6 @@ namespace WindowsFormsApp1 {
         
         private global::System.Data.DataRelation relationFK__Consultan__Patie__49C3F6B7;
         
-        private global::System.Data.DataRelation relationFK__Doctor__Departme__398D8EEE;
-        
         private global::System.Data.DataRelation relationFK__PatientCont__PID__4316F928;
         
         private global::System.Data.DataRelation relationFK__PatientRe__WardI__46E78A0C;
@@ -402,7 +400,6 @@ namespace WindowsFormsApp1 {
             }
             this.relationFK__Consultan__Docto__4AB81AF0 = this.Relations["FK__Consultan__Docto__4AB81AF0"];
             this.relationFK__Consultan__Patie__49C3F6B7 = this.Relations["FK__Consultan__Patie__49C3F6B7"];
-            this.relationFK__Doctor__Departme__398D8EEE = this.Relations["FK__Doctor__Departme__398D8EEE"];
             this.relationFK__PatientCont__PID__4316F928 = this.Relations["FK__PatientCont__PID__4316F928"];
             this.relationFK__PatientRe__WardI__46E78A0C = this.Relations["FK__PatientRe__WardI__46E78A0C"];
             this.relationFK__PatientRegi__PID__45F365D3 = this.Relations["FK__PatientRegi__PID__45F365D3"];
@@ -443,10 +440,6 @@ namespace WindowsFormsApp1 {
                         this.tablePatientRegistration.RegistrationNumberColumn}, new global::System.Data.DataColumn[] {
                         this.tableConsultant.PatientRegNumColumn}, false);
             this.Relations.Add(this.relationFK__Consultan__Patie__49C3F6B7);
-            this.relationFK__Doctor__Departme__398D8EEE = new global::System.Data.DataRelation("FK__Doctor__Departme__398D8EEE", new global::System.Data.DataColumn[] {
-                        this.tableDepartment.DepartmentIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableDoctor.DepartmentIDColumn}, false);
-            this.Relations.Add(this.relationFK__Doctor__Departme__398D8EEE);
             this.relationFK__PatientCont__PID__4316F928 = new global::System.Data.DataRelation("FK__PatientCont__PID__4316F928", new global::System.Data.DataColumn[] {
                         this.tablePatient.PIDColumn}, new global::System.Data.DataColumn[] {
                         this.tablePatientContactInfo.PIDColumn}, false);
@@ -1163,8 +1156,6 @@ namespace WindowsFormsApp1 {
             
             private global::System.Data.DataColumn columnDoctorID;
             
-            private global::System.Data.DataColumn columnDepartmentID;
-            
             private global::System.Data.DataColumn columnDutyDetails;
             
             private global::System.Data.DataColumn columnName;
@@ -1211,14 +1202,6 @@ namespace WindowsFormsApp1 {
             public global::System.Data.DataColumn DoctorIDColumn {
                 get {
                     return this.columnDoctorID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn DepartmentIDColumn {
-                get {
-                    return this.columnDepartmentID;
                 }
             }
             
@@ -1291,18 +1274,14 @@ namespace WindowsFormsApp1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DoctorRow AddDoctorRow(int DoctorID, DepartmentRow parentDepartmentRowByFK__Doctor__Departme__398D8EEE, string DutyDetails, string Name, string FirstName, string LastName) {
+            public DoctorRow AddDoctorRow(int DoctorID, string DutyDetails, string Name, string FirstName, string LastName) {
                 DoctorRow rowDoctorRow = ((DoctorRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         DoctorID,
-                        null,
                         DutyDetails,
                         Name,
                         FirstName,
                         LastName};
-                if ((parentDepartmentRowByFK__Doctor__Departme__398D8EEE != null)) {
-                    columnValuesArray[1] = parentDepartmentRowByFK__Doctor__Departme__398D8EEE[0];
-                }
                 rowDoctorRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDoctorRow);
                 return rowDoctorRow;
@@ -1333,7 +1312,6 @@ namespace WindowsFormsApp1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
                 this.columnDoctorID = base.Columns["DoctorID"];
-                this.columnDepartmentID = base.Columns["DepartmentID"];
                 this.columnDutyDetails = base.Columns["DutyDetails"];
                 this.columnName = base.Columns["Name"];
                 this.columnFirstName = base.Columns["FirstName"];
@@ -1345,8 +1323,6 @@ namespace WindowsFormsApp1 {
             private void InitClass() {
                 this.columnDoctorID = new global::System.Data.DataColumn("DoctorID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDoctorID);
-                this.columnDepartmentID = new global::System.Data.DataColumn("DepartmentID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDepartmentID);
                 this.columnDutyDetails = new global::System.Data.DataColumn("DutyDetails", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDutyDetails);
                 this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
@@ -3485,17 +3461,6 @@ namespace WindowsFormsApp1 {
             public void SetNameNull() {
                 this[this.tableDepartment.NameColumn] = global::System.Convert.DBNull;
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DoctorRow[] GetDoctorRows() {
-                if ((this.Table.ChildRelations["FK__Doctor__Departme__398D8EEE"] == null)) {
-                    return new DoctorRow[0];
-                }
-                else {
-                    return ((DoctorRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Doctor__Departme__398D8EEE"])));
-                }
-            }
         }
         
         /// <summary>
@@ -3520,22 +3485,6 @@ namespace WindowsFormsApp1 {
                 }
                 set {
                     this[this.tableDoctor.DoctorIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int DepartmentID {
-                get {
-                    try {
-                        return ((int)(this[this.tableDoctor.DepartmentIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DepartmentID\' in table \'Doctor\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDoctor.DepartmentIDColumn] = value;
                 }
             }
             
@@ -3601,29 +3550,6 @@ namespace WindowsFormsApp1 {
                 set {
                     this[this.tableDoctor.LastNameColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DepartmentRow DepartmentRow {
-                get {
-                    return ((DepartmentRow)(this.GetParentRow(this.Table.ParentRelations["FK__Doctor__Departme__398D8EEE"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Doctor__Departme__398D8EEE"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsDepartmentIDNull() {
-                return this.IsNull(this.tableDoctor.DepartmentIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetDepartmentIDNull() {
-                this[this.tableDoctor.DepartmentIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4984,8 +4910,8 @@ namespace WindowsFormsApp1._291ProjectDataSetTableAdapters {
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Consultant] ([PatientRegNum], [DoctorID]) VALUES (@PatientRegN" +
-                "um, @DoctorID);\r\nSELECT PatientRegNum, DoctorID FROM Consultant WHERE (DoctorID " +
-                "= @DoctorID) AND (PatientRegNum = @PatientRegNum)";
+                "um, @DoctorID);\nSELECT PatientRegNum, DoctorID FROM Consultant WHERE (DoctorID =" +
+                " @DoctorID) AND (PatientRegNum = @PatientRegNum)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientRegNum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientRegNum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DoctorID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5285,8 +5211,8 @@ SELECT PatientRegNum, DoctorID FROM Consultant WHERE (DoctorID = @DoctorID) AND 
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Department] ([DepartmentID], [Name]) VALUES (@DepartmentID, @N" +
-                "ame);\r\nSELECT DepartmentID, Name FROM Department WHERE (DepartmentID = @Departme" +
-                "ntID)";
+                "ame);\nSELECT DepartmentID, Name FROM Department WHERE (DepartmentID = @Departmen" +
+                "tID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DepartmentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DepartmentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5598,7 +5524,6 @@ SELECT DepartmentID, Name FROM Department WHERE (DepartmentID = @DepartmentID)";
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Doctor";
             tableMapping.ColumnMappings.Add("DoctorID", "DoctorID");
-            tableMapping.ColumnMappings.Add("DepartmentID", "DepartmentID");
             tableMapping.ColumnMappings.Add("DutyDetails", "DutyDetails");
             tableMapping.ColumnMappings.Add("Name", "Name");
             tableMapping.ColumnMappings.Add("FirstName", "FirstName");
@@ -5619,10 +5544,9 @@ SELECT DepartmentID, Name FROM Department WHERE (DepartmentID = @DepartmentID)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        Doctor.DoctorID, Doctor.FirstName, Doctor.LastName, Doctor.Departme" +
-                "ntID, Doctor.DutyDetails, Department.Name\r\nFROM            Doctor INNER JOIN\r\n  " +
-                "                       Department ON Doctor.DepartmentID = Department.Department" +
-                "ID";
+            this._commandCollection[0].CommandText = "SELECT        Doctor.DoctorID, Doctor.FirstName, Doctor.LastName,  Department.Nam" +
+                "e, Doctor.DutyDetails \nFROM            Doctor INNER JOIN\n                       " +
+                "  Department ON Doctor.DepartmentID = Department.DepartmentID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6341,9 +6265,9 @@ SELECT PID, FirstName, LastName, Country, State, City, StreetAddress, PostalCode
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[PatientContactInfo] ([Contact], [PID], [ContactType], [Descrip" +
-                "tion]) VALUES (@Contact, @PID, @ContactType, @Description);\r\nSELECT Contact, PID" +
-                ", ContactType, Description FROM PatientContactInfo WHERE (Contact = @Contact) AN" +
-                "D (PID = @PID)";
+                "tion]) VALUES (@Contact, @PID, @ContactType, @Description);\nSELECT Contact, PID," +
+                " ContactType, Description FROM PatientContactInfo WHERE (Contact = @Contact) AND" +
+                " (PID = @PID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Contact", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Contact", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7229,8 +7153,8 @@ SELECT RegistrationNumber, PID, WardID, Day, Month, Year, Time FROM PatientRegis
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[User] ([Username], [Password], [AccessLevel]) VALUES (@Usernam" +
-                "e, @Password, @AccessLevel);\r\nSELECT Username, Password, AccessLevel FROM [User]" +
-                " WHERE (Username = @Username)";
+                "e, @Password, @AccessLevel);\nSELECT Username, Password, AccessLevel FROM [User] " +
+                "WHERE (Username = @Username)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7612,8 +7536,8 @@ SELECT Username, Password, AccessLevel FROM [User] WHERE (Username = @Username)"
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Ward] ([WardID], [Capacity], [TypeID], [Status]) VALUES (@Ward" +
-                "ID, @Capacity, @TypeID, @Status);\r\nSELECT WardID, Capacity, TypeID, Status FROM " +
-                "Ward WHERE (WardID = @WardID)";
+                "ID, @Capacity, @TypeID, @Status);\nSELECT WardID, Capacity, TypeID, Status FROM W" +
+                "ard WHERE (WardID = @WardID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WardID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WardID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Capacity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Capacity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -8001,8 +7925,8 @@ SELECT WardID, Capacity, TypeID, Status FROM Ward WHERE (WardID = @WardID)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[WardType] ([WardID], [Type]) VALUES (@WardID, @Type);\r\nSELECT " +
-                "WardID, Type FROM WardType WHERE (WardID = @WardID)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[WardType] ([WardID], [Type]) VALUES (@WardID, @Type);\nSELECT W" +
+                "ardID, Type FROM WardType WHERE (WardID = @WardID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WardID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WardID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -8010,7 +7934,7 @@ SELECT WardID, Capacity, TypeID, Status FROM Ward WHERE (WardID = @WardID)";
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[WardType] SET [WardID] = @WardID, [Type] = @Type WHERE (([WardID] =" +
                 " @Original_WardID) AND ((@IsNull_Type = 1 AND [Type] IS NULL) OR ([Type] = @Orig" +
-                "inal_Type)));\r\nSELECT WardID, Type FROM WardType WHERE (WardID = @WardID)";
+                "inal_Type)));\nSELECT WardID, Type FROM WardType WHERE (WardID = @WardID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WardID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WardID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -8456,15 +8380,6 @@ SELECT WardID, Capacity, TypeID, Status FROM Ward WHERE (WardID = @WardID)";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._departmentTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Department.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._departmentTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._patientTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Patient.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -8498,6 +8413,15 @@ SELECT WardID, Capacity, TypeID, Status FROM Ward WHERE (WardID = @WardID)";
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._consultantTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._departmentTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Department.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._departmentTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -8537,14 +8461,6 @@ SELECT WardID, Capacity, TypeID, Status FROM Ward WHERE (WardID = @WardID)";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._departmentTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Department.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._departmentTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._patientTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Patient.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -8574,6 +8490,14 @@ SELECT WardID, Capacity, TypeID, Status FROM Ward WHERE (WardID = @WardID)";
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._consultantTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._departmentTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Department.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._departmentTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -8619,6 +8543,14 @@ SELECT WardID, Capacity, TypeID, Status FROM Ward WHERE (WardID = @WardID)";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._departmentTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Department.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._departmentTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._consultantTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Consultant.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -8648,14 +8580,6 @@ SELECT WardID, Capacity, TypeID, Status FROM Ward WHERE (WardID = @WardID)";
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._patientTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._departmentTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Department.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._departmentTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
