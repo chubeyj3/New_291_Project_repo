@@ -38,7 +38,13 @@ namespace CMPT_291_Login_Page
         {
             //TODO: Actually do login functionality here
             db = new DBManager(WindowsFormsApp1.Properties.Settings.Default._291ProjectConnectionString);
-            reader = db.query("SELECT * FROM MedSystemUser;");
+            try
+            {
+                reader = db.query("SELECT * FROM MedSystemUser;");
+            }
+            catch (System.InvalidOperationException e){
+                Application.Exit();
+            }
             while (reader.Read())
             {
                 if(reader.GetString(0) == this.usernameTextbox.Text && reader.GetString(1) == this.passwordTextbox.Text)

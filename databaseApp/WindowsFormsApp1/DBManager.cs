@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace CMPT291_Project
 {
@@ -23,8 +24,22 @@ namespace CMPT291_Project
 
 		public DBManager(string connectionString)
 		{
-			this.conn = new SqlConnection(connectionString);
-			this.conn.Open();
+			conn = new SqlConnection(connectionString);
+            try
+            {
+                conn.Open();
+            }
+            catch
+            {
+                string message = "Error connecting to SQL Database.";
+                string title = "Database Error";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result = MessageBox.Show(message, title, buttons);
+                conn.Dispose();
+                Application.Exit();
+              
+    
+            }
 		}
 
 		public SqlDataReader query(string sql_query)
