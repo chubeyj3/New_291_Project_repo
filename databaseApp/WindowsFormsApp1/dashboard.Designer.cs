@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.doctorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._291ProjectDataSet = new WindowsFormsApp1._291ProjectDataSet();
             this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.departmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -36,13 +37,18 @@
             this.patientTableAdapter = new WindowsFormsApp1._291ProjectDataSetTableAdapters.PatientTableAdapter();
             this.wardTableAdapter = new WindowsFormsApp1._291ProjectDataSetTableAdapters.WardTableAdapter();
             this.departmentTableAdapter = new WindowsFormsApp1._291ProjectDataSetTableAdapters.DepartmentTableAdapter();
+            this.doctorTableAdapter = new WindowsFormsApp1._291ProjectDataSetTableAdapters.DoctorTableAdapter();
             this.container1 = new WindowsFormsApp1.container();
             this.doctorView = new WindowsFormsApp1.query_panel();
             this.btnExpandDoctor = new System.Windows.Forms.Button();
             this.lblDoctorViewTitle = new System.Windows.Forms.Label();
             this.dgDoctor = new System.Windows.Forms.DataGridView();
+            this.doctorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dutyDetailsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientView = new WindowsFormsApp1.query_panel();
-            this.btnExpandPatient = new System.Windows.Forms.Button();
             this.lblPatientViewTitle = new System.Windows.Forms.Label();
             this.dgPatient = new System.Windows.Forms.DataGridView();
             this.pIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,13 +78,30 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnDoctorView = new WindowsFormsApp1.dashboardButton();
             this.btnPatientView = new WindowsFormsApp1.dashboardButton();
-            this.doctorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.doctorTableAdapter = new WindowsFormsApp1._291ProjectDataSetTableAdapters.DoctorTableAdapter();
-            this.doctorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dutyDetailsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblDepartmentViewTitle = new System.Windows.Forms.Label();
+            this.lblWardsViewTitle = new System.Windows.Forms.Label();
+            this.btnDoctorDelete = new System.Windows.Forms.Button();
+            this.btnDepartmentDelete = new System.Windows.Forms.Button();
+            this.btnWardDelete = new System.Windows.Forms.Button();
+            this.txbDoctorFirstName = new System.Windows.Forms.TextBox();
+            this.lblDoctorFirstNameInput = new System.Windows.Forms.Label();
+            this.lblDoctorLastNameInput = new System.Windows.Forms.Label();
+            this.txbDoctorLastName = new System.Windows.Forms.TextBox();
+            this.btnDoctorSubmit = new System.Windows.Forms.Button();
+            this.pnlAddDoctor = new System.Windows.Forms.Panel();
+            this.txbPatientLastName = new System.Windows.Forms.TextBox();
+            this.lblPatientLastNameTxb = new System.Windows.Forms.Label();
+            this.lblPatientFirstNameTxb = new System.Windows.Forms.Label();
+            this.txbPatientFirstName = new System.Windows.Forms.TextBox();
+            this.btnPatientDelete = new System.Windows.Forms.Button();
+            this.btnPatientSubmit = new System.Windows.Forms.Button();
+            this.btnExpandPatient = new System.Windows.Forms.Button();
+            this.pnlAddPatient = new System.Windows.Forms.Panel();
+            this.cmbDoctorDepartmentSelect = new System.Windows.Forms.ComboBox();
+            this.lblDoctorDepartmentSelect = new System.Windows.Forms.Label();
+            this.lblDoctorDuties = new System.Windows.Forms.Label();
+            this.txbDoctorDuties = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._291ProjectDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource)).BeginInit();
@@ -93,8 +116,14 @@
             this.wardsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgWards)).BeginInit();
             this.sideBar1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).BeginInit();
+            this.pnlAddDoctor.SuspendLayout();
+            this.pnlAddPatient.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // doctorBindingSource
+            // 
+            this.doctorBindingSource.DataMember = "Doctor";
+            this.doctorBindingSource.DataSource = this._291ProjectDataSet;
             // 
             // _291ProjectDataSet
             // 
@@ -128,6 +157,10 @@
             // 
             this.departmentTableAdapter.ClearBeforeFill = true;
             // 
+            // doctorTableAdapter
+            // 
+            this.doctorTableAdapter.ClearBeforeFill = true;
+            // 
             // container1
             // 
             this.container1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -147,7 +180,7 @@
             // 
             this.doctorView.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.doctorView.AutoSize = true;
-            this.doctorView.Controls.Add(this.btnExpandDoctor);
+            this.doctorView.Controls.Add(this.pnlAddDoctor);
             this.doctorView.Controls.Add(this.lblDoctorViewTitle);
             this.doctorView.Controls.Add(this.dgDoctor);
             this.doctorView.Location = new System.Drawing.Point(2, 0);
@@ -160,7 +193,7 @@
             // 
             // btnExpandDoctor
             // 
-            this.btnExpandDoctor.Location = new System.Drawing.Point(82, 6);
+            this.btnExpandDoctor.Location = new System.Drawing.Point(338, 9);
             this.btnExpandDoctor.Name = "btnExpandDoctor";
             this.btnExpandDoctor.Size = new System.Drawing.Size(114, 23);
             this.btnExpandDoctor.TabIndex = 3;
@@ -171,11 +204,12 @@
             // lblDoctorViewTitle
             // 
             this.lblDoctorViewTitle.AutoSize = true;
+            this.lblDoctorViewTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.lblDoctorViewTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblDoctorViewTitle.Location = new System.Drawing.Point(4, 9);
+            this.lblDoctorViewTitle.Location = new System.Drawing.Point(421, 3);
             this.lblDoctorViewTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDoctorViewTitle.Name = "lblDoctorViewTitle";
-            this.lblDoctorViewTitle.Size = new System.Drawing.Size(39, 13);
+            this.lblDoctorViewTitle.Size = new System.Drawing.Size(65, 24);
             this.lblDoctorViewTitle.TabIndex = 2;
             this.lblDoctorViewTitle.Text = "Doctor";
             this.lblDoctorViewTitle.Visible = false;
@@ -194,20 +228,55 @@
             this.nameDataGridViewTextBoxColumn,
             this.dutyDetailsDataGridViewTextBoxColumn});
             this.dgDoctor.DataSource = this.doctorBindingSource;
-            this.dgDoctor.Location = new System.Drawing.Point(0, 33);
+            this.dgDoctor.Location = new System.Drawing.Point(0, 59);
             this.dgDoctor.Margin = new System.Windows.Forms.Padding(2);
             this.dgDoctor.Name = "dgDoctor";
             this.dgDoctor.ReadOnly = true;
             this.dgDoctor.RowTemplate.Height = 28;
-            this.dgDoctor.Size = new System.Drawing.Size(933, 539);
+            this.dgDoctor.Size = new System.Drawing.Size(933, 292);
             this.dgDoctor.TabIndex = 1;
             this.dgDoctor.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgDoctor_CellClick);
+            // 
+            // doctorIDDataGridViewTextBoxColumn
+            // 
+            this.doctorIDDataGridViewTextBoxColumn.DataPropertyName = "DoctorID";
+            this.doctorIDDataGridViewTextBoxColumn.HeaderText = "DoctorID";
+            this.doctorIDDataGridViewTextBoxColumn.Name = "doctorIDDataGridViewTextBoxColumn";
+            this.doctorIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // firstNameDataGridViewTextBoxColumn1
+            // 
+            this.firstNameDataGridViewTextBoxColumn1.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn1.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn1.Name = "firstNameDataGridViewTextBoxColumn1";
+            this.firstNameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // lastNameDataGridViewTextBoxColumn1
+            // 
+            this.lastNameDataGridViewTextBoxColumn1.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn1.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn1.Name = "lastNameDataGridViewTextBoxColumn1";
+            this.lastNameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Department Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dutyDetailsDataGridViewTextBoxColumn
+            // 
+            this.dutyDetailsDataGridViewTextBoxColumn.DataPropertyName = "DutyDetails";
+            this.dutyDetailsDataGridViewTextBoxColumn.HeaderText = "DutyDetails";
+            this.dutyDetailsDataGridViewTextBoxColumn.Name = "dutyDetailsDataGridViewTextBoxColumn";
+            this.dutyDetailsDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // patientView
             // 
             this.patientView.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.patientView.AutoSize = true;
-            this.patientView.Controls.Add(this.btnExpandPatient);
+            this.patientView.Controls.Add(this.pnlAddPatient);
             this.patientView.Controls.Add(this.lblPatientViewTitle);
             this.patientView.Controls.Add(this.dgPatient);
             this.patientView.Location = new System.Drawing.Point(3, 2);
@@ -217,24 +286,16 @@
             this.patientView.Size = new System.Drawing.Size(935, 571);
             this.patientView.TabIndex = 4;
             // 
-            // btnExpandPatient
-            // 
-            this.btnExpandPatient.Location = new System.Drawing.Point(81, 4);
-            this.btnExpandPatient.Name = "btnExpandPatient";
-            this.btnExpandPatient.Size = new System.Drawing.Size(114, 23);
-            this.btnExpandPatient.TabIndex = 4;
-            this.btnExpandPatient.Text = "Expand Selection";
-            this.btnExpandPatient.UseVisualStyleBackColor = true;
-            this.btnExpandPatient.Click += new System.EventHandler(this.btnExpandPatient_Click);
-            // 
             // lblPatientViewTitle
             // 
+            this.lblPatientViewTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPatientViewTitle.AutoSize = true;
+            this.lblPatientViewTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.lblPatientViewTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblPatientViewTitle.Location = new System.Drawing.Point(2, 8);
+            this.lblPatientViewTitle.Location = new System.Drawing.Point(419, 7);
             this.lblPatientViewTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPatientViewTitle.Name = "lblPatientViewTitle";
-            this.lblPatientViewTitle.Size = new System.Drawing.Size(40, 13);
+            this.lblPatientViewTitle.Size = new System.Drawing.Size(66, 24);
             this.lblPatientViewTitle.TabIndex = 3;
             this.lblPatientViewTitle.Text = "Patient";
             this.lblPatientViewTitle.Visible = false;
@@ -255,12 +316,12 @@
             this.streetAddressDataGridViewTextBoxColumn,
             this.postalCodeDataGridViewTextBoxColumn});
             this.dgPatient.DataSource = this.patientBindingSource;
-            this.dgPatient.Location = new System.Drawing.Point(0, 32);
+            this.dgPatient.Location = new System.Drawing.Point(0, 57);
             this.dgPatient.Margin = new System.Windows.Forms.Padding(2);
             this.dgPatient.Name = "dgPatient";
             this.dgPatient.ReadOnly = true;
             this.dgPatient.RowTemplate.Height = 28;
-            this.dgPatient.Size = new System.Drawing.Size(933, 537);
+            this.dgPatient.Size = new System.Drawing.Size(933, 293);
             this.dgPatient.TabIndex = 0;
             this.dgPatient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPatient_CellClick);
             // 
@@ -322,6 +383,8 @@
             // 
             // departmentPanel
             // 
+            this.departmentPanel.Controls.Add(this.btnDepartmentDelete);
+            this.departmentPanel.Controls.Add(this.lblDepartmentViewTitle);
             this.departmentPanel.Controls.Add(this.btnExpandDept);
             this.departmentPanel.Controls.Add(this.dgDepartment);
             this.departmentPanel.Location = new System.Drawing.Point(0, 0);
@@ -332,7 +395,7 @@
             // 
             // btnExpandDept
             // 
-            this.btnExpandDept.Location = new System.Drawing.Point(84, 6);
+            this.btnExpandDept.Location = new System.Drawing.Point(9, 356);
             this.btnExpandDept.Name = "btnExpandDept";
             this.btnExpandDept.Size = new System.Drawing.Size(114, 23);
             this.btnExpandDept.TabIndex = 5;
@@ -351,13 +414,12 @@
             this.departmentIDDataGridViewTextBoxColumn1,
             this.nameDataGridViewTextBoxColumn1});
             this.dgDepartment.DataSource = this.departmentBindingSource;
-            this.dgDepartment.Location = new System.Drawing.Point(0, 34);
+            this.dgDepartment.Location = new System.Drawing.Point(0, 59);
             this.dgDepartment.Margin = new System.Windows.Forms.Padding(2);
             this.dgDepartment.MaximumSize = new System.Drawing.Size(933, 537);
-            this.dgDepartment.MinimumSize = new System.Drawing.Size(900, 488);
             this.dgDepartment.Name = "dgDepartment";
             this.dgDepartment.RowTemplate.Height = 24;
-            this.dgDepartment.Size = new System.Drawing.Size(933, 537);
+            this.dgDepartment.Size = new System.Drawing.Size(933, 293);
             this.dgDepartment.TabIndex = 0;
             this.dgDepartment.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgDepartment_CellClick);
             // 
@@ -375,6 +437,8 @@
             // 
             // wardsPanel
             // 
+            this.wardsPanel.Controls.Add(this.btnWardDelete);
+            this.wardsPanel.Controls.Add(this.lblWardsViewTitle);
             this.wardsPanel.Controls.Add(this.btnExpandWard);
             this.wardsPanel.Controls.Add(this.dgWards);
             this.wardsPanel.Location = new System.Drawing.Point(2, 0);
@@ -405,11 +469,11 @@
             this.typeIDDataGridViewTextBoxColumn,
             this.statusDataGridViewTextBoxColumn});
             this.dgWards.DataSource = this.wardBindingSource;
-            this.dgWards.Location = new System.Drawing.Point(0, 32);
+            this.dgWards.Location = new System.Drawing.Point(0, 59);
             this.dgWards.Margin = new System.Windows.Forms.Padding(2);
             this.dgWards.Name = "dgWards";
             this.dgWards.RowTemplate.Height = 24;
-            this.dgWards.Size = new System.Drawing.Size(933, 539);
+            this.dgWards.Size = new System.Drawing.Size(933, 292);
             this.dgWards.TabIndex = 0;
             this.dgWards.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgWards_CellClick);
             // 
@@ -553,49 +617,231 @@
             this.btnPatientView.UseVisualStyleBackColor = false;
             this.btnPatientView.Click += new System.EventHandler(this.dashboardButton2_Click);
             // 
-            // doctorBindingSource
+            // lblDepartmentViewTitle
             // 
-            this.doctorBindingSource.DataMember = "Doctor";
-            this.doctorBindingSource.DataSource = this._291ProjectDataSet;
+            this.lblDepartmentViewTitle.AutoSize = true;
+            this.lblDepartmentViewTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lblDepartmentViewTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblDepartmentViewTitle.Location = new System.Drawing.Point(422, 9);
+            this.lblDepartmentViewTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDepartmentViewTitle.Name = "lblDepartmentViewTitle";
+            this.lblDepartmentViewTitle.Size = new System.Drawing.Size(107, 24);
+            this.lblDepartmentViewTitle.TabIndex = 6;
+            this.lblDepartmentViewTitle.Text = "Department";
+            this.lblDepartmentViewTitle.Visible = false;
             // 
-            // doctorTableAdapter
+            // lblWardsViewTitle
             // 
-            this.doctorTableAdapter.ClearBeforeFill = true;
+            this.lblWardsViewTitle.AutoSize = true;
+            this.lblWardsViewTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lblWardsViewTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblWardsViewTitle.Location = new System.Drawing.Point(420, 9);
+            this.lblWardsViewTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblWardsViewTitle.Name = "lblWardsViewTitle";
+            this.lblWardsViewTitle.Size = new System.Drawing.Size(107, 24);
+            this.lblWardsViewTitle.TabIndex = 7;
+            this.lblWardsViewTitle.Text = "Department";
+            this.lblWardsViewTitle.Visible = false;
             // 
-            // doctorIDDataGridViewTextBoxColumn
+            // btnDoctorDelete
             // 
-            this.doctorIDDataGridViewTextBoxColumn.DataPropertyName = "DoctorID";
-            this.doctorIDDataGridViewTextBoxColumn.HeaderText = "DoctorID";
-            this.doctorIDDataGridViewTextBoxColumn.Name = "doctorIDDataGridViewTextBoxColumn";
-            this.doctorIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.btnDoctorDelete.Location = new System.Drawing.Point(458, 9);
+            this.btnDoctorDelete.Name = "btnDoctorDelete";
+            this.btnDoctorDelete.Size = new System.Drawing.Size(99, 23);
+            this.btnDoctorDelete.TabIndex = 4;
+            this.btnDoctorDelete.Text = "Delete Selected";
+            this.btnDoctorDelete.UseVisualStyleBackColor = true;
             // 
-            // firstNameDataGridViewTextBoxColumn1
+            // btnDepartmentDelete
             // 
-            this.firstNameDataGridViewTextBoxColumn1.DataPropertyName = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn1.HeaderText = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn1.Name = "firstNameDataGridViewTextBoxColumn1";
-            this.firstNameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.btnDepartmentDelete.Location = new System.Drawing.Point(475, 356);
+            this.btnDepartmentDelete.Name = "btnDepartmentDelete";
+            this.btnDepartmentDelete.Size = new System.Drawing.Size(99, 23);
+            this.btnDepartmentDelete.TabIndex = 7;
+            this.btnDepartmentDelete.Text = "Delete Selected";
+            this.btnDepartmentDelete.UseVisualStyleBackColor = true;
             // 
-            // lastNameDataGridViewTextBoxColumn1
+            // btnWardDelete
             // 
-            this.lastNameDataGridViewTextBoxColumn1.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn1.HeaderText = "LastName";
-            this.lastNameDataGridViewTextBoxColumn1.Name = "lastNameDataGridViewTextBoxColumn1";
-            this.lastNameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.btnWardDelete.Location = new System.Drawing.Point(473, 356);
+            this.btnWardDelete.Name = "btnWardDelete";
+            this.btnWardDelete.Size = new System.Drawing.Size(99, 23);
+            this.btnWardDelete.TabIndex = 8;
+            this.btnWardDelete.Text = "Delete Selected";
+            this.btnWardDelete.UseVisualStyleBackColor = true;
             // 
-            // nameDataGridViewTextBoxColumn
+            // txbDoctorFirstName
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Department Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.txbDoctorFirstName.Location = new System.Drawing.Point(338, 56);
+            this.txbDoctorFirstName.Name = "txbDoctorFirstName";
+            this.txbDoctorFirstName.Size = new System.Drawing.Size(219, 20);
+            this.txbDoctorFirstName.TabIndex = 5;
             // 
-            // dutyDetailsDataGridViewTextBoxColumn
+            // lblDoctorFirstNameInput
             // 
-            this.dutyDetailsDataGridViewTextBoxColumn.DataPropertyName = "DutyDetails";
-            this.dutyDetailsDataGridViewTextBoxColumn.HeaderText = "DutyDetails";
-            this.dutyDetailsDataGridViewTextBoxColumn.Name = "dutyDetailsDataGridViewTextBoxColumn";
-            this.dutyDetailsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lblDoctorFirstNameInput.AutoSize = true;
+            this.lblDoctorFirstNameInput.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblDoctorFirstNameInput.Location = new System.Drawing.Point(275, 59);
+            this.lblDoctorFirstNameInput.Name = "lblDoctorFirstNameInput";
+            this.lblDoctorFirstNameInput.Size = new System.Drawing.Size(57, 13);
+            this.lblDoctorFirstNameInput.TabIndex = 6;
+            this.lblDoctorFirstNameInput.Text = "First Name";
+            // 
+            // lblDoctorLastNameInput
+            // 
+            this.lblDoctorLastNameInput.AutoSize = true;
+            this.lblDoctorLastNameInput.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblDoctorLastNameInput.Location = new System.Drawing.Point(275, 85);
+            this.lblDoctorLastNameInput.Name = "lblDoctorLastNameInput";
+            this.lblDoctorLastNameInput.Size = new System.Drawing.Size(58, 13);
+            this.lblDoctorLastNameInput.TabIndex = 8;
+            this.lblDoctorLastNameInput.Text = "Last Name";
+            // 
+            // txbDoctorLastName
+            // 
+            this.txbDoctorLastName.Location = new System.Drawing.Point(338, 82);
+            this.txbDoctorLastName.Name = "txbDoctorLastName";
+            this.txbDoctorLastName.Size = new System.Drawing.Size(219, 20);
+            this.txbDoctorLastName.TabIndex = 7;
+            // 
+            // btnDoctorSubmit
+            // 
+            this.btnDoctorSubmit.Location = new System.Drawing.Point(338, 163);
+            this.btnDoctorSubmit.Name = "btnDoctorSubmit";
+            this.btnDoctorSubmit.Size = new System.Drawing.Size(219, 23);
+            this.btnDoctorSubmit.TabIndex = 11;
+            this.btnDoctorSubmit.Text = "Create New Doctor";
+            this.btnDoctorSubmit.UseVisualStyleBackColor = true;
+            this.btnDoctorSubmit.Click += new System.EventHandler(this.btnDoctorSubmit_Click);
+            // 
+            // pnlAddDoctor
+            // 
+            this.pnlAddDoctor.Controls.Add(this.lblDoctorDuties);
+            this.pnlAddDoctor.Controls.Add(this.txbDoctorDuties);
+            this.pnlAddDoctor.Controls.Add(this.btnExpandDoctor);
+            this.pnlAddDoctor.Controls.Add(this.btnDoctorSubmit);
+            this.pnlAddDoctor.Controls.Add(this.btnDoctorDelete);
+            this.pnlAddDoctor.Controls.Add(this.lblDoctorDepartmentSelect);
+            this.pnlAddDoctor.Controls.Add(this.txbDoctorFirstName);
+            this.pnlAddDoctor.Controls.Add(this.cmbDoctorDepartmentSelect);
+            this.pnlAddDoctor.Controls.Add(this.lblDoctorFirstNameInput);
+            this.pnlAddDoctor.Controls.Add(this.lblDoctorLastNameInput);
+            this.pnlAddDoctor.Controls.Add(this.txbDoctorLastName);
+            this.pnlAddDoctor.Location = new System.Drawing.Point(0, 356);
+            this.pnlAddDoctor.Name = "pnlAddDoctor";
+            this.pnlAddDoctor.Size = new System.Drawing.Size(929, 212);
+            this.pnlAddDoctor.TabIndex = 12;
+            // 
+            // txbPatientLastName
+            // 
+            this.txbPatientLastName.Location = new System.Drawing.Point(338, 82);
+            this.txbPatientLastName.Name = "txbPatientLastName";
+            this.txbPatientLastName.Size = new System.Drawing.Size(219, 20);
+            this.txbPatientLastName.TabIndex = 7;
+            // 
+            // lblPatientLastNameTxb
+            // 
+            this.lblPatientLastNameTxb.AutoSize = true;
+            this.lblPatientLastNameTxb.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblPatientLastNameTxb.Location = new System.Drawing.Point(275, 85);
+            this.lblPatientLastNameTxb.Name = "lblPatientLastNameTxb";
+            this.lblPatientLastNameTxb.Size = new System.Drawing.Size(58, 13);
+            this.lblPatientLastNameTxb.TabIndex = 8;
+            this.lblPatientLastNameTxb.Text = "Last Name";
+            // 
+            // lblPatientFirstNameTxb
+            // 
+            this.lblPatientFirstNameTxb.AutoSize = true;
+            this.lblPatientFirstNameTxb.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblPatientFirstNameTxb.Location = new System.Drawing.Point(275, 59);
+            this.lblPatientFirstNameTxb.Name = "lblPatientFirstNameTxb";
+            this.lblPatientFirstNameTxb.Size = new System.Drawing.Size(57, 13);
+            this.lblPatientFirstNameTxb.TabIndex = 6;
+            this.lblPatientFirstNameTxb.Text = "First Name";
+            // 
+            // txbPatientFirstName
+            // 
+            this.txbPatientFirstName.Location = new System.Drawing.Point(338, 56);
+            this.txbPatientFirstName.Name = "txbPatientFirstName";
+            this.txbPatientFirstName.Size = new System.Drawing.Size(219, 20);
+            this.txbPatientFirstName.TabIndex = 5;
+            // 
+            // btnPatientDelete
+            // 
+            this.btnPatientDelete.Location = new System.Drawing.Point(458, 9);
+            this.btnPatientDelete.Name = "btnPatientDelete";
+            this.btnPatientDelete.Size = new System.Drawing.Size(99, 23);
+            this.btnPatientDelete.TabIndex = 4;
+            this.btnPatientDelete.Text = "Delete Selected";
+            this.btnPatientDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnPatientSubmit
+            // 
+            this.btnPatientSubmit.Location = new System.Drawing.Point(338, 137);
+            this.btnPatientSubmit.Name = "btnPatientSubmit";
+            this.btnPatientSubmit.Size = new System.Drawing.Size(219, 23);
+            this.btnPatientSubmit.TabIndex = 11;
+            this.btnPatientSubmit.Text = "Create New Doctor";
+            this.btnPatientSubmit.UseVisualStyleBackColor = true;
+            // 
+            // btnExpandPatient
+            // 
+            this.btnExpandPatient.Location = new System.Drawing.Point(338, 9);
+            this.btnExpandPatient.Name = "btnExpandPatient";
+            this.btnExpandPatient.Size = new System.Drawing.Size(114, 23);
+            this.btnExpandPatient.TabIndex = 4;
+            this.btnExpandPatient.Text = "Expand Selection";
+            this.btnExpandPatient.UseVisualStyleBackColor = true;
+            this.btnExpandPatient.Click += new System.EventHandler(this.btnExpandPatient_Click);
+            // 
+            // pnlAddPatient
+            // 
+            this.pnlAddPatient.Controls.Add(this.btnExpandPatient);
+            this.pnlAddPatient.Controls.Add(this.btnPatientSubmit);
+            this.pnlAddPatient.Controls.Add(this.btnPatientDelete);
+            this.pnlAddPatient.Controls.Add(this.txbPatientFirstName);
+            this.pnlAddPatient.Controls.Add(this.lblPatientFirstNameTxb);
+            this.pnlAddPatient.Controls.Add(this.lblPatientLastNameTxb);
+            this.pnlAddPatient.Controls.Add(this.txbPatientLastName);
+            this.pnlAddPatient.Location = new System.Drawing.Point(3, 351);
+            this.pnlAddPatient.Name = "pnlAddPatient";
+            this.pnlAddPatient.Size = new System.Drawing.Size(929, 212);
+            this.pnlAddPatient.TabIndex = 13;
+            // 
+            // cmbDoctorDepartmentSelect
+            // 
+            this.cmbDoctorDepartmentSelect.FormattingEnabled = true;
+            this.cmbDoctorDepartmentSelect.Location = new System.Drawing.Point(338, 109);
+            this.cmbDoctorDepartmentSelect.Name = "cmbDoctorDepartmentSelect";
+            this.cmbDoctorDepartmentSelect.Size = new System.Drawing.Size(219, 21);
+            this.cmbDoctorDepartmentSelect.TabIndex = 9;
+            // 
+            // lblDoctorDepartmentSelect
+            // 
+            this.lblDoctorDepartmentSelect.AutoSize = true;
+            this.lblDoctorDepartmentSelect.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblDoctorDepartmentSelect.Location = new System.Drawing.Point(274, 112);
+            this.lblDoctorDepartmentSelect.Name = "lblDoctorDepartmentSelect";
+            this.lblDoctorDepartmentSelect.Size = new System.Drawing.Size(62, 13);
+            this.lblDoctorDepartmentSelect.TabIndex = 10;
+            this.lblDoctorDepartmentSelect.Text = "Department";
+            // 
+            // lblDoctorDuties
+            // 
+            this.lblDoctorDuties.AutoSize = true;
+            this.lblDoctorDuties.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblDoctorDuties.Location = new System.Drawing.Point(275, 140);
+            this.lblDoctorDuties.Name = "lblDoctorDuties";
+            this.lblDoctorDuties.Size = new System.Drawing.Size(37, 13);
+            this.lblDoctorDuties.TabIndex = 13;
+            this.lblDoctorDuties.Text = "Duties";
+            // 
+            // txbDoctorDuties
+            // 
+            this.txbDoctorDuties.Location = new System.Drawing.Point(338, 137);
+            this.txbDoctorDuties.Name = "txbDoctorDuties";
+            this.txbDoctorDuties.Size = new System.Drawing.Size(219, 20);
+            this.txbDoctorDuties.TabIndex = 12;
             // 
             // dashboard
             // 
@@ -610,6 +856,7 @@
             this.Text = "Hospital Database";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.dashboard_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._291ProjectDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource)).EndInit();
@@ -623,12 +870,17 @@
             this.patientView.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPatient)).EndInit();
             this.departmentPanel.ResumeLayout(false);
+            this.departmentPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDepartment)).EndInit();
             this.wardsPanel.ResumeLayout(false);
+            this.wardsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgWards)).EndInit();
             this.sideBar1.ResumeLayout(false);
             this.sideBar1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).EndInit();
+            this.pnlAddDoctor.ResumeLayout(false);
+            this.pnlAddDoctor.PerformLayout();
+            this.pnlAddPatient.ResumeLayout(false);
+            this.pnlAddPatient.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -675,7 +927,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn departmentIDDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.Button btnExpandDoctor;
-        private System.Windows.Forms.Button btnExpandPatient;
         private System.Windows.Forms.Button btnExpandDept;
         private System.Windows.Forms.Button btnExpandWard;
         private System.Windows.Forms.DataGridViewTextBoxColumn departmentIDDataGridViewTextBoxColumn;
@@ -686,6 +937,29 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dutyDetailsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label lblDepartmentViewTitle;
+        private System.Windows.Forms.Label lblWardsViewTitle;
+        private System.Windows.Forms.Button btnDoctorDelete;
+        private System.Windows.Forms.Button btnDepartmentDelete;
+        private System.Windows.Forms.Button btnWardDelete;
+        private System.Windows.Forms.Label lblDoctorFirstNameInput;
+        private System.Windows.Forms.TextBox txbDoctorFirstName;
+        private System.Windows.Forms.Label lblDoctorLastNameInput;
+        private System.Windows.Forms.TextBox txbDoctorLastName;
+        private System.Windows.Forms.Button btnDoctorSubmit;
+        private System.Windows.Forms.Panel pnlAddDoctor;
+        private System.Windows.Forms.Panel pnlAddPatient;
+        private System.Windows.Forms.Button btnExpandPatient;
+        private System.Windows.Forms.Button btnPatientSubmit;
+        private System.Windows.Forms.Button btnPatientDelete;
+        private System.Windows.Forms.TextBox txbPatientFirstName;
+        private System.Windows.Forms.Label lblPatientFirstNameTxb;
+        private System.Windows.Forms.Label lblPatientLastNameTxb;
+        private System.Windows.Forms.TextBox txbPatientLastName;
+        private System.Windows.Forms.Label lblDoctorDepartmentSelect;
+        private System.Windows.Forms.ComboBox cmbDoctorDepartmentSelect;
+        private System.Windows.Forms.Label lblDoctorDuties;
+        private System.Windows.Forms.TextBox txbDoctorDuties;
     }
 }
 
