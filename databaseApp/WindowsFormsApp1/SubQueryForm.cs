@@ -38,6 +38,9 @@ namespace WindowsFormsApp1
 
             DataGridView dgv = new DataGridView();
             dgv.DataSource = bind;
+            dgv.Width = query_panel1.Width;
+            dgv.Height = query_panel1.Height;
+            dgv.AutoResizeColumns();
             query_panel1.Controls.Add(dgv);
         }
 

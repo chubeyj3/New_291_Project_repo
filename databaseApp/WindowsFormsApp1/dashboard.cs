@@ -17,7 +17,7 @@ namespace WindowsFormsApp1
 
         private Panel currentView;
         private Panel previousView;
-        private int selectedRow = -1;
+        private int selectedRow = 0;
 
         public dashboard()
         {
@@ -74,7 +74,7 @@ namespace WindowsFormsApp1
             previousView = currentView;
             currentView = newView;
             currentView.Visible = true;
-            selectedRow = -1;
+            selectedRow = 0;
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -170,6 +170,9 @@ namespace WindowsFormsApp1
 
         private void btnExpandDoctor_Click(object sender, EventArgs e)
         {
+            if (selectedRow < 0)
+                return;
+
             string sql_select = "SELECT DISTINCT Patient.FirstName + ' ' + Patient.LastName as PatientName, "
                 + "CAST(PatientRegistration.[Year] as varchar(10)) "
                 + "+ ' ' + CAST(PatientRegistration.Month as varchar(10)) "
@@ -187,6 +190,9 @@ namespace WindowsFormsApp1
 
         private void btnExpandPatient_Click(object sender, EventArgs e)
         {
+            if (selectedRow < 0)
+                return;
+
             string sql_select = "SELECT ConInfo.ContactType, ConInfo.Contact, ConInfo.Description "
                 + "FROM PatientContactInfo as ConInfo "
                 + "WHERE ConInfo.PID = ";
@@ -200,6 +206,9 @@ namespace WindowsFormsApp1
 
         private void btnExpandDept_Click(object sender, EventArgs e)
         {
+            if (selectedRow < 0)
+                return;
+
             string sql_select = "SELECT Doctor.FirstName + ' ' + Doctor.LastName as Name "
                    + "FROM Doctor "
                    + "WHERE Doctor.DepartmentID = ";
@@ -212,6 +221,9 @@ namespace WindowsFormsApp1
 
         private void btnExpandWard_Click(object sender, EventArgs e)
         {
+            if (selectedRow < 0)
+                return;
+
             string sql_select = "SELECT Patient.FirstName + ' ' + Patient.LastName as PatientName, "
                 + "CAST(PReg.[Year] as varchar(10)) "
                 + "+ ' ' + CAST(PReg.Month as varchar(10)) "
@@ -229,22 +241,26 @@ namespace WindowsFormsApp1
 
         private void dgDoctor_CellClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            selectedRow = e.RowIndex;
+            if (e.RowIndex >= 0)
+                selectedRow = e.RowIndex;
         }
 
         private void dgPatient_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            selectedRow = e.RowIndex;
+            if (e.RowIndex >= 0)
+                selectedRow = e.RowIndex;
         }
 
         private void dgDepartment_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            selectedRow = e.RowIndex;
+            if (e.RowIndex >= 0)
+                selectedRow = e.RowIndex;
         }
 
         private void dgWards_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            selectedRow = e.RowIndex;
+            if (e.RowIndex >= 0)
+                selectedRow = e.RowIndex;
         }
     }
 }

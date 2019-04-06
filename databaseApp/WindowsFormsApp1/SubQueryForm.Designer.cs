@@ -34,6 +34,7 @@
             // 
             // query_panel1
             // 
+            this.query_panel1.AutoSize = true;
             this.query_panel1.Location = new System.Drawing.Point(8, 19);
             this.query_panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.query_panel1.Name = "query_panel1";
