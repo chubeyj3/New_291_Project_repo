@@ -981,7 +981,7 @@
             // accessLevelDataGridViewTextBoxColumn
             // 
             this.accessLevelDataGridViewTextBoxColumn.DataPropertyName = "AccessLevel";
-            this.accessLevelDataGridViewTextBoxColumn.HeaderText = "AccessLevel";
+            this.accessLevelDataGridViewTextBoxColumn.HeaderText = "Access Level";
             this.accessLevelDataGridViewTextBoxColumn.Name = "accessLevelDataGridViewTextBoxColumn";
             this.accessLevelDataGridViewTextBoxColumn.ReadOnly = true;
             // 
