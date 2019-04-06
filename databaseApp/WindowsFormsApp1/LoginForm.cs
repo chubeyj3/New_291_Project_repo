@@ -26,7 +26,12 @@ namespace CMPT_291_Login_Page
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if(isValidUser())
+            login();
+        }
+
+        private void login()
+        {
+            if (isValidUser())
             {
                 var dash = new WindowsFormsApp1.dashboard();
                 dash.Show();
@@ -68,6 +73,14 @@ namespace CMPT_291_Login_Page
         private void LoginForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void LoginForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                login();
+            }
         }
     }
 }
