@@ -200,7 +200,7 @@ namespace WindowsFormsApp1
 
         private void btnExpandDept_Click(object sender, EventArgs e)
         {
-            string sql_select = "SELECT Doctor.DoctorID "
+            string sql_select = "SELECT Doctor.FirstName + ' ' + Doctor.LastName as Name "
                    + "FROM Doctor "
                    + "WHERE Doctor.DepartmentID = ";
             object contents = dgDepartment.Rows[selectedRow].Cells[0].Value;
