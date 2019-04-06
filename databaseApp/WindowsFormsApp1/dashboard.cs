@@ -33,6 +33,7 @@ namespace WindowsFormsApp1
             if(GlobalVariables.UserAccess == 2)
             {
                 wardDashboardButton.Hide();
+                pnlAddDoctor.Hide();
             }
         }
 
@@ -48,6 +49,18 @@ namespace WindowsFormsApp1
             this.patientTableAdapter.Fill(this._291ProjectDataSet.Patient);
             // TODO: This line of code loads data into the '_291ProjectDataSet.Doctor' table. You can move, or remove it, as needed.
             this.doctorTableAdapter.Fill(this._291ProjectDataSet.Doctor);
+            
+
+            // Initialise combox box for department selection
+            string dept_id_name_query = "SELECT DepartmentID, Name FROM Department";
+            SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            sqlConnection.Open();
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(dept_id_name_query, sqlConnection);
+            DataTable deptTable = new DataTable();
+            sqlAdapter.Fill(deptTable);
+            cmbDoctorDepartmentSelect.DataSource = deptTable;
+            cmbDoctorDepartmentSelect.DisplayMember = "Name";
+            cmbDoctorDepartmentSelect.ValueMember = "DepartmentID";
         }
 
         /**
@@ -55,7 +68,7 @@ namespace WindowsFormsApp1
          * */
         private void dashboardButton1_Click(object sender, EventArgs e)
         {
-            setView(departmentPanel);
+            setView(doctorView);
         }
 
         private void backButton_Paint(object sender, PaintEventArgs e)
@@ -261,6 +274,38 @@ namespace WindowsFormsApp1
         {
             if (e.RowIndex >= 0)
                 selectedRow = e.RowIndex;
+        }
+
+        private void btnDoctorSubmit_Click(object sender, EventArgs e)
+        {
+            string max_id_query = "SELECT MAX(DoctorID) FROM Doctor";
+            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            conn.Open();
+            SqlCommand comm = new SqlCommand(max_id_query, conn);
+            SqlDataReader sql_reader = comm.ExecuteReader();
+            sql_reader.Read();
+            int next_id = (int) sql_reader[0];
+            next_id++;
+            sql_reader.Close();
+            conn.Close();
+
+            string insert_doc_query = "INSERT INTO Doctor Values ("
+                + next_id.ToString() + ", "
+                + cmbDoctorDepartmentSelect.SelectedValue + ", '"
+                + txbDoctorDuties.Text + "', '"
+                + txbDoctorFirstName.Text + "', '"
+                + txbDoctorLastName.Text + "')";
+            lblDoctorViewTitle.Text = insert_doc_query;
+
+            conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            conn.Open();
+            comm = new SqlCommand(insert_doc_query, conn);
+            comm.ExecuteNonQuery();
+            conn.Close();
+
+
+            doctorBindingSource.ResetBindings(false);
+            this.doctorTableAdapter.Fill(this._291ProjectDataSet.Doctor);
         }
     }
 }
