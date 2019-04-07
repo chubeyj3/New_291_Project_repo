@@ -254,7 +254,7 @@
             this.passwordDataGridViewTextBoxColumn,
             this.accessLevelDataGridViewTextBoxColumn});
             this.dgUsers.DataSource = this.medSystemUserBindingSource;
-            this.dgUsers.Location = new System.Drawing.Point(0, 0);
+            this.dgUsers.Location = new System.Drawing.Point(0, 73);
             this.dgUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgUsers.Name = "dgUsers";
             this.dgUsers.ReadOnly = true;
