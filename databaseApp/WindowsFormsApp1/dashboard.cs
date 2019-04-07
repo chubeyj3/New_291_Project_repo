@@ -156,31 +156,11 @@ namespace WindowsFormsApp1
         private void departmentDashboardButton_Click(object sender, EventArgs e)
         {
             setView(departmentPanel);
-            dgDepartment.BringToFront();
-
-            string query = "SELECT DepartmentID, Name FROM Department";
-            SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
-            sqlConnection.Open();
-            SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, sqlConnection);
-            DataTable departmentTable = new DataTable();
-            sqlAdapter.Fill(departmentTable);
-
-            dgDepartment.DataSource = departmentTable;
         }
 
         private void wardDashboardButton_Click(object sender, EventArgs e)
         {
             setView(wardsPanel);
-            dgWards.BringToFront();
-
-            string query = "SELECT * FROM Ward";
-            SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
-            sqlConnection.Open();
-            SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, sqlConnection);
-            DataTable wardsTable = new DataTable();
-            sqlAdapter.Fill(wardsTable);
-
-            dgWards.DataSource = wardsTable;
         }
 
         private void btnExpandDoctor_Click(object sender, EventArgs e)
