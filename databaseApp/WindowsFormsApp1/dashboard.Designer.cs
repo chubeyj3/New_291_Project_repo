@@ -898,9 +898,9 @@
             this.lblWardsViewTitle.ForeColor = System.Drawing.SystemColors.Control;
             this.lblWardsViewTitle.Location = new System.Drawing.Point(560, 11);
             this.lblWardsViewTitle.Name = "lblWardsViewTitle";
-            this.lblWardsViewTitle.Size = new System.Drawing.Size(138, 29);
+            this.lblWardsViewTitle.Size = new System.Drawing.Size(82, 29);
             this.lblWardsViewTitle.TabIndex = 7;
-            this.lblWardsViewTitle.Text = "Department";
+            this.lblWardsViewTitle.Text = "Wards";
             this.lblWardsViewTitle.Visible = false;
             // 
             // btnExpandWard
