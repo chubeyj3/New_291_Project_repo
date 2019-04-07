@@ -39,6 +39,10 @@ namespace WindowsFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the '_291ProjectDataSet1.MedSystemUser' table. You can move, or remove it, as needed.
+            this.medSystemUserTableAdapter.Fill(this._291ProjectDataSet1.MedSystemUser);
+            // TODO: This line of code loads data into the '_291ProjectDataSet.User' table. You can move, or remove it, as needed.
+            //this.userTableAdapter.Fill(this._291ProjectDataSet.User);
             // TODO: This line of code loads data into the '_291ProjectDataSet.Doctor' table. You can move, or remove it, as needed.
             this.doctorTableAdapter.Fill(this._291ProjectDataSet.Doctor);
             // TODO: This line of code loads data into the '_291ProjectDataSet.Ward' table. You can move, or remove it, as needed.
@@ -47,8 +51,6 @@ namespace WindowsFormsApp1
             this.departmentTableAdapter.Fill(this._291ProjectDataSet.Department);
             // TODO: This line of code loads data into the '_291ProjectDataSet.Patient' table. You can move, or remove it, as needed.
             this.patientTableAdapter.Fill(this._291ProjectDataSet.Patient);
-            // TODO: This line of code loads data into the '_291ProjectDataSet.Doctor' table. You can move, or remove it, as needed.
-            this.doctorTableAdapter.Fill(this._291ProjectDataSet.Doctor);
             
 
             // Initialise combox box for department selection
@@ -306,6 +308,11 @@ namespace WindowsFormsApp1
 
             doctorBindingSource.ResetBindings(false);
             this.doctorTableAdapter.Fill(this._291ProjectDataSet.Doctor);
+        }
+
+        private void usersDashboardBtn_Click(object sender, EventArgs e)
+        {
+            setView(usersView);
         }
     }
 }
