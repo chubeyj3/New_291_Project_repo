@@ -114,6 +114,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnDoctorView = new WindowsFormsApp1.dashboardButton();
             this.btnPatientView = new WindowsFormsApp1.dashboardButton();
+            this.usernameLabel = new System.Windows.Forms.Label();
+            this.passwordLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.createNewUserButton = new System.Windows.Forms.Button();
+            this.deleteUserBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._291ProjectDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
@@ -125,6 +133,7 @@
             this.container1.SuspendLayout();
             this.usersView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgUsers)).BeginInit();
+            this.pnlAddUser.SuspendLayout();
             this.doctorView.SuspendLayout();
             this.pnlAddDoctor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDoctor)).BeginInit();
@@ -206,11 +215,11 @@
             // 
             this.container1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.container1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(61)))));
+            this.container1.Controls.Add(this.usersView);
             this.container1.Controls.Add(this.doctorView);
             this.container1.Controls.Add(this.patientView);
             this.container1.Controls.Add(this.departmentPanel);
             this.container1.Controls.Add(this.wardsPanel);
-            this.container1.Controls.Add(this.usersView);
             this.container1.Location = new System.Drawing.Point(292, 0);
             this.container1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.container1.MaximumSize = new System.Drawing.Size(4444, 4000);
@@ -276,6 +285,14 @@
             // 
             // pnlAddUser
             // 
+            this.pnlAddUser.Controls.Add(this.deleteUserBtn);
+            this.pnlAddUser.Controls.Add(this.createNewUserButton);
+            this.pnlAddUser.Controls.Add(this.textBox3);
+            this.pnlAddUser.Controls.Add(this.textBox2);
+            this.pnlAddUser.Controls.Add(this.textBox1);
+            this.pnlAddUser.Controls.Add(this.label4);
+            this.pnlAddUser.Controls.Add(this.passwordLabel);
+            this.pnlAddUser.Controls.Add(this.usernameLabel);
             this.pnlAddUser.Location = new System.Drawing.Point(0, 438);
             this.pnlAddUser.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAddUser.Name = "pnlAddUser";
@@ -1004,6 +1021,80 @@
             this.btnPatientView.UseVisualStyleBackColor = false;
             this.btnPatientView.Click += new System.EventHandler(this.dashboardButton2_Click);
             // 
+            // usernameLabel
+            // 
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.usernameLabel.Location = new System.Drawing.Point(374, 69);
+            this.usernameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(73, 17);
+            this.usernameLabel.TabIndex = 0;
+            this.usernameLabel.Text = "Username";
+            // 
+            // passwordLabel
+            // 
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.passwordLabel.Location = new System.Drawing.Point(378, 112);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(69, 17);
+            this.passwordLabel.TabIndex = 1;
+            this.passwordLabel.Text = "Password";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label4.Location = new System.Drawing.Point(356, 155);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 17);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Access Level";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(451, 69);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(291, 22);
+            this.textBox1.TabIndex = 3;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(450, 112);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(291, 22);
+            this.textBox2.TabIndex = 4;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(451, 155);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(291, 22);
+            this.textBox3.TabIndex = 5;
+            // 
+            // createNewUserButton
+            // 
+            this.createNewUserButton.Location = new System.Drawing.Point(450, 198);
+            this.createNewUserButton.Name = "createNewUserButton";
+            this.createNewUserButton.Size = new System.Drawing.Size(292, 28);
+            this.createNewUserButton.TabIndex = 6;
+            this.createNewUserButton.Text = "Create New User";
+            this.createNewUserButton.UseVisualStyleBackColor = true;
+            // 
+            // deleteUserBtn
+            // 
+            this.deleteUserBtn.Location = new System.Drawing.Point(530, 11);
+            this.deleteUserBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.deleteUserBtn.Name = "deleteUserBtn";
+            this.deleteUserBtn.Size = new System.Drawing.Size(132, 28);
+            this.deleteUserBtn.TabIndex = 7;
+            this.deleteUserBtn.Text = "Delete Selected";
+            this.deleteUserBtn.UseVisualStyleBackColor = true;
+            // 
             // dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1031,6 +1122,8 @@
             this.usersView.ResumeLayout(false);
             this.usersView.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgUsers)).EndInit();
+            this.pnlAddUser.ResumeLayout(false);
+            this.pnlAddUser.PerformLayout();
             this.doctorView.ResumeLayout(false);
             this.doctorView.PerformLayout();
             this.pnlAddDoctor.ResumeLayout(false);
@@ -1141,6 +1234,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn accessLevelDataGridViewTextBoxColumn;
         private dashboardButton usersDashboardBtn;
+        private System.Windows.Forms.Label usernameLabel;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button deleteUserBtn;
+        private System.Windows.Forms.Button createNewUserButton;
     }
 }
 
