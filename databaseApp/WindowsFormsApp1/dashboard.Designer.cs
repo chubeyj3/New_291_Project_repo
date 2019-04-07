@@ -577,7 +577,7 @@
             // 
             // btnDepartmentDelete
             // 
-            this.btnDepartmentDelete.Location = new System.Drawing.Point(475, 356);
+            this.btnDepartmentDelete.Location = new System.Drawing.Point(460, 365);
             this.btnDepartmentDelete.Name = "btnDepartmentDelete";
             this.btnDepartmentDelete.Size = new System.Drawing.Size(99, 23);
             this.btnDepartmentDelete.TabIndex = 7;
@@ -599,7 +599,7 @@
             // 
             // btnExpandDept
             // 
-            this.btnExpandDept.Location = new System.Drawing.Point(9, 356);
+            this.btnExpandDept.Location = new System.Drawing.Point(335, 365);
             this.btnExpandDept.Name = "btnExpandDept";
             this.btnExpandDept.Size = new System.Drawing.Size(114, 23);
             this.btnExpandDept.TabIndex = 5;
@@ -653,7 +653,7 @@
             // 
             // btnWardDelete
             // 
-            this.btnWardDelete.Location = new System.Drawing.Point(473, 356);
+            this.btnWardDelete.Location = new System.Drawing.Point(460, 365);
             this.btnWardDelete.Name = "btnWardDelete";
             this.btnWardDelete.Size = new System.Drawing.Size(99, 23);
             this.btnWardDelete.TabIndex = 8;
@@ -675,7 +675,7 @@
             // 
             // btnExpandWard
             // 
-            this.btnExpandWard.Location = new System.Drawing.Point(82, 6);
+            this.btnExpandWard.Location = new System.Drawing.Point(335, 365);
             this.btnExpandWard.Name = "btnExpandWard";
             this.btnExpandWard.Size = new System.Drawing.Size(114, 23);
             this.btnExpandWard.TabIndex = 6;
