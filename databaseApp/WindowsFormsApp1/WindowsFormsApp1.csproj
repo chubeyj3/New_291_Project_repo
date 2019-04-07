@@ -65,6 +65,12 @@
     <Compile Include="dashboardButton.Designer.cs">
       <DependentUpon>dashboardButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="FilterBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FilterBox.Designer.cs">
+      <DependentUpon>FilterBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalVariables.cs" />
     <Compile Include="SubQueryForm.cs">
       <SubType>Form</SubType>

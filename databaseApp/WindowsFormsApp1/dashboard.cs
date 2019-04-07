@@ -307,5 +307,10 @@ namespace WindowsFormsApp1
             doctorBindingSource.ResetBindings(false);
             this.doctorTableAdapter.Fill(this._291ProjectDataSet.Doctor);
         }
+
+        private void dgDoctor_Paint(object sender, PaintEventArgs e)
+        {
+            this.filterDocFirstName.setData(doctorBindingSource, 1, dgDoctor);
+        }
     }
 }
