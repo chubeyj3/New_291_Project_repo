@@ -46,6 +46,9 @@
             this.container1 = new WindowsFormsApp1.container();
             this.usersView = new WindowsFormsApp1.query_panel();
             this.dgUsers = new System.Windows.Forms.DataGridView();
+            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accessLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlAddUser = new System.Windows.Forms.Panel();
             this.lblUserViewTitle = new System.Windows.Forms.Label();
             this.doctorView = new WindowsFormsApp1.query_panel();
@@ -104,15 +107,13 @@
             this.typeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sideBar1 = new WindowsFormsApp1.sideBar();
+            this.usersDashboardBtn = new WindowsFormsApp1.dashboardButton();
             this.wardDashboardButton = new WindowsFormsApp1.dashboardButton();
             this.departmentDashboardButton = new WindowsFormsApp1.dashboardButton();
             this.backButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnDoctorView = new WindowsFormsApp1.dashboardButton();
             this.btnPatientView = new WindowsFormsApp1.dashboardButton();
-            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accessLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._291ProjectDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
@@ -205,11 +206,11 @@
             // 
             this.container1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.container1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(61)))));
-            this.container1.Controls.Add(this.usersView);
             this.container1.Controls.Add(this.doctorView);
             this.container1.Controls.Add(this.patientView);
             this.container1.Controls.Add(this.departmentPanel);
             this.container1.Controls.Add(this.wardsPanel);
+            this.container1.Controls.Add(this.usersView);
             this.container1.Location = new System.Drawing.Point(292, 0);
             this.container1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.container1.MaximumSize = new System.Drawing.Size(4444, 4000);
@@ -251,6 +252,27 @@
             this.dgUsers.RowTemplate.Height = 24;
             this.dgUsers.Size = new System.Drawing.Size(1244, 359);
             this.dgUsers.TabIndex = 0;
+            // 
+            // usernameDataGridViewTextBoxColumn
+            // 
+            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
+            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
+            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // accessLevelDataGridViewTextBoxColumn
+            // 
+            this.accessLevelDataGridViewTextBoxColumn.DataPropertyName = "AccessLevel";
+            this.accessLevelDataGridViewTextBoxColumn.HeaderText = "Access Level";
+            this.accessLevelDataGridViewTextBoxColumn.Name = "accessLevelDataGridViewTextBoxColumn";
+            this.accessLevelDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pnlAddUser
             // 
@@ -850,6 +872,7 @@
             this.sideBar1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.sideBar1.AutoSize = true;
             this.sideBar1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.sideBar1.Controls.Add(this.usersDashboardBtn);
             this.sideBar1.Controls.Add(this.wardDashboardButton);
             this.sideBar1.Controls.Add(this.departmentDashboardButton);
             this.sideBar1.Controls.Add(this.backButton);
@@ -863,6 +886,23 @@
             this.sideBar1.Size = new System.Drawing.Size(289, 692);
             this.sideBar1.TabIndex = 0;
             this.sideBar1.Paint += new System.Windows.Forms.PaintEventHandler(this.sideBar1_Paint);
+            // 
+            // usersDashboardBtn
+            // 
+            this.usersDashboardBtn.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.usersDashboardBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
+            this.usersDashboardBtn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.usersDashboardBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.usersDashboardBtn.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.usersDashboardBtn.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.usersDashboardBtn.Location = new System.Drawing.Point(2, 434);
+            this.usersDashboardBtn.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
+            this.usersDashboardBtn.Name = "usersDashboardBtn";
+            this.usersDashboardBtn.Size = new System.Drawing.Size(283, 85);
+            this.usersDashboardBtn.TabIndex = 5;
+            this.usersDashboardBtn.Text = "Users";
+            this.usersDashboardBtn.UseVisualStyleBackColor = false;
+            this.usersDashboardBtn.Click += new System.EventHandler(this.usersDashboardBtn_Click);
             // 
             // wardDashboardButton
             // 
@@ -963,27 +1003,6 @@
             this.btnPatientView.Text = "Patients";
             this.btnPatientView.UseVisualStyleBackColor = false;
             this.btnPatientView.Click += new System.EventHandler(this.dashboardButton2_Click);
-            // 
-            // usernameDataGridViewTextBoxColumn
-            // 
-            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
-            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
-            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
-            this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // accessLevelDataGridViewTextBoxColumn
-            // 
-            this.accessLevelDataGridViewTextBoxColumn.DataPropertyName = "AccessLevel";
-            this.accessLevelDataGridViewTextBoxColumn.HeaderText = "Access Level";
-            this.accessLevelDataGridViewTextBoxColumn.Name = "accessLevelDataGridViewTextBoxColumn";
-            this.accessLevelDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dashboard
             // 
@@ -1121,6 +1140,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn accessLevelDataGridViewTextBoxColumn;
+        private dashboardButton usersDashboardBtn;
     }
 }
 

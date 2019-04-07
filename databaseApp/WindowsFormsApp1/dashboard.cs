@@ -309,5 +309,10 @@ namespace WindowsFormsApp1
             doctorBindingSource.ResetBindings(false);
             this.doctorTableAdapter.Fill(this._291ProjectDataSet.Doctor);
         }
+
+        private void usersDashboardBtn_Click(object sender, EventArgs e)
+        {
+            setView(usersView);
+        }
     }
 }
