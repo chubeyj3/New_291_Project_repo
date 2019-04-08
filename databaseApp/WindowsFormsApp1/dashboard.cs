@@ -495,19 +495,12 @@ namespace WindowsFormsApp1
             {
                 if (selectedRow < 0)
                     return;
+                string firstName = dgPatient.Rows[selectedRow].Cells[1].Value.ToString();
+                string lastName = dgPatient.Rows[selectedRow].Cells[2].Value.ToString();
 
                 SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
                 conn.Open();
-                //string patient_info_delete = "DELETE from PatientContactInfo where PID = " + dgPatient.Rows[selectedRow].Cells[0].Value.ToString();
-                //string consultant_delete = "DELETE from Consultant where PatientRegNum = " + dgPatient.Rows[selectedRow].Cells[0].Value.ToString();
-                //string patient_registration_delete = "DELETE from PatientRegistration where PID = " + dgPatient.Rows[selectedRow].Cells[0].Value.ToString();
                 string patient_delete = "DELETE from Patient where PID = " + dgPatient.Rows[selectedRow].Cells[0].Value.ToString();
-                //SqlCommand comm1 = new SqlCommand(patient_info_delete, conn);
-                //comm1.ExecuteNonQuery();
-                //SqlCommand comm2 = new SqlCommand(consultant_delete, conn);
-                //comm2.ExecuteNonQuery();
-                //SqlCommand comm3 = new SqlCommand(patient_registration_delete, conn);
-                //comm3.ExecuteNonQuery();
                 SqlCommand comm4 = new SqlCommand(patient_delete, conn);
                 comm4.ExecuteNonQuery();
                 conn.Close();
@@ -515,7 +508,7 @@ namespace WindowsFormsApp1
                 patientBindingSource.ResetBindings(false);
                 this.patientTableAdapter.Fill(this._291ProjectDataSet.Patient);
                 dgPatient.Refresh();
-                string msg = "Patient " + dgPatient.Rows[selectedRow].Cells[1].Value.ToString() + " " + dgPatient.Rows[selectedRow].Cells[2].Value.ToString() + " successfully deleted.";
+                string msg = "Patient " + firstName + " " + lastName + " successfully deleted.";
                 MessageBox.Show(msg);
             }
             catch (NullReferenceException)

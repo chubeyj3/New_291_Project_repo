@@ -46,6 +46,25 @@
             this._291ProjectDataSet1 = new WindowsFormsApp1._291ProjectDataSet1();
             this.medSystemUserTableAdapter = new WindowsFormsApp1._291ProjectDataSet1TableAdapters.MedSystemUserTableAdapter();
             this.container1 = new WindowsFormsApp1.container();
+            this.patientView = new WindowsFormsApp1.query_panel();
+            this.pnlAddPatient = new System.Windows.Forms.Panel();
+            this.btnExpandPatient = new System.Windows.Forms.Button();
+            this.btnPatientSubmit = new System.Windows.Forms.Button();
+            this.btnPatientDelete = new System.Windows.Forms.Button();
+            this.txbPatientFirstName = new System.Windows.Forms.TextBox();
+            this.lblPatientFirstNameTxb = new System.Windows.Forms.Label();
+            this.lblPatientLastNameTxb = new System.Windows.Forms.Label();
+            this.txbPatientLastName = new System.Windows.Forms.TextBox();
+            this.lblPatientViewTitle = new System.Windows.Forms.Label();
+            this.dgPatient = new System.Windows.Forms.DataGridView();
+            this.pIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.streetAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.postalCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.doctorView = new WindowsFormsApp1.query_panel();
             this.pnlAddDoctor = new System.Windows.Forms.Panel();
             this.lblDoctorDuties = new System.Windows.Forms.Label();
@@ -66,25 +85,6 @@
             this.lastNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dutyDetailsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patientView = new WindowsFormsApp1.query_panel();
-            this.pnlAddPatient = new System.Windows.Forms.Panel();
-            this.btnExpandPatient = new System.Windows.Forms.Button();
-            this.btnPatientSubmit = new System.Windows.Forms.Button();
-            this.btnPatientDelete = new System.Windows.Forms.Button();
-            this.txbPatientFirstName = new System.Windows.Forms.TextBox();
-            this.lblPatientFirstNameTxb = new System.Windows.Forms.Label();
-            this.lblPatientLastNameTxb = new System.Windows.Forms.Label();
-            this.txbPatientLastName = new System.Windows.Forms.TextBox();
-            this.lblPatientViewTitle = new System.Windows.Forms.Label();
-            this.dgPatient = new System.Windows.Forms.DataGridView();
-            this.pIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.countryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.streetAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.postalCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.departmentPanel = new WindowsFormsApp1.query_panel();
             this.lblDepartmentViewTitle = new System.Windows.Forms.Label();
             this.btnExpandDept = new System.Windows.Forms.Button();
@@ -131,12 +131,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.medSystemUserBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._291ProjectDataSet1)).BeginInit();
             this.container1.SuspendLayout();
-            this.doctorView.SuspendLayout();
-            this.pnlAddDoctor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgDoctor)).BeginInit();
             this.patientView.SuspendLayout();
             this.pnlAddPatient.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPatient)).BeginInit();
+            this.doctorView.SuspendLayout();
+            this.pnlAddDoctor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDoctor)).BeginInit();
             this.departmentPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDepartment)).BeginInit();
             this.wardsPanel.SuspendLayout();
@@ -223,8 +223,8 @@
             // 
             this.container1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.container1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(61)))));
-            this.container1.Controls.Add(this.patientView);
             this.container1.Controls.Add(this.doctorView);
+            this.container1.Controls.Add(this.patientView);
             this.container1.Controls.Add(this.departmentPanel);
             this.container1.Controls.Add(this.wardsPanel);
             this.container1.Controls.Add(this.usersView);
@@ -234,6 +234,202 @@
             this.container1.Name = "container1";
             this.container1.Size = new System.Drawing.Size(1268, 710);
             this.container1.TabIndex = 1;
+            // 
+            // patientView
+            // 
+            this.patientView.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.patientView.AutoSize = true;
+            this.patientView.Controls.Add(this.pnlAddPatient);
+            this.patientView.Controls.Add(this.lblPatientViewTitle);
+            this.patientView.Controls.Add(this.dgPatient);
+            this.patientView.Location = new System.Drawing.Point(4, 2);
+            this.patientView.Margin = new System.Windows.Forms.Padding(4);
+            this.patientView.MaximumSize = new System.Drawing.Size(4444, 4000);
+            this.patientView.MinimumSize = new System.Drawing.Size(1139, 576);
+            this.patientView.Name = "patientView";
+            this.patientView.Size = new System.Drawing.Size(1247, 703);
+            this.patientView.TabIndex = 4;
+            // 
+            // pnlAddPatient
+            // 
+            this.pnlAddPatient.Controls.Add(this.btnExpandPatient);
+            this.pnlAddPatient.Controls.Add(this.btnPatientSubmit);
+            this.pnlAddPatient.Controls.Add(this.btnPatientDelete);
+            this.pnlAddPatient.Controls.Add(this.txbPatientFirstName);
+            this.pnlAddPatient.Controls.Add(this.lblPatientFirstNameTxb);
+            this.pnlAddPatient.Controls.Add(this.lblPatientLastNameTxb);
+            this.pnlAddPatient.Controls.Add(this.txbPatientLastName);
+            this.pnlAddPatient.Location = new System.Drawing.Point(4, 432);
+            this.pnlAddPatient.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlAddPatient.Name = "pnlAddPatient";
+            this.pnlAddPatient.Size = new System.Drawing.Size(1239, 261);
+            this.pnlAddPatient.TabIndex = 13;
+            // 
+            // btnExpandPatient
+            // 
+            this.btnExpandPatient.Location = new System.Drawing.Point(451, 11);
+            this.btnExpandPatient.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExpandPatient.Name = "btnExpandPatient";
+            this.btnExpandPatient.Size = new System.Drawing.Size(152, 28);
+            this.btnExpandPatient.TabIndex = 4;
+            this.btnExpandPatient.Text = "Expand Selection";
+            this.btnExpandPatient.UseVisualStyleBackColor = true;
+            this.btnExpandPatient.Click += new System.EventHandler(this.btnExpandPatient_Click);
+            // 
+            // btnPatientSubmit
+            // 
+            this.btnPatientSubmit.Location = new System.Drawing.Point(451, 169);
+            this.btnPatientSubmit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPatientSubmit.Name = "btnPatientSubmit";
+            this.btnPatientSubmit.Size = new System.Drawing.Size(292, 28);
+            this.btnPatientSubmit.TabIndex = 11;
+            this.btnPatientSubmit.Text = "Add New Patient";
+            this.btnPatientSubmit.UseVisualStyleBackColor = true;
+            this.btnPatientSubmit.Click += new System.EventHandler(this.btnPatientSubmit_Click);
+            // 
+            // btnPatientDelete
+            // 
+            this.btnPatientDelete.Location = new System.Drawing.Point(611, 11);
+            this.btnPatientDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPatientDelete.Name = "btnPatientDelete";
+            this.btnPatientDelete.Size = new System.Drawing.Size(132, 28);
+            this.btnPatientDelete.TabIndex = 4;
+            this.btnPatientDelete.Text = "Delete Selected";
+            this.btnPatientDelete.UseVisualStyleBackColor = true;
+            this.btnPatientDelete.Click += new System.EventHandler(this.btnPatientDelete_Click);
+            // 
+            // txbPatientFirstName
+            // 
+            this.txbPatientFirstName.Location = new System.Drawing.Point(451, 69);
+            this.txbPatientFirstName.Margin = new System.Windows.Forms.Padding(4);
+            this.txbPatientFirstName.Name = "txbPatientFirstName";
+            this.txbPatientFirstName.Size = new System.Drawing.Size(291, 22);
+            this.txbPatientFirstName.TabIndex = 5;
+            // 
+            // lblPatientFirstNameTxb
+            // 
+            this.lblPatientFirstNameTxb.AutoSize = true;
+            this.lblPatientFirstNameTxb.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblPatientFirstNameTxb.Location = new System.Drawing.Point(367, 73);
+            this.lblPatientFirstNameTxb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPatientFirstNameTxb.Name = "lblPatientFirstNameTxb";
+            this.lblPatientFirstNameTxb.Size = new System.Drawing.Size(76, 17);
+            this.lblPatientFirstNameTxb.TabIndex = 6;
+            this.lblPatientFirstNameTxb.Text = "First Name";
+            // 
+            // lblPatientLastNameTxb
+            // 
+            this.lblPatientLastNameTxb.AutoSize = true;
+            this.lblPatientLastNameTxb.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblPatientLastNameTxb.Location = new System.Drawing.Point(367, 105);
+            this.lblPatientLastNameTxb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPatientLastNameTxb.Name = "lblPatientLastNameTxb";
+            this.lblPatientLastNameTxb.Size = new System.Drawing.Size(76, 17);
+            this.lblPatientLastNameTxb.TabIndex = 8;
+            this.lblPatientLastNameTxb.Text = "Last Name";
+            // 
+            // txbPatientLastName
+            // 
+            this.txbPatientLastName.Location = new System.Drawing.Point(451, 101);
+            this.txbPatientLastName.Margin = new System.Windows.Forms.Padding(4);
+            this.txbPatientLastName.Name = "txbPatientLastName";
+            this.txbPatientLastName.Size = new System.Drawing.Size(291, 22);
+            this.txbPatientLastName.TabIndex = 7;
+            // 
+            // lblPatientViewTitle
+            // 
+            this.lblPatientViewTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPatientViewTitle.AutoSize = true;
+            this.lblPatientViewTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lblPatientViewTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblPatientViewTitle.Location = new System.Drawing.Point(559, 9);
+            this.lblPatientViewTitle.Name = "lblPatientViewTitle";
+            this.lblPatientViewTitle.Size = new System.Drawing.Size(87, 29);
+            this.lblPatientViewTitle.TabIndex = 3;
+            this.lblPatientViewTitle.Text = "Patient";
+            this.lblPatientViewTitle.Visible = false;
+            // 
+            // dgPatient
+            // 
+            this.dgPatient.AutoGenerateColumns = false;
+            this.dgPatient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgPatient.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgPatient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgPatient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pIDDataGridViewTextBoxColumn,
+            this.firstNameDataGridViewTextBoxColumn,
+            this.lastNameDataGridViewTextBoxColumn,
+            this.countryDataGridViewTextBoxColumn,
+            this.stateDataGridViewTextBoxColumn,
+            this.cityDataGridViewTextBoxColumn,
+            this.streetAddressDataGridViewTextBoxColumn,
+            this.postalCodeDataGridViewTextBoxColumn});
+            this.dgPatient.DataSource = this.patientBindingSource;
+            this.dgPatient.Location = new System.Drawing.Point(0, 70);
+            this.dgPatient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgPatient.Name = "dgPatient";
+            this.dgPatient.ReadOnly = true;
+            this.dgPatient.RowHeadersVisible = false;
+            this.dgPatient.RowTemplate.Height = 28;
+            this.dgPatient.Size = new System.Drawing.Size(1244, 361);
+            this.dgPatient.TabIndex = 0;
+            this.dgPatient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPatient_CellClick);
+            // 
+            // pIDDataGridViewTextBoxColumn
+            // 
+            this.pIDDataGridViewTextBoxColumn.DataPropertyName = "PID";
+            this.pIDDataGridViewTextBoxColumn.HeaderText = "PID";
+            this.pIDDataGridViewTextBoxColumn.Name = "pIDDataGridViewTextBoxColumn";
+            this.pIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            this.firstNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // countryDataGridViewTextBoxColumn
+            // 
+            this.countryDataGridViewTextBoxColumn.DataPropertyName = "Country";
+            this.countryDataGridViewTextBoxColumn.HeaderText = "Country";
+            this.countryDataGridViewTextBoxColumn.Name = "countryDataGridViewTextBoxColumn";
+            this.countryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // stateDataGridViewTextBoxColumn
+            // 
+            this.stateDataGridViewTextBoxColumn.DataPropertyName = "State";
+            this.stateDataGridViewTextBoxColumn.HeaderText = "State";
+            this.stateDataGridViewTextBoxColumn.Name = "stateDataGridViewTextBoxColumn";
+            this.stateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cityDataGridViewTextBoxColumn
+            // 
+            this.cityDataGridViewTextBoxColumn.DataPropertyName = "City";
+            this.cityDataGridViewTextBoxColumn.HeaderText = "City";
+            this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
+            this.cityDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // streetAddressDataGridViewTextBoxColumn
+            // 
+            this.streetAddressDataGridViewTextBoxColumn.DataPropertyName = "StreetAddress";
+            this.streetAddressDataGridViewTextBoxColumn.HeaderText = "StreetAddress";
+            this.streetAddressDataGridViewTextBoxColumn.Name = "streetAddressDataGridViewTextBoxColumn";
+            this.streetAddressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // postalCodeDataGridViewTextBoxColumn
+            // 
+            this.postalCodeDataGridViewTextBoxColumn.DataPropertyName = "PostalCode";
+            this.postalCodeDataGridViewTextBoxColumn.HeaderText = "PostalCode";
+            this.postalCodeDataGridViewTextBoxColumn.Name = "postalCodeDataGridViewTextBoxColumn";
+            this.postalCodeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // doctorView
             // 
@@ -449,202 +645,6 @@
             this.dutyDetailsDataGridViewTextBoxColumn.HeaderText = "DutyDetails";
             this.dutyDetailsDataGridViewTextBoxColumn.Name = "dutyDetailsDataGridViewTextBoxColumn";
             this.dutyDetailsDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // patientView
-            // 
-            this.patientView.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.patientView.AutoSize = true;
-            this.patientView.Controls.Add(this.pnlAddPatient);
-            this.patientView.Controls.Add(this.lblPatientViewTitle);
-            this.patientView.Controls.Add(this.dgPatient);
-            this.patientView.Location = new System.Drawing.Point(4, 2);
-            this.patientView.Margin = new System.Windows.Forms.Padding(4);
-            this.patientView.MaximumSize = new System.Drawing.Size(4444, 4000);
-            this.patientView.MinimumSize = new System.Drawing.Size(1139, 576);
-            this.patientView.Name = "patientView";
-            this.patientView.Size = new System.Drawing.Size(1247, 703);
-            this.patientView.TabIndex = 4;
-            // 
-            // pnlAddPatient
-            // 
-            this.pnlAddPatient.Controls.Add(this.btnExpandPatient);
-            this.pnlAddPatient.Controls.Add(this.btnPatientSubmit);
-            this.pnlAddPatient.Controls.Add(this.btnPatientDelete);
-            this.pnlAddPatient.Controls.Add(this.txbPatientFirstName);
-            this.pnlAddPatient.Controls.Add(this.lblPatientFirstNameTxb);
-            this.pnlAddPatient.Controls.Add(this.lblPatientLastNameTxb);
-            this.pnlAddPatient.Controls.Add(this.txbPatientLastName);
-            this.pnlAddPatient.Location = new System.Drawing.Point(4, 432);
-            this.pnlAddPatient.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlAddPatient.Name = "pnlAddPatient";
-            this.pnlAddPatient.Size = new System.Drawing.Size(1239, 261);
-            this.pnlAddPatient.TabIndex = 13;
-            // 
-            // btnExpandPatient
-            // 
-            this.btnExpandPatient.Location = new System.Drawing.Point(451, 11);
-            this.btnExpandPatient.Margin = new System.Windows.Forms.Padding(4);
-            this.btnExpandPatient.Name = "btnExpandPatient";
-            this.btnExpandPatient.Size = new System.Drawing.Size(152, 28);
-            this.btnExpandPatient.TabIndex = 4;
-            this.btnExpandPatient.Text = "Expand Selection";
-            this.btnExpandPatient.UseVisualStyleBackColor = true;
-            this.btnExpandPatient.Click += new System.EventHandler(this.btnExpandPatient_Click);
-            // 
-            // btnPatientSubmit
-            // 
-            this.btnPatientSubmit.Location = new System.Drawing.Point(451, 169);
-            this.btnPatientSubmit.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPatientSubmit.Name = "btnPatientSubmit";
-            this.btnPatientSubmit.Size = new System.Drawing.Size(292, 28);
-            this.btnPatientSubmit.TabIndex = 11;
-            this.btnPatientSubmit.Text = "Add New Patient";
-            this.btnPatientSubmit.UseVisualStyleBackColor = true;
-            this.btnPatientSubmit.Click += new System.EventHandler(this.btnPatientSubmit_Click);
-            // 
-            // btnPatientDelete
-            // 
-            this.btnPatientDelete.Location = new System.Drawing.Point(611, 11);
-            this.btnPatientDelete.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPatientDelete.Name = "btnPatientDelete";
-            this.btnPatientDelete.Size = new System.Drawing.Size(132, 28);
-            this.btnPatientDelete.TabIndex = 4;
-            this.btnPatientDelete.Text = "Delete Selected";
-            this.btnPatientDelete.UseVisualStyleBackColor = true;
-            this.btnPatientDelete.Click += new System.EventHandler(this.btnPatientDelete_Click);
-            // 
-            // txbPatientFirstName
-            // 
-            this.txbPatientFirstName.Location = new System.Drawing.Point(451, 69);
-            this.txbPatientFirstName.Margin = new System.Windows.Forms.Padding(4);
-            this.txbPatientFirstName.Name = "txbPatientFirstName";
-            this.txbPatientFirstName.Size = new System.Drawing.Size(291, 22);
-            this.txbPatientFirstName.TabIndex = 5;
-            // 
-            // lblPatientFirstNameTxb
-            // 
-            this.lblPatientFirstNameTxb.AutoSize = true;
-            this.lblPatientFirstNameTxb.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblPatientFirstNameTxb.Location = new System.Drawing.Point(367, 73);
-            this.lblPatientFirstNameTxb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPatientFirstNameTxb.Name = "lblPatientFirstNameTxb";
-            this.lblPatientFirstNameTxb.Size = new System.Drawing.Size(76, 17);
-            this.lblPatientFirstNameTxb.TabIndex = 6;
-            this.lblPatientFirstNameTxb.Text = "First Name";
-            // 
-            // lblPatientLastNameTxb
-            // 
-            this.lblPatientLastNameTxb.AutoSize = true;
-            this.lblPatientLastNameTxb.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblPatientLastNameTxb.Location = new System.Drawing.Point(367, 105);
-            this.lblPatientLastNameTxb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPatientLastNameTxb.Name = "lblPatientLastNameTxb";
-            this.lblPatientLastNameTxb.Size = new System.Drawing.Size(76, 17);
-            this.lblPatientLastNameTxb.TabIndex = 8;
-            this.lblPatientLastNameTxb.Text = "Last Name";
-            // 
-            // txbPatientLastName
-            // 
-            this.txbPatientLastName.Location = new System.Drawing.Point(451, 101);
-            this.txbPatientLastName.Margin = new System.Windows.Forms.Padding(4);
-            this.txbPatientLastName.Name = "txbPatientLastName";
-            this.txbPatientLastName.Size = new System.Drawing.Size(291, 22);
-            this.txbPatientLastName.TabIndex = 7;
-            // 
-            // lblPatientViewTitle
-            // 
-            this.lblPatientViewTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblPatientViewTitle.AutoSize = true;
-            this.lblPatientViewTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lblPatientViewTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblPatientViewTitle.Location = new System.Drawing.Point(559, 9);
-            this.lblPatientViewTitle.Name = "lblPatientViewTitle";
-            this.lblPatientViewTitle.Size = new System.Drawing.Size(87, 29);
-            this.lblPatientViewTitle.TabIndex = 3;
-            this.lblPatientViewTitle.Text = "Patient";
-            this.lblPatientViewTitle.Visible = false;
-            // 
-            // dgPatient
-            // 
-            this.dgPatient.AutoGenerateColumns = false;
-            this.dgPatient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgPatient.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgPatient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgPatient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.pIDDataGridViewTextBoxColumn,
-            this.firstNameDataGridViewTextBoxColumn,
-            this.lastNameDataGridViewTextBoxColumn,
-            this.countryDataGridViewTextBoxColumn,
-            this.stateDataGridViewTextBoxColumn,
-            this.cityDataGridViewTextBoxColumn,
-            this.streetAddressDataGridViewTextBoxColumn,
-            this.postalCodeDataGridViewTextBoxColumn});
-            this.dgPatient.DataSource = this.patientBindingSource;
-            this.dgPatient.Location = new System.Drawing.Point(0, 70);
-            this.dgPatient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgPatient.Name = "dgPatient";
-            this.dgPatient.ReadOnly = true;
-            this.dgPatient.RowHeadersVisible = false;
-            this.dgPatient.RowTemplate.Height = 28;
-            this.dgPatient.Size = new System.Drawing.Size(1244, 361);
-            this.dgPatient.TabIndex = 0;
-            this.dgPatient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPatient_CellClick);
-            // 
-            // pIDDataGridViewTextBoxColumn
-            // 
-            this.pIDDataGridViewTextBoxColumn.DataPropertyName = "PID";
-            this.pIDDataGridViewTextBoxColumn.HeaderText = "PID";
-            this.pIDDataGridViewTextBoxColumn.Name = "pIDDataGridViewTextBoxColumn";
-            this.pIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            this.firstNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // countryDataGridViewTextBoxColumn
-            // 
-            this.countryDataGridViewTextBoxColumn.DataPropertyName = "Country";
-            this.countryDataGridViewTextBoxColumn.HeaderText = "Country";
-            this.countryDataGridViewTextBoxColumn.Name = "countryDataGridViewTextBoxColumn";
-            this.countryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // stateDataGridViewTextBoxColumn
-            // 
-            this.stateDataGridViewTextBoxColumn.DataPropertyName = "State";
-            this.stateDataGridViewTextBoxColumn.HeaderText = "State";
-            this.stateDataGridViewTextBoxColumn.Name = "stateDataGridViewTextBoxColumn";
-            this.stateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cityDataGridViewTextBoxColumn
-            // 
-            this.cityDataGridViewTextBoxColumn.DataPropertyName = "City";
-            this.cityDataGridViewTextBoxColumn.HeaderText = "City";
-            this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
-            this.cityDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // streetAddressDataGridViewTextBoxColumn
-            // 
-            this.streetAddressDataGridViewTextBoxColumn.DataPropertyName = "StreetAddress";
-            this.streetAddressDataGridViewTextBoxColumn.HeaderText = "StreetAddress";
-            this.streetAddressDataGridViewTextBoxColumn.Name = "streetAddressDataGridViewTextBoxColumn";
-            this.streetAddressDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // postalCodeDataGridViewTextBoxColumn
-            // 
-            this.postalCodeDataGridViewTextBoxColumn.DataPropertyName = "PostalCode";
-            this.postalCodeDataGridViewTextBoxColumn.HeaderText = "PostalCode";
-            this.postalCodeDataGridViewTextBoxColumn.Name = "postalCodeDataGridViewTextBoxColumn";
-            this.postalCodeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // departmentPanel
             // 
@@ -1113,16 +1113,16 @@
             ((System.ComponentModel.ISupportInitialize)(this._291ProjectDataSet1)).EndInit();
             this.container1.ResumeLayout(false);
             this.container1.PerformLayout();
-            this.doctorView.ResumeLayout(false);
-            this.doctorView.PerformLayout();
-            this.pnlAddDoctor.ResumeLayout(false);
-            this.pnlAddDoctor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgDoctor)).EndInit();
             this.patientView.ResumeLayout(false);
             this.patientView.PerformLayout();
             this.pnlAddPatient.ResumeLayout(false);
             this.pnlAddPatient.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPatient)).EndInit();
+            this.doctorView.ResumeLayout(false);
+            this.doctorView.PerformLayout();
+            this.pnlAddDoctor.ResumeLayout(false);
+            this.pnlAddDoctor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDoctor)).EndInit();
             this.departmentPanel.ResumeLayout(false);
             this.departmentPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDepartment)).EndInit();
