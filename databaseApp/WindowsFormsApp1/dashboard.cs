@@ -467,9 +467,17 @@ namespace WindowsFormsApp1
             
             if (selectedRow < 0)
                 return;
+
+            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            conn.Open();
             // TODO: Like above. Delete all foreign key references first, then delete the patient itself
+            // patient registration and patientcontactinfo for sure
 
             string final_delete = "DELETE from Patient where PID = " + dgPatient.Rows[selectedRow].Cells[0].Value.ToString();
+            //uncomment these lines when finished
+            //SqlCommand final = new SqlCommand(final_delete, conn);
+            //final.ExecuteNonQuery();
+            //conn.Close();
 
             patientBindingSource.ResetBindings(false);
             this.patientTableAdapter.Fill(this._291ProjectDataSet.Patient);
