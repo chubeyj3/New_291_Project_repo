@@ -539,8 +539,8 @@ namespace WindowsFormsApp1
                 comm.ExecuteNonQuery();
                 conn.Close();
 
-                userBindingSource.ResetBindings(false);
-                this.medSystemUserTableAdapter.Fill(this._291ProjectDataSet1.MedSystemUser);
+                departmentBindingSource.ResetBindings(false);
+                this.departmentTableAdapter.Fill(this._291ProjectDataSet.Department);
                 dgUsers.Refresh();
                 msg = "User " + deleted_user + " successfully deleted.";
                 MessageBox.Show(msg);
