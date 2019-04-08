@@ -146,3 +146,15 @@ END
 
 INSERT INTO MedSystemUser VALUES ('Admin', 'Admin', 1);
 INSERT INTO MedSystemUser VALUES ('Receptionist', 'Receptionist', 2);
+
+SET @ID = @PatientContactInfoMin
+WHILE @ID <= @PatientContactInfoMax
+BEGIN
+	INSERT INTO PatientContactInfo VALUES (
+		'EMAIL' + CAST(@ID as varchar(10)),
+		@ID,
+		'Email Address',
+		'Personal'
+	)
+	SET @ID = @ID + 1
+END
