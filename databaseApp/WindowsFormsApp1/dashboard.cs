@@ -325,33 +325,40 @@ namespace WindowsFormsApp1
                 MessageBox.Show(noNullFieldsAllowed);
                 return;
             }
-            string max_id_query = "SELECT MAX(DoctorID) FROM Doctor";
-            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
-            conn.Open();
-            SqlCommand comm = new SqlCommand(max_id_query, conn);
-            SqlDataReader sql_reader = comm.ExecuteReader();
-            sql_reader.Read();
-            int next_id = (int)sql_reader[0];
-            next_id++;
-            sql_reader.Close();
-            conn.Close();
+            try
+            {
+                string max_id_query = "SELECT MAX(DoctorID) FROM Doctor";
+                SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+                conn.Open();
+                SqlCommand comm = new SqlCommand(max_id_query, conn);
+                SqlDataReader sql_reader = comm.ExecuteReader();
+                sql_reader.Read();
+                int next_id = (int)sql_reader[0];
+                next_id++;
+                sql_reader.Close();
+                conn.Close();
 
-            string insert_doc_query = "INSERT INTO Doctor Values ('"
-                + sanitizeQuery(next_id.ToString()) + "', '"
-                + cmbDoctorDepartmentSelect.SelectedValue + "', '"
-                + sanitizeQuery(txbDoctorDuties.Text) + "', '"
-                + sanitizeQuery(txbDoctorFirstName.Text) + "', '"
-                + sanitizeQuery(txbDoctorLastName.Text) + "')";
-            lblDoctorViewTitle.Text = insert_doc_query;
+                string insert_doc_query = "INSERT INTO Doctor Values ('"
+                    + sanitizeQuery(next_id.ToString()) + "', '"
+                    + cmbDoctorDepartmentSelect.SelectedValue + "', '"
+                    + sanitizeQuery(txbDoctorDuties.Text) + "', '"
+                    + sanitizeQuery(txbDoctorFirstName.Text) + "', '"
+                    + sanitizeQuery(txbDoctorLastName.Text) + "')";
+                lblDoctorViewTitle.Text = insert_doc_query;
 
-            conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
-            conn.Open();
-            comm = new SqlCommand(insert_doc_query, conn);
-            comm.ExecuteNonQuery();
-            conn.Close();
+                conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+                conn.Open();
+                comm = new SqlCommand(insert_doc_query, conn);
+                comm.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.ToString());
+            }
 
 
-            doctorBindingSource.ResetBindings(false);
+                doctorBindingSource.ResetBindings(false);
             this.doctorTableAdapter.Fill(this._291ProjectDataSet.Doctor);
 
             string msg = "Doctor " + txbDoctorFirstName.Text + " " + txbDoctorLastName.Text + " successfully added.";
@@ -432,30 +439,37 @@ namespace WindowsFormsApp1
                 return;
             }
             string max_id_query = "SELECT MAX(PID) FROM Patient;";
-            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
-            conn.Open();
-            SqlCommand comm = new SqlCommand(max_id_query, conn);
-            SqlDataReader sql_reader = comm.ExecuteReader();
-            sql_reader.Read();
-            int next_id = (int)sql_reader[0];
-            next_id++;
-            sql_reader.Close();
-            conn.Close();
+            try
+            {
+                SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+                conn.Open();
+                SqlCommand comm = new SqlCommand(max_id_query, conn);
+                SqlDataReader sql_reader = comm.ExecuteReader();
+                sql_reader.Read();
+                int next_id = (int)sql_reader[0];
+                next_id++;
+                sql_reader.Close();
+                conn.Close();
 
-            string insert_patient_query = "INSERT INTO Patient (PID, FirstName, LastName) Values ('"
-                + next_id.ToString() + "', '"
-                + sanitizeQuery(txbPatientFirstName.Text) + "', '"
-                + sanitizeQuery(txbPatientLastName.Text) + "')";
-            lblDoctorViewTitle.Text = insert_patient_query;
+                string insert_patient_query = "INSERT INTO Patient (PID, FirstName, LastName) Values ('"
+                    + next_id.ToString() + "', '"
+                    + sanitizeQuery(txbPatientFirstName.Text) + "', '"
+                    + sanitizeQuery(txbPatientLastName.Text) + "')";
+                lblDoctorViewTitle.Text = insert_patient_query;
 
-            conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
-            conn.Open();
-            comm = new SqlCommand(insert_patient_query, conn);
-            comm.ExecuteNonQuery();
-            conn.Close();
+                conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+                conn.Open();
+                comm = new SqlCommand(insert_patient_query, conn);
+                comm.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.ToString());
+            }
 
 
-            patientBindingSource.ResetBindings(false);
+                patientBindingSource.ResetBindings(false);
             this.patientTableAdapter.Fill(this._291ProjectDataSet.Patient);
 
             string msg = "Patient " + txbPatientFirstName.Text + " " + txbPatientLastName.Text + " successfully added.";
@@ -531,45 +545,52 @@ namespace WindowsFormsApp1
             string accessLevel = "2";
             SqlConnection connection = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
             string checkUsernameQuery = "SELECT * FROM MedSystemUser where Username = '" + sanitizeQuery(usernameSubmissionTextbox.Text).ToString() + "';";
-            connection.Open();
-            SqlCommand command = new SqlCommand(checkUsernameQuery, connection);
-
             try
             {
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
+                connection.Open();
+                SqlCommand command = new SqlCommand(checkUsernameQuery, connection);
+
+                try
                 {
-                    string usernameInUserMsg = "Username already in use. Please choose a different Username and try again.";
-                    MessageBox.Show(usernameInUserMsg);
-                    return;
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        string usernameInUserMsg = "Username already in use. Please choose a different Username and try again.";
+                        MessageBox.Show(usernameInUserMsg);
+                        return;
+                    }
                 }
+                catch (System.InvalidOperationException)
+                {
+                    Application.Exit();
+                }
+
+
+
+                if (accessLevelSubmissionTextbox.Text == "1")
+                {
+                    accessLevel = "1";
+
+                }
+
+                string insert_user_query = "INSERT INTO MedSystemUser Values ('"
+                    + sanitizeQuery(usernameSubmissionTextbox.Text) + "', '"
+                    + sanitizeQuery(passwordSubmissionTextbox.Text) + "', '"
+                    + accessLevel + "')";
+
+                SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+                conn.Open();
+                SqlCommand comm = new SqlCommand(insert_user_query, conn);
+                comm.ExecuteNonQuery();
+                conn.Close();
             }
-            catch (System.InvalidOperationException)
+            catch (Exception err)
             {
-                Application.Exit();
+                MessageBox.Show(err.ToString());
             }
 
 
-
-            if (accessLevelSubmissionTextbox.Text == "1")
-            {
-                accessLevel = "1";
-
-            }
-
-            string insert_user_query = "INSERT INTO MedSystemUser Values ('"
-                + sanitizeQuery(usernameSubmissionTextbox.Text) + "', '"
-                + sanitizeQuery(passwordSubmissionTextbox.Text) + "', '"
-                + accessLevel + "')";
-
-            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
-            conn.Open();
-            SqlCommand comm = new SqlCommand(insert_user_query, conn);
-            comm.ExecuteNonQuery();
-            conn.Close();
-
-
-            userBindingSource.ResetBindings(false);
+                userBindingSource.ResetBindings(false);
             this.medSystemUserTableAdapter.Fill(this._291ProjectDataSet1.MedSystemUser);
 
             string msg = "User " + usernameSubmissionTextbox.Text + " successfully added.";
