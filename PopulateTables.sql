@@ -147,6 +147,10 @@ END
 INSERT INTO MedSystemUser VALUES ('Admin', 'Admin', 1);
 INSERT INTO MedSystemUser VALUES ('Receptionist', 'Receptionist', 2);
 
+DECLARE @PatientContactInfoMin int
+DECLARE @PatientContactInfoMax int 
+SET @PatientContactInfoMin = @PatientMin
+SET @PatientContactInfoMax = @PatientMax
 SET @ID = @PatientContactInfoMin
 WHILE @ID <= @PatientContactInfoMax
 BEGIN

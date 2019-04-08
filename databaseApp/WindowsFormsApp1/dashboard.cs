@@ -302,6 +302,18 @@ namespace WindowsFormsApp1
             if (e.RowIndex >= 0)
                 selectedRow = e.RowIndex;
         }
+        private void dgUsers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+                selectedRow = e.RowIndex;
+        }
+
+        private void dgUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+                selectedRow = e.RowIndex;
+        }
+
 
         private void btnDoctorSubmit_Click(object sender, EventArgs e)
         {
@@ -439,5 +451,106 @@ namespace WindowsFormsApp1
 
 
         }
+
+        private void btnDoctorDelete_Click(object sender, EventArgs e)
+        {
+            
+            if (selectedRow < 0)
+                return;
+            string child_delete = "DELETE from Consultant where DoctorID = " + dgDoctor.Rows[selectedRow].Cells[0].Value.ToString(); 
+            string delete_query = "DELETE from Doctor where DoctorID = " + dgDoctor.Rows[selectedRow].Cells[0].Value.ToString();
+            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            conn.Open();
+            SqlCommand comm = new SqlCommand(child_delete, conn);
+            comm.ExecuteNonQuery();
+            SqlCommand comm2 = new SqlCommand(delete_query, conn);
+            comm2.ExecuteNonQuery();
+            conn.Close();
+
+            doctorBindingSource.ResetBindings(false);
+            this.doctorTableAdapter.Fill(this._291ProjectDataSet.Doctor);
+            dgDoctor.Refresh();
+            string msg = "Doctor " + dgDoctor.Rows[selectedRow].Cells[1].Value.ToString() + " " + dgDoctor.Rows[selectedRow].Cells[2].Value.ToString() + " successfully deleted.";
+            MessageBox.Show(msg);
+        }
+
+        private void btnPatientDelete_Click(object sender, EventArgs e)
+        {
+            
+            if (selectedRow < 0)
+                return;
+
+            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            conn.Open();
+            // TODO: Like above. Delete all foreign key references first, then delete the patient itself
+            // patient registration and patientcontactinfo for sure
+
+            string final_delete = "DELETE from Patient where PID = " + dgPatient.Rows[selectedRow].Cells[0].Value.ToString();
+            //uncomment these lines when finished
+            //SqlCommand final = new SqlCommand(final_delete, conn);
+            //final.ExecuteNonQuery();
+            //conn.Close();
+
+            patientBindingSource.ResetBindings(false);
+            this.patientTableAdapter.Fill(this._291ProjectDataSet.Patient);
+            dgPatient.Refresh();
+            string msg = "Patient " + dgPatient.Rows[selectedRow].Cells[1].Value.ToString() + " " + dgPatient.Rows[selectedRow].Cells[2].Value.ToString() + " successfully deleted.";
+            MessageBox.Show(msg);
+        }
+
+        private void createNewUserButton_Click(object sender, EventArgs e)
+        {
+
+            string insert_user_query = "INSERT INTO MedSystemUser Values ('"
+                + sanitizeQuery(usernameSubmissionTextbox.Text) + "', '"
+                + sanitizeQuery(passwordSubmissionTextbox.Text) + "', '"
+                + accessLevelSubmissionTextbox.Text.ToString() + "')";
+
+            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            conn.Open();
+            SqlCommand comm = new SqlCommand(insert_user_query, conn);
+            comm.ExecuteNonQuery();
+            conn.Close();
+
+
+            userBindingSource.ResetBindings(false);
+            this.medSystemUserTableAdapter.Fill(this._291ProjectDataSet1.MedSystemUser);
+
+            string msg = "User " + usernameSubmissionTextbox.Text + " successfully added.";
+            MessageBox.Show(msg);
+            usernameSubmissionTextbox.Text = String.Empty;
+            passwordSubmissionTextbox.Text = String.Empty;
+            accessLevelSubmissionTextbox.Text = String.Empty;
+        }
+
+        private void deleteUserBtn_Click(object sender, EventArgs e)
+        {
+            string msg;
+            if (selectedRow < 0)
+                return;
+            //usernameSubmissionLbl.Text = dgUsers.Rows[selectedRow].Cells[2].Value.ToString();
+            try
+            {
+                string deleted_user = dgUsers.Rows[selectedRow].Cells[0].Value.ToString();
+                string delete_query = "DELETE from MedSystemUser where Username = '" + deleted_user + "'";
+                SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+                conn.Open();
+                SqlCommand comm = new SqlCommand(delete_query, conn);
+                comm.ExecuteNonQuery();
+                conn.Close();
+
+                departmentBindingSource.ResetBindings(false);
+                this.departmentTableAdapter.Fill(this._291ProjectDataSet.Department);
+                dgUsers.Refresh();
+                msg = "User " + deleted_user + " successfully deleted.";
+                MessageBox.Show(msg);
+            } catch (NullReferenceException) {
+                msg = "No user selected. Please select a user and try again.";
+                MessageBox.Show(msg);
+            };
+            
+        }
+
+        
     }
 }

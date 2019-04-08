@@ -74,6 +74,6 @@ CREATE TABLE [Consultant] (
 CREATE TABLE [MedSystemUser](
 	[Username] varchar(50),
 	[Password] varchar(50),
-	[AccessLevel] int,
+	[AccessLevel] int DEFAULT 2,
 	PRIMARY KEY ([Username])
 );
