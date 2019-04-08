@@ -56,7 +56,6 @@
             this.txbDoctorLastName = new System.Windows.Forms.TextBox();
             this.lblDoctorViewTitle = new System.Windows.Forms.Label();
             this.dgDoctor = new System.Windows.Forms.DataGridView();
-            this.filterDocFirstName = new FilterBox("First Name");
             this.doctorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -194,7 +193,6 @@
             this.doctorView.Controls.Add(this.pnlAddDoctor);
             this.doctorView.Controls.Add(this.lblDoctorViewTitle);
             this.doctorView.Controls.Add(this.dgDoctor);
-            this.doctorView.Controls.Add(this.filterDocFirstName);
             this.doctorView.Location = new System.Drawing.Point(2, 0);
             this.doctorView.MaximumSize = new System.Drawing.Size(3333, 3250);
             this.doctorView.MinimumSize = new System.Drawing.Size(854, 468);
@@ -350,11 +348,12 @@
             this.dgDoctor.Margin = new System.Windows.Forms.Padding(2);
             this.dgDoctor.Name = "dgDoctor";
             this.dgDoctor.ReadOnly = true;
+            this.dgDoctor.RowHeadersVisible = false;
             this.dgDoctor.RowTemplate.Height = 28;
+            this.dgDoctor.ShowEditingIcon = false;
             this.dgDoctor.Size = new System.Drawing.Size(933, 292);
             this.dgDoctor.TabIndex = 1;
             this.dgDoctor.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgDoctor_CellClick);
-            this.dgDoctor.Paint += new System.Windows.Forms.PaintEventHandler(this.dgDoctor_Paint);
             // 
             // doctorIDDataGridViewTextBoxColumn
             // 
@@ -390,15 +389,6 @@
             this.dutyDetailsDataGridViewTextBoxColumn.HeaderText = "DutyDetails";
             this.dutyDetailsDataGridViewTextBoxColumn.Name = "dutyDetailsDataGridViewTextBoxColumn";
             this.dutyDetailsDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // filterDocFirstName
-            // 
-            this.filterDocFirstName.ForeColor = System.Drawing.Color.Gray;
-            this.filterDocFirstName.Location = new System.Drawing.Point(224, 34);
-            this.filterDocFirstName.Name = "filterDocFirstName";
-            this.filterDocFirstName.Size = new System.Drawing.Size(172, 20);
-            this.filterDocFirstName.TabIndex = 13;
-            this.filterDocFirstName.Text = "Search by First Name ...";
             // 
             // patientView
             // 
@@ -524,6 +514,7 @@
             this.dgPatient.Margin = new System.Windows.Forms.Padding(2);
             this.dgPatient.Name = "dgPatient";
             this.dgPatient.ReadOnly = true;
+            this.dgPatient.RowHeadersVisible = false;
             this.dgPatient.RowTemplate.Height = 28;
             this.dgPatient.Size = new System.Drawing.Size(933, 293);
             this.dgPatient.TabIndex = 0;
@@ -984,7 +975,7 @@
         private System.Windows.Forms.TextBox txbDoctorDuties;
         private _291ProjectDataSetTableAdapters.PatientContactInfoTableAdapter patientContactInfoTableAdapter1;
         private _291ProjectDataSetTableAdapters.PatientContactInfoTableAdapter patientContactInfoTableAdapter2;
-        private FilterBox filterDocFirstName;
+
     }
 }
 

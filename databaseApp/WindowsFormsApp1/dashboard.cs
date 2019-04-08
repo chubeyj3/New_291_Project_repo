@@ -18,10 +18,14 @@ namespace WindowsFormsApp1
         private Panel currentView;
         private Panel previousView;
         private int selectedRow = 0;
-
+        private FilterBox filterDocFirstName;
+        private FilterBox filterDocLastName;
+        private FilterBox filterPatientFirstName;
+        private FilterBox filterPatientLastName;
         public dashboard()
         {
             InitializeComponent();
+            setupFilters();
             //BackColor = ColorTranslator.FromHtml("#25282F");
             currentView = doctorView;
             previousView = doctorView;
@@ -30,11 +34,80 @@ namespace WindowsFormsApp1
             departmentPanel.Visible = false;
             wardsPanel.Visible = false;
 
+
             if(GlobalVariables.UserAccess == 2)
             {
                 wardDashboardButton.Hide();
                 pnlAddDoctor.Hide();
             }
+        }
+
+        private void setupFilters()
+        {
+
+
+            filterDocFirstName = new FilterBox("First Name");
+            filterDocLastName = new FilterBox("Last Name");
+
+            filterPatientFirstName = new FilterBox("First Name");
+            filterPatientLastName = new FilterBox("Last Name");
+
+            doctorView.Controls.Add(filterDocLastName);
+            doctorView.Controls.Add(filterDocFirstName);
+            patientView.Controls.Add(filterPatientFirstName);
+            patientView.Controls.Add(filterPatientLastName);
+            /**
+             * UI STUFF
+             */
+
+            filterDocFirstName.ForeColor = System.Drawing.Color.Gray;
+            filterDocLastName.ForeColor = System.Drawing.Color.Gray;
+            filterDocFirstName.Location = new System.Drawing.Point(224, 34);
+            filterDocLastName.Location = new System.Drawing.Point(400, 34);
+            filterDocFirstName.Name = "filterDocFirstName";
+            filterDocFirstName.Size = new System.Drawing.Size(132, 20);
+            filterDocFirstName.TabIndex = 13;
+            filterDocFirstName.Text = "Search by First Name ...";
+
+            filterDocLastName.Name = "filterDocLastName";
+            filterDocLastName.Size = new System.Drawing.Size(140, 20);
+            filterDocLastName.TabIndex = 14;
+            filterDocLastName.Text = "Search by Last Name ...";
+
+
+            filterPatientFirstName.ForeColor = System.Drawing.Color.Gray;
+            filterPatientLastName.ForeColor = System.Drawing.Color.Gray;
+            filterPatientFirstName.Location = new System.Drawing.Point(50, 34);
+            filterPatientLastName.Location = new System.Drawing.Point(175, 34);
+            filterPatientFirstName.Name = "filterPatientFirstName";
+            filterPatientFirstName.Size = new System.Drawing.Size(115, 20);
+            filterPatientFirstName.TabIndex = 13;
+            filterPatientFirstName.Text = "Search by First Name ...";
+            filterPatientLastName.Name = "filterPatientLastName";
+            filterPatientLastName.Size = new System.Drawing.Size(115, 20);
+            filterPatientLastName.TabIndex = 13;
+            filterPatientLastName.Text = "Search by Last Name ...";
+
+            pIDDataGridViewTextBoxColumn.Width = 50;
+
+            /**
+            * FUNCTIONAL STUFF 
+            */
+
+            filterDocFirstName.KeyDown += new KeyEventHandler(filterDocName_KeyDown);
+            filterDocLastName.KeyDown += new KeyEventHandler(filterDocName_KeyDown);
+            filterDocFirstName.setData(doctorBindingSource, 1, dgDoctor);
+            filterDocLastName.setData(doctorBindingSource, 2, dgDoctor);
+
+            // Patient filters
+
+            filterPatientFirstName.KeyDown += new KeyEventHandler(filterPatient_KeyDown);
+            filterPatientLastName.KeyDown += new KeyEventHandler(filterPatient_KeyDown);
+            filterPatientFirstName.setData(patientBindingSource, 1, dgPatient);
+            filterPatientLastName.setData(patientBindingSource, 2, dgPatient);
+
+
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -308,9 +381,45 @@ namespace WindowsFormsApp1
             this.doctorTableAdapter.Fill(this._291ProjectDataSet.Doctor);
         }
 
-        private void dgDoctor_Paint(object sender, PaintEventArgs e)
+        private void filterDocName_KeyDown(object sender, KeyEventArgs e)
         {
-            this.filterDocFirstName.setData(doctorBindingSource, 1, dgDoctor);
+            updateFilter(doctorBindingSource, filterDocFirstName, filterDocLastName, dgDoctor);
+        }
+
+        private void filterPatient_KeyDown(object sender, KeyEventArgs e)
+        {
+            updateFilter(patientBindingSource, filterPatientFirstName, filterPatientLastName, dgPatient);
+        }
+       
+        private void updateFilter(BindingSource bs, FilterBox filter1, FilterBox filter2, DataGridView dg)
+        {
+            string[] filters = new string[2];
+            filters[0] = filter1.getFilter();
+            filters[1] = filter2.getFilter();
+
+
+            if(filters[0] != String.Empty)
+            {
+                string final = filters[0];
+                if(filters[1] != String.Empty)
+                {
+                    final = "(" + final + ") AND (" + filters[1] + ")";
+                }
+                bs.Filter = final;
+            }
+
+            else if(filters[1] != String.Empty)
+            {
+                string final = filters[1];
+                bs.Filter = final;
+            }
+            else
+            {
+                bs.RemoveFilter();
+            }
+
+            bs.EndEdit();
+            dg.Refresh();
         }
     }
 }

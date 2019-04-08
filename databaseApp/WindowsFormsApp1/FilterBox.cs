@@ -17,6 +17,8 @@ namespace WindowsFormsApp1
         private BindingSource source;
         private int column;
         private DataGridView table;
+
+        private string filter;
         public FilterBox(string columnName)
         {
             InitializeComponent();
@@ -25,6 +27,8 @@ namespace WindowsFormsApp1
             ForeColor = Color.Gray;
             placeholderText = "Search by " + columnName + " ...";
             Text = placeholderText;
+
+            this.filter = String.Empty;
 
         }
 
@@ -53,23 +57,19 @@ namespace WindowsFormsApp1
             {
                 Text = placeholderText;
                 ForeColor = Color.Gray;
-                source.RemoveFilter();
-                source.EndEdit();
-                this.table.Refresh();
 
             }
         }
 
-        protected override void OnKeyDown(KeyEventArgs e)
+
+        public string getFilter()
         {
-            base.OnKeyDown(e);
-            if (Text == "" || Text == placeholderText)
+            if(Text == placeholderText || Text == String.Empty)
             {
-                source.RemoveFilter();
+                return String.Empty;
             }
-            source.Filter = this.table.Columns[this.column].HeaderText.ToString() + " LIKE '%" + Text + "%'";
-            source.EndEdit();
-            this.table.Refresh();
+            this.filter = this.table.Columns[this.column].HeaderText.ToString() + " LIKE '%" + Text + "%'";
+            return this.filter;
         }
 
     }
