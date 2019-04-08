@@ -12,6 +12,7 @@ CREATE TABLE [Doctor] (
 	[LastName] varchar(25),
 	PRIMARY KEY ([DoctorID]),
 	FOREIGN KEY ([DepartmentID]) REFERENCES Department
+	ON DELETE CASCADE
 );
 
 CREATE TABLE [WardType] (
@@ -27,6 +28,7 @@ CREATE TABLE [Ward] (
 	[Status] varchar(25),
 	PRIMARY KEY ([WardID]),
 	FOREIGN KEY ([TypeID]) REFERENCES WardType ([WardID])
+	ON DELETE CASCADE
 );
 
 CREATE TABLE [Patient] (
@@ -48,6 +50,7 @@ CREATE TABLE [PatientContactInfo] (
 	[Description] varchar(25), /* Work, Home, ... */
 	PRIMARY KEY ([Contact], [PID]),
 	FOREIGN KEY ([PID]) REFERENCES Patient
+	ON DELETE CASCADE
 );
 
 CREATE TABLE [PatientRegistration] (
@@ -59,16 +62,20 @@ CREATE TABLE [PatientRegistration] (
 	[Year] int,
 	[Time] varchar(5), /*__:__ (24 hour format) */
 	PRIMARY KEY ([RegistrationNumber]),
-	FOREIGN KEY ([PID]) REFERENCES Patient,
+	FOREIGN KEY ([PID]) REFERENCES Patient
+	ON DELETE CASCADE,
 	FOREIGN KEY ([WardID]) REFERENCES Ward
+	ON DELETE CASCADE
 );
 
 CREATE TABLE [Consultant] (
 	[PatientRegNum] int,
 	[DoctorID] int,
 	PRIMARY KEY ([PatientRegNum], [DoctorID]),
-	FOREIGN KEY ([PatientRegNum]) REFERENCES PatientRegistration ([RegistrationNumber]),
+	FOREIGN KEY ([PatientRegNum]) REFERENCES PatientRegistration ([RegistrationNumber])
+	ON DELETE CASCADE,
 	FOREIGN KEY ([DoctorID]) REFERENCES Doctor
+	ON DELETE CASCADE
 );
 
 CREATE TABLE [MedSystemUser](
