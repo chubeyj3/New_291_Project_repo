@@ -46,6 +46,21 @@
             this._291ProjectDataSet1 = new WindowsFormsApp1._291ProjectDataSet1();
             this.medSystemUserTableAdapter = new WindowsFormsApp1._291ProjectDataSet1TableAdapters.MedSystemUserTableAdapter();
             this.container1 = new WindowsFormsApp1.container();
+            this.usersView = new WindowsFormsApp1.query_panel();
+            this.dgUsers = new System.Windows.Forms.DataGridView();
+            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accessLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnlAddUser = new System.Windows.Forms.Panel();
+            this.deleteUserBtn = new System.Windows.Forms.Button();
+            this.createNewUserButton = new System.Windows.Forms.Button();
+            this.accessLevelSubmissionTextbox = new System.Windows.Forms.TextBox();
+            this.passwordSubmissionTextbox = new System.Windows.Forms.TextBox();
+            this.usernameSubmissionTextbox = new System.Windows.Forms.TextBox();
+            this.accessLevelSubmissionLbl = new System.Windows.Forms.Label();
+            this.passwordSubmissionLbl = new System.Windows.Forms.Label();
+            this.usernameSubmissionLbl = new System.Windows.Forms.Label();
+            this.lblUserViewTitle = new System.Windows.Forms.Label();
             this.doctorView = new WindowsFormsApp1.query_panel();
             this.pnlAddDoctor = new System.Windows.Forms.Panel();
             this.lblDoctorDuties = new System.Windows.Forms.Label();
@@ -101,21 +116,6 @@
             this.capacityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usersView = new WindowsFormsApp1.query_panel();
-            this.dgUsers = new System.Windows.Forms.DataGridView();
-            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accessLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlAddUser = new System.Windows.Forms.Panel();
-            this.deleteUserBtn = new System.Windows.Forms.Button();
-            this.createNewUserButton = new System.Windows.Forms.Button();
-            this.accessLevelSubmissionTextbox = new System.Windows.Forms.TextBox();
-            this.passwordSubmissionTextbox = new System.Windows.Forms.TextBox();
-            this.usernameSubmissionTextbox = new System.Windows.Forms.TextBox();
-            this.accessLevelSubmissionLbl = new System.Windows.Forms.Label();
-            this.passwordSubmissionLbl = new System.Windows.Forms.Label();
-            this.usernameSubmissionLbl = new System.Windows.Forms.Label();
-            this.lblUserViewTitle = new System.Windows.Forms.Label();
             this.sideBar1 = new WindowsFormsApp1.sideBar();
             this.usersDashboardBtn = new WindowsFormsApp1.dashboardButton();
             this.wardDashboardButton = new WindowsFormsApp1.dashboardButton();
@@ -133,6 +133,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.medSystemUserBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._291ProjectDataSet1)).BeginInit();
             this.container1.SuspendLayout();
+            this.usersView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgUsers)).BeginInit();
+            this.pnlAddUser.SuspendLayout();
             this.doctorView.SuspendLayout();
             this.pnlAddDoctor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDoctor)).BeginInit();
@@ -143,9 +146,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgDepartment)).BeginInit();
             this.wardsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgWards)).BeginInit();
-            this.usersView.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgUsers)).BeginInit();
-            this.pnlAddUser.SuspendLayout();
             this.sideBar1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -237,6 +237,169 @@
             this.container1.Size = new System.Drawing.Size(1268, 710);
             this.container1.TabIndex = 1;
             // 
+            // usersView
+            // 
+            this.usersView.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.usersView.AutoSize = true;
+            this.usersView.Controls.Add(this.dgUsers);
+            this.usersView.Controls.Add(this.pnlAddUser);
+            this.usersView.Controls.Add(this.lblUserViewTitle);
+            this.usersView.Location = new System.Drawing.Point(1, 0);
+            this.usersView.Margin = new System.Windows.Forms.Padding(4);
+            this.usersView.MaximumSize = new System.Drawing.Size(4444, 4000);
+            this.usersView.MinimumSize = new System.Drawing.Size(1139, 576);
+            this.usersView.Name = "usersView";
+            this.usersView.Size = new System.Drawing.Size(1247, 706);
+            this.usersView.TabIndex = 13;
+            // 
+            // dgUsers
+            // 
+            this.dgUsers.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dgUsers.AutoGenerateColumns = false;
+            this.dgUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgUsers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.usernameDataGridViewTextBoxColumn,
+            this.passwordDataGridViewTextBoxColumn,
+            this.accessLevelDataGridViewTextBoxColumn});
+            this.dgUsers.DataSource = this.medSystemUserBindingSource;
+            this.dgUsers.Location = new System.Drawing.Point(0, 73);
+            this.dgUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgUsers.Name = "dgUsers";
+            this.dgUsers.ReadOnly = true;
+            this.dgUsers.RowTemplate.Height = 24;
+            this.dgUsers.Size = new System.Drawing.Size(1244, 359);
+            this.dgUsers.TabIndex = 0;
+            this.dgUsers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgUsers_CellClick);
+            this.dgUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgUsers_CellContentClick);
+            // 
+            // usernameDataGridViewTextBoxColumn
+            // 
+            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
+            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
+            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // accessLevelDataGridViewTextBoxColumn
+            // 
+            this.accessLevelDataGridViewTextBoxColumn.DataPropertyName = "AccessLevel";
+            this.accessLevelDataGridViewTextBoxColumn.HeaderText = "Access Level";
+            this.accessLevelDataGridViewTextBoxColumn.Name = "accessLevelDataGridViewTextBoxColumn";
+            this.accessLevelDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pnlAddUser
+            // 
+            this.pnlAddUser.Controls.Add(this.deleteUserBtn);
+            this.pnlAddUser.Controls.Add(this.createNewUserButton);
+            this.pnlAddUser.Controls.Add(this.accessLevelSubmissionTextbox);
+            this.pnlAddUser.Controls.Add(this.passwordSubmissionTextbox);
+            this.pnlAddUser.Controls.Add(this.usernameSubmissionTextbox);
+            this.pnlAddUser.Controls.Add(this.accessLevelSubmissionLbl);
+            this.pnlAddUser.Controls.Add(this.passwordSubmissionLbl);
+            this.pnlAddUser.Controls.Add(this.usernameSubmissionLbl);
+            this.pnlAddUser.Location = new System.Drawing.Point(0, 438);
+            this.pnlAddUser.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlAddUser.Name = "pnlAddUser";
+            this.pnlAddUser.Size = new System.Drawing.Size(1239, 261);
+            this.pnlAddUser.TabIndex = 2;
+            // 
+            // deleteUserBtn
+            // 
+            this.deleteUserBtn.Location = new System.Drawing.Point(531, 11);
+            this.deleteUserBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.deleteUserBtn.Name = "deleteUserBtn";
+            this.deleteUserBtn.Size = new System.Drawing.Size(132, 28);
+            this.deleteUserBtn.TabIndex = 7;
+            this.deleteUserBtn.Text = "Delete Selected";
+            this.deleteUserBtn.UseVisualStyleBackColor = true;
+            this.deleteUserBtn.Click += new System.EventHandler(this.deleteUserBtn_Click);
+            // 
+            // createNewUserButton
+            // 
+            this.createNewUserButton.Location = new System.Drawing.Point(451, 198);
+            this.createNewUserButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.createNewUserButton.Name = "createNewUserButton";
+            this.createNewUserButton.Size = new System.Drawing.Size(292, 28);
+            this.createNewUserButton.TabIndex = 6;
+            this.createNewUserButton.Text = "Create New User";
+            this.createNewUserButton.UseVisualStyleBackColor = true;
+            this.createNewUserButton.Click += new System.EventHandler(this.createNewUserButton_Click);
+            // 
+            // accessLevelSubmissionTextbox
+            // 
+            this.accessLevelSubmissionTextbox.Location = new System.Drawing.Point(451, 155);
+            this.accessLevelSubmissionTextbox.Margin = new System.Windows.Forms.Padding(4);
+            this.accessLevelSubmissionTextbox.Name = "accessLevelSubmissionTextbox";
+            this.accessLevelSubmissionTextbox.Size = new System.Drawing.Size(291, 22);
+            this.accessLevelSubmissionTextbox.TabIndex = 5;
+            // 
+            // passwordSubmissionTextbox
+            // 
+            this.passwordSubmissionTextbox.Location = new System.Drawing.Point(451, 112);
+            this.passwordSubmissionTextbox.Margin = new System.Windows.Forms.Padding(4);
+            this.passwordSubmissionTextbox.Name = "passwordSubmissionTextbox";
+            this.passwordSubmissionTextbox.Size = new System.Drawing.Size(291, 22);
+            this.passwordSubmissionTextbox.TabIndex = 4;
+            // 
+            // usernameSubmissionTextbox
+            // 
+            this.usernameSubmissionTextbox.Location = new System.Drawing.Point(451, 69);
+            this.usernameSubmissionTextbox.Margin = new System.Windows.Forms.Padding(4);
+            this.usernameSubmissionTextbox.Name = "usernameSubmissionTextbox";
+            this.usernameSubmissionTextbox.Size = new System.Drawing.Size(291, 22);
+            this.usernameSubmissionTextbox.TabIndex = 3;
+            // 
+            // accessLevelSubmissionLbl
+            // 
+            this.accessLevelSubmissionLbl.AutoSize = true;
+            this.accessLevelSubmissionLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.accessLevelSubmissionLbl.Location = new System.Drawing.Point(356, 155);
+            this.accessLevelSubmissionLbl.Name = "accessLevelSubmissionLbl";
+            this.accessLevelSubmissionLbl.Size = new System.Drawing.Size(91, 17);
+            this.accessLevelSubmissionLbl.TabIndex = 2;
+            this.accessLevelSubmissionLbl.Text = "Access Level";
+            // 
+            // passwordSubmissionLbl
+            // 
+            this.passwordSubmissionLbl.AutoSize = true;
+            this.passwordSubmissionLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.passwordSubmissionLbl.Location = new System.Drawing.Point(379, 112);
+            this.passwordSubmissionLbl.Name = "passwordSubmissionLbl";
+            this.passwordSubmissionLbl.Size = new System.Drawing.Size(69, 17);
+            this.passwordSubmissionLbl.TabIndex = 1;
+            this.passwordSubmissionLbl.Text = "Password";
+            // 
+            // usernameSubmissionLbl
+            // 
+            this.usernameSubmissionLbl.AutoSize = true;
+            this.usernameSubmissionLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.usernameSubmissionLbl.Location = new System.Drawing.Point(373, 69);
+            this.usernameSubmissionLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.usernameSubmissionLbl.Name = "usernameSubmissionLbl";
+            this.usernameSubmissionLbl.Size = new System.Drawing.Size(73, 17);
+            this.usernameSubmissionLbl.TabIndex = 0;
+            this.usernameSubmissionLbl.Text = "Username";
+            // 
+            // lblUserViewTitle
+            // 
+            this.lblUserViewTitle.AutoSize = true;
+            this.lblUserViewTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lblUserViewTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblUserViewTitle.Location = new System.Drawing.Point(561, 4);
+            this.lblUserViewTitle.Name = "lblUserViewTitle";
+            this.lblUserViewTitle.Size = new System.Drawing.Size(76, 29);
+            this.lblUserViewTitle.TabIndex = 1;
+            this.lblUserViewTitle.Text = "Users";
+            this.lblUserViewTitle.Visible = false;
+            // 
             // doctorView
             // 
             this.doctorView.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -245,7 +408,7 @@
             this.doctorView.Controls.Add(this.lblDoctorViewTitle);
             this.doctorView.Controls.Add(this.dgDoctor);
             this.doctorView.Location = new System.Drawing.Point(0, 0);
-            this.doctorView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.doctorView.Margin = new System.Windows.Forms.Padding(4);
             this.doctorView.MaximumSize = new System.Drawing.Size(4444, 4000);
             this.doctorView.MinimumSize = new System.Drawing.Size(1139, 576);
             this.doctorView.Name = "doctorView";
@@ -266,7 +429,7 @@
             this.pnlAddDoctor.Controls.Add(this.lblDoctorLastNameInput);
             this.pnlAddDoctor.Controls.Add(this.txbDoctorLastName);
             this.pnlAddDoctor.Location = new System.Drawing.Point(0, 438);
-            this.pnlAddDoctor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlAddDoctor.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAddDoctor.Name = "pnlAddDoctor";
             this.pnlAddDoctor.Size = new System.Drawing.Size(1239, 261);
             this.pnlAddDoctor.TabIndex = 12;
@@ -285,7 +448,7 @@
             // txbDoctorDuties
             // 
             this.txbDoctorDuties.Location = new System.Drawing.Point(451, 169);
-            this.txbDoctorDuties.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbDoctorDuties.Margin = new System.Windows.Forms.Padding(4);
             this.txbDoctorDuties.Name = "txbDoctorDuties";
             this.txbDoctorDuties.Size = new System.Drawing.Size(291, 22);
             this.txbDoctorDuties.TabIndex = 12;
@@ -293,7 +456,7 @@
             // btnExpandDoctor
             // 
             this.btnExpandDoctor.Location = new System.Drawing.Point(451, 11);
-            this.btnExpandDoctor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExpandDoctor.Margin = new System.Windows.Forms.Padding(4);
             this.btnExpandDoctor.Name = "btnExpandDoctor";
             this.btnExpandDoctor.Size = new System.Drawing.Size(152, 28);
             this.btnExpandDoctor.TabIndex = 3;
@@ -304,7 +467,7 @@
             // btnDoctorSubmit
             // 
             this.btnDoctorSubmit.Location = new System.Drawing.Point(451, 201);
-            this.btnDoctorSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDoctorSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnDoctorSubmit.Name = "btnDoctorSubmit";
             this.btnDoctorSubmit.Size = new System.Drawing.Size(292, 28);
             this.btnDoctorSubmit.TabIndex = 11;
@@ -315,7 +478,7 @@
             // btnDoctorDelete
             // 
             this.btnDoctorDelete.Location = new System.Drawing.Point(611, 11);
-            this.btnDoctorDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDoctorDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDoctorDelete.Name = "btnDoctorDelete";
             this.btnDoctorDelete.Size = new System.Drawing.Size(132, 28);
             this.btnDoctorDelete.TabIndex = 4;
@@ -337,7 +500,7 @@
             // txbDoctorFirstName
             // 
             this.txbDoctorFirstName.Location = new System.Drawing.Point(451, 69);
-            this.txbDoctorFirstName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbDoctorFirstName.Margin = new System.Windows.Forms.Padding(4);
             this.txbDoctorFirstName.Name = "txbDoctorFirstName";
             this.txbDoctorFirstName.Size = new System.Drawing.Size(291, 22);
             this.txbDoctorFirstName.TabIndex = 5;
@@ -346,7 +509,7 @@
             // 
             this.cmbDoctorDepartmentSelect.FormattingEnabled = true;
             this.cmbDoctorDepartmentSelect.Location = new System.Drawing.Point(451, 134);
-            this.cmbDoctorDepartmentSelect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbDoctorDepartmentSelect.Margin = new System.Windows.Forms.Padding(4);
             this.cmbDoctorDepartmentSelect.Name = "cmbDoctorDepartmentSelect";
             this.cmbDoctorDepartmentSelect.Size = new System.Drawing.Size(291, 24);
             this.cmbDoctorDepartmentSelect.TabIndex = 9;
@@ -376,7 +539,7 @@
             // txbDoctorLastName
             // 
             this.txbDoctorLastName.Location = new System.Drawing.Point(451, 101);
-            this.txbDoctorLastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbDoctorLastName.Margin = new System.Windows.Forms.Padding(4);
             this.txbDoctorLastName.Name = "txbDoctorLastName";
             this.txbDoctorLastName.Size = new System.Drawing.Size(291, 22);
             this.txbDoctorLastName.TabIndex = 7;
@@ -460,7 +623,7 @@
             this.patientView.Controls.Add(this.lblPatientViewTitle);
             this.patientView.Controls.Add(this.dgPatient);
             this.patientView.Location = new System.Drawing.Point(4, 2);
-            this.patientView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.patientView.Margin = new System.Windows.Forms.Padding(4);
             this.patientView.MaximumSize = new System.Drawing.Size(4444, 4000);
             this.patientView.MinimumSize = new System.Drawing.Size(1139, 576);
             this.patientView.Name = "patientView";
@@ -477,7 +640,7 @@
             this.pnlAddPatient.Controls.Add(this.lblPatientLastNameTxb);
             this.pnlAddPatient.Controls.Add(this.txbPatientLastName);
             this.pnlAddPatient.Location = new System.Drawing.Point(4, 432);
-            this.pnlAddPatient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlAddPatient.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAddPatient.Name = "pnlAddPatient";
             this.pnlAddPatient.Size = new System.Drawing.Size(1239, 261);
             this.pnlAddPatient.TabIndex = 13;
@@ -485,7 +648,7 @@
             // btnExpandPatient
             // 
             this.btnExpandPatient.Location = new System.Drawing.Point(451, 11);
-            this.btnExpandPatient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExpandPatient.Margin = new System.Windows.Forms.Padding(4);
             this.btnExpandPatient.Name = "btnExpandPatient";
             this.btnExpandPatient.Size = new System.Drawing.Size(152, 28);
             this.btnExpandPatient.TabIndex = 4;
@@ -496,7 +659,7 @@
             // btnPatientSubmit
             // 
             this.btnPatientSubmit.Location = new System.Drawing.Point(451, 169);
-            this.btnPatientSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPatientSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnPatientSubmit.Name = "btnPatientSubmit";
             this.btnPatientSubmit.Size = new System.Drawing.Size(292, 28);
             this.btnPatientSubmit.TabIndex = 11;
@@ -507,7 +670,7 @@
             // btnPatientDelete
             // 
             this.btnPatientDelete.Location = new System.Drawing.Point(611, 11);
-            this.btnPatientDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPatientDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnPatientDelete.Name = "btnPatientDelete";
             this.btnPatientDelete.Size = new System.Drawing.Size(132, 28);
             this.btnPatientDelete.TabIndex = 4;
@@ -518,7 +681,7 @@
             // txbPatientFirstName
             // 
             this.txbPatientFirstName.Location = new System.Drawing.Point(451, 69);
-            this.txbPatientFirstName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbPatientFirstName.Margin = new System.Windows.Forms.Padding(4);
             this.txbPatientFirstName.Name = "txbPatientFirstName";
             this.txbPatientFirstName.Size = new System.Drawing.Size(291, 22);
             this.txbPatientFirstName.TabIndex = 5;
@@ -548,7 +711,7 @@
             // txbPatientLastName
             // 
             this.txbPatientLastName.Location = new System.Drawing.Point(451, 101);
-            this.txbPatientLastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbPatientLastName.Margin = new System.Windows.Forms.Padding(4);
             this.txbPatientLastName.Name = "txbPatientLastName";
             this.txbPatientLastName.Size = new System.Drawing.Size(291, 22);
             this.txbPatientLastName.TabIndex = 7;
@@ -663,7 +826,7 @@
             // btnDepartmentDelete
             // 
             this.btnDepartmentDelete.Location = new System.Drawing.Point(620, 449);
-            this.btnDepartmentDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDepartmentDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDepartmentDelete.Name = "btnDepartmentDelete";
             this.btnDepartmentDelete.Size = new System.Drawing.Size(132, 28);
             this.btnDepartmentDelete.TabIndex = 7;
@@ -685,7 +848,7 @@
             // btnExpandDept
             // 
             this.btnExpandDept.Location = new System.Drawing.Point(447, 449);
-            this.btnExpandDept.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExpandDept.Margin = new System.Windows.Forms.Padding(4);
             this.btnExpandDept.Name = "btnExpandDept";
             this.btnExpandDept.Size = new System.Drawing.Size(152, 28);
             this.btnExpandDept.TabIndex = 5;
@@ -740,7 +903,7 @@
             // btnWardDelete
             // 
             this.btnWardDelete.Location = new System.Drawing.Point(620, 449);
-            this.btnWardDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnWardDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnWardDelete.Name = "btnWardDelete";
             this.btnWardDelete.Size = new System.Drawing.Size(132, 28);
             this.btnWardDelete.TabIndex = 8;
@@ -762,7 +925,7 @@
             // btnExpandWard
             // 
             this.btnExpandWard.Location = new System.Drawing.Point(447, 449);
-            this.btnExpandWard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExpandWard.Margin = new System.Windows.Forms.Padding(4);
             this.btnExpandWard.Name = "btnExpandWard";
             this.btnExpandWard.Size = new System.Drawing.Size(152, 28);
             this.btnExpandWard.TabIndex = 6;
@@ -814,166 +977,6 @@
             this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
             this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             // 
-            // usersView
-            // 
-            this.usersView.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.usersView.AutoSize = true;
-            this.usersView.Controls.Add(this.dgUsers);
-            this.usersView.Controls.Add(this.pnlAddUser);
-            this.usersView.Controls.Add(this.lblUserViewTitle);
-            this.usersView.Location = new System.Drawing.Point(1, 0);
-            this.usersView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.usersView.MaximumSize = new System.Drawing.Size(4444, 4000);
-            this.usersView.MinimumSize = new System.Drawing.Size(1139, 576);
-            this.usersView.Name = "usersView";
-            this.usersView.Size = new System.Drawing.Size(1247, 706);
-            this.usersView.TabIndex = 13;
-            // 
-            // dgUsers
-            // 
-            this.dgUsers.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dgUsers.AutoGenerateColumns = false;
-            this.dgUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgUsers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.usernameDataGridViewTextBoxColumn,
-            this.passwordDataGridViewTextBoxColumn,
-            this.accessLevelDataGridViewTextBoxColumn});
-            this.dgUsers.DataSource = this.medSystemUserBindingSource;
-            this.dgUsers.Location = new System.Drawing.Point(0, 73);
-            this.dgUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgUsers.Name = "dgUsers";
-            this.dgUsers.ReadOnly = true;
-            this.dgUsers.RowTemplate.Height = 24;
-            this.dgUsers.Size = new System.Drawing.Size(1244, 359);
-            this.dgUsers.TabIndex = 0;
-            // 
-            // usernameDataGridViewTextBoxColumn
-            // 
-            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
-            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
-            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
-            this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // accessLevelDataGridViewTextBoxColumn
-            // 
-            this.accessLevelDataGridViewTextBoxColumn.DataPropertyName = "AccessLevel";
-            this.accessLevelDataGridViewTextBoxColumn.HeaderText = "Access Level";
-            this.accessLevelDataGridViewTextBoxColumn.Name = "accessLevelDataGridViewTextBoxColumn";
-            this.accessLevelDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pnlAddUser
-            // 
-            this.pnlAddUser.Controls.Add(this.deleteUserBtn);
-            this.pnlAddUser.Controls.Add(this.createNewUserButton);
-            this.pnlAddUser.Controls.Add(this.accessLevelSubmissionTextbox);
-            this.pnlAddUser.Controls.Add(this.passwordSubmissionTextbox);
-            this.pnlAddUser.Controls.Add(this.usernameSubmissionTextbox);
-            this.pnlAddUser.Controls.Add(this.accessLevelSubmissionLbl);
-            this.pnlAddUser.Controls.Add(this.passwordSubmissionLbl);
-            this.pnlAddUser.Controls.Add(this.usernameSubmissionLbl);
-            this.pnlAddUser.Location = new System.Drawing.Point(0, 438);
-            this.pnlAddUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pnlAddUser.Name = "pnlAddUser";
-            this.pnlAddUser.Size = new System.Drawing.Size(1239, 261);
-            this.pnlAddUser.TabIndex = 2;
-            // 
-            // deleteUserBtn
-            // 
-            this.deleteUserBtn.Location = new System.Drawing.Point(531, 11);
-            this.deleteUserBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.deleteUserBtn.Name = "deleteUserBtn";
-            this.deleteUserBtn.Size = new System.Drawing.Size(132, 28);
-            this.deleteUserBtn.TabIndex = 7;
-            this.deleteUserBtn.Text = "Delete Selected";
-            this.deleteUserBtn.UseVisualStyleBackColor = true;
-            // 
-            // createNewUserButton
-            // 
-            this.createNewUserButton.Location = new System.Drawing.Point(451, 198);
-            this.createNewUserButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.createNewUserButton.Name = "createNewUserButton";
-            this.createNewUserButton.Size = new System.Drawing.Size(292, 28);
-            this.createNewUserButton.TabIndex = 6;
-            this.createNewUserButton.Text = "Create New User";
-            this.createNewUserButton.UseVisualStyleBackColor = true;
-            this.createNewUserButton.Click += new System.EventHandler(this.createNewUserButton_Click);
-            // 
-            // accessLevelSubmissionTextbox
-            // 
-            this.accessLevelSubmissionTextbox.Location = new System.Drawing.Point(451, 155);
-            this.accessLevelSubmissionTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.accessLevelSubmissionTextbox.Name = "accessLevelSubmissionTextbox";
-            this.accessLevelSubmissionTextbox.Size = new System.Drawing.Size(291, 22);
-            this.accessLevelSubmissionTextbox.TabIndex = 5;
-            // 
-            // passwordSubmissionTextbox
-            // 
-            this.passwordSubmissionTextbox.Location = new System.Drawing.Point(451, 112);
-            this.passwordSubmissionTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.passwordSubmissionTextbox.Name = "passwordSubmissionTextbox";
-            this.passwordSubmissionTextbox.Size = new System.Drawing.Size(291, 22);
-            this.passwordSubmissionTextbox.TabIndex = 4;
-            // 
-            // usernameSubmissionTextbox
-            // 
-            this.usernameSubmissionTextbox.Location = new System.Drawing.Point(451, 69);
-            this.usernameSubmissionTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.usernameSubmissionTextbox.Name = "usernameSubmissionTextbox";
-            this.usernameSubmissionTextbox.Size = new System.Drawing.Size(291, 22);
-            this.usernameSubmissionTextbox.TabIndex = 3;
-            // 
-            // accessLevelSubmissionLbl
-            // 
-            this.accessLevelSubmissionLbl.AutoSize = true;
-            this.accessLevelSubmissionLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.accessLevelSubmissionLbl.Location = new System.Drawing.Point(356, 155);
-            this.accessLevelSubmissionLbl.Name = "accessLevelSubmissionLbl";
-            this.accessLevelSubmissionLbl.Size = new System.Drawing.Size(91, 17);
-            this.accessLevelSubmissionLbl.TabIndex = 2;
-            this.accessLevelSubmissionLbl.Text = "Access Level";
-            // 
-            // passwordSubmissionLbl
-            // 
-            this.passwordSubmissionLbl.AutoSize = true;
-            this.passwordSubmissionLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.passwordSubmissionLbl.Location = new System.Drawing.Point(379, 112);
-            this.passwordSubmissionLbl.Name = "passwordSubmissionLbl";
-            this.passwordSubmissionLbl.Size = new System.Drawing.Size(69, 17);
-            this.passwordSubmissionLbl.TabIndex = 1;
-            this.passwordSubmissionLbl.Text = "Password";
-            // 
-            // usernameSubmissionLbl
-            // 
-            this.usernameSubmissionLbl.AutoSize = true;
-            this.usernameSubmissionLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.usernameSubmissionLbl.Location = new System.Drawing.Point(373, 69);
-            this.usernameSubmissionLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.usernameSubmissionLbl.Name = "usernameSubmissionLbl";
-            this.usernameSubmissionLbl.Size = new System.Drawing.Size(73, 17);
-            this.usernameSubmissionLbl.TabIndex = 0;
-            this.usernameSubmissionLbl.Text = "Username";
-            // 
-            // lblUserViewTitle
-            // 
-            this.lblUserViewTitle.AutoSize = true;
-            this.lblUserViewTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lblUserViewTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblUserViewTitle.Location = new System.Drawing.Point(561, 4);
-            this.lblUserViewTitle.Name = "lblUserViewTitle";
-            this.lblUserViewTitle.Size = new System.Drawing.Size(76, 29);
-            this.lblUserViewTitle.TabIndex = 1;
-            this.lblUserViewTitle.Text = "Users";
-            this.lblUserViewTitle.Visible = false;
-            // 
             // sideBar1
             // 
             this.sideBar1.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -987,7 +990,7 @@
             this.sideBar1.Controls.Add(this.btnDoctorView);
             this.sideBar1.Controls.Add(this.btnPatientView);
             this.sideBar1.Location = new System.Drawing.Point(0, 0);
-            this.sideBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sideBar1.Margin = new System.Windows.Forms.Padding(4);
             this.sideBar1.MaximumSize = new System.Drawing.Size(289, 1152);
             this.sideBar1.Name = "sideBar1";
             this.sideBar1.Size = new System.Drawing.Size(289, 692);
@@ -1053,7 +1056,7 @@
             this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.ForeColor = System.Drawing.SystemColors.InfoText;
             this.backButton.Location = new System.Drawing.Point(219, 660);
-            this.backButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backButton.Margin = new System.Windows.Forms.Padding(4);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(56, 28);
             this.backButton.TabIndex = 2;
@@ -1119,7 +1122,7 @@
             this.ClientSize = new System.Drawing.Size(1543, 702);
             this.Controls.Add(this.container1);
             this.Controls.Add(this.sideBar1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "dashboard";
             this.Text = "Hospital Database";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.dashboard_FormClosing);
@@ -1134,6 +1137,11 @@
             ((System.ComponentModel.ISupportInitialize)(this._291ProjectDataSet1)).EndInit();
             this.container1.ResumeLayout(false);
             this.container1.PerformLayout();
+            this.usersView.ResumeLayout(false);
+            this.usersView.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgUsers)).EndInit();
+            this.pnlAddUser.ResumeLayout(false);
+            this.pnlAddUser.PerformLayout();
             this.doctorView.ResumeLayout(false);
             this.doctorView.PerformLayout();
             this.pnlAddDoctor.ResumeLayout(false);
@@ -1150,11 +1158,6 @@
             this.wardsPanel.ResumeLayout(false);
             this.wardsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgWards)).EndInit();
-            this.usersView.ResumeLayout(false);
-            this.usersView.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgUsers)).EndInit();
-            this.pnlAddUser.ResumeLayout(false);
-            this.pnlAddUser.PerformLayout();
             this.sideBar1.ResumeLayout(false);
             this.sideBar1.PerformLayout();
             this.ResumeLayout(false);

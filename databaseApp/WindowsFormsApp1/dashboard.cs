@@ -302,6 +302,18 @@ namespace WindowsFormsApp1
             if (e.RowIndex >= 0)
                 selectedRow = e.RowIndex;
         }
+        private void dgUsers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+                selectedRow = e.RowIndex;
+        }
+
+        private void dgUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+                selectedRow = e.RowIndex;
+        }
+
 
         private void btnDoctorSubmit_Click(object sender, EventArgs e)
         {
@@ -496,8 +508,6 @@ namespace WindowsFormsApp1
 
             SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
             conn.Open();
-            conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
-            conn.Open();
             SqlCommand comm = new SqlCommand(insert_user_query, conn);
             comm.ExecuteNonQuery();
             conn.Close();
@@ -512,5 +522,27 @@ namespace WindowsFormsApp1
             passwordSubmissionTextbox.Text = String.Empty;
             accessLevelSubmissionTextbox.Text = String.Empty;
         }
+
+        private void deleteUserBtn_Click(object sender, EventArgs e)
+        {
+            if (selectedRow < 0)
+                return;
+            //usernameSubmissionLbl.Text = dgUsers.Rows[selectedRow].Cells[2].Value.ToString();
+            string deleted_user = dgUsers.Rows[selectedRow].Cells[0].Value.ToString();
+            string delete_query = "DELETE from MedSystemUser where Username = '" + deleted_user + "'";
+            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            conn.Open();
+            SqlCommand comm = new SqlCommand(delete_query, conn);
+            comm.ExecuteNonQuery();
+            conn.Close();
+
+            userBindingSource.ResetBindings(false);
+            this.medSystemUserTableAdapter.Fill(this._291ProjectDataSet1.MedSystemUser);
+            dgUsers.Refresh();
+            string msg = "User " + deleted_user + " successfully deleted.";
+            MessageBox.Show(msg);
+        }
+
+        
     }
 }
