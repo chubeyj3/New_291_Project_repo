@@ -26,7 +26,7 @@ for row in rows:
     "country" : fake.country(),
     "state" : fake.state(),
    "city" : fake.city(),
-    "street" : fake.random_number(),
+    "street" : fake.address(),
     "postal": fake.postalcode()}
 
     for k, v in update.items():
@@ -121,4 +121,31 @@ for i in range(len(newvals)):
     print(value)
     thisRow = cur.execute("update Department set Name=? where DepartmentID=?", value["name"], value["id"])
 
+newvals = []
+rows = cur.execute('SELECT * FROM PatientContactInfo')
+i = 1
+for row in rows:
+    print(row)
+    update = {
+    "id" : row.PID,
+    "email" : fake.email()
+    }
+    i += 1
+
+    for k, v in update.items():
+
+        try:
+            if(len(v) >= 23):
+                update[k] = v[0:24]
+        except:
+            continue
+
+    newvals.append(update)
+
+for i in range(len(newvals)):
+    value = newvals[i]
+    print(value)
+    thisRow = cur.execute("update PatientContactInfo set Contact=? where PID=?", value["email"], value["id"])
+
 cnxn.commit()
+
