@@ -520,11 +520,17 @@ namespace WindowsFormsApp1
 
         private void createNewUserButton_Click(object sender, EventArgs e)
         {
+            string accessLevel = "2";
+            if(accessLevelSubmissionTextbox.Text == "1")
+            {
+                accessLevel = "1";
+
+            }
 
             string insert_user_query = "INSERT INTO MedSystemUser Values ('"
                 + sanitizeQuery(usernameSubmissionTextbox.Text) + "', '"
                 + sanitizeQuery(passwordSubmissionTextbox.Text) + "', '"
-                + accessLevelSubmissionTextbox.Text.ToString() + "')";
+                + accessLevel + "')";
 
             SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
             conn.Open();
