@@ -525,22 +525,30 @@ namespace WindowsFormsApp1
 
         private void deleteUserBtn_Click(object sender, EventArgs e)
         {
+            string msg;
             if (selectedRow < 0)
                 return;
             //usernameSubmissionLbl.Text = dgUsers.Rows[selectedRow].Cells[2].Value.ToString();
-            string deleted_user = dgUsers.Rows[selectedRow].Cells[0].Value.ToString();
-            string delete_query = "DELETE from MedSystemUser where Username = '" + deleted_user + "'";
-            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
-            conn.Open();
-            SqlCommand comm = new SqlCommand(delete_query, conn);
-            comm.ExecuteNonQuery();
-            conn.Close();
+            try
+            {
+                string deleted_user = dgUsers.Rows[selectedRow].Cells[0].Value.ToString();
+                string delete_query = "DELETE from MedSystemUser where Username = '" + deleted_user + "'";
+                SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+                conn.Open();
+                SqlCommand comm = new SqlCommand(delete_query, conn);
+                comm.ExecuteNonQuery();
+                conn.Close();
 
-            userBindingSource.ResetBindings(false);
-            this.medSystemUserTableAdapter.Fill(this._291ProjectDataSet1.MedSystemUser);
-            dgUsers.Refresh();
-            string msg = "User " + deleted_user + " successfully deleted.";
-            MessageBox.Show(msg);
+                userBindingSource.ResetBindings(false);
+                this.medSystemUserTableAdapter.Fill(this._291ProjectDataSet1.MedSystemUser);
+                dgUsers.Refresh();
+                msg = "User " + deleted_user + " successfully deleted.";
+                MessageBox.Show(msg);
+            } catch (NullReferenceException) {
+                msg = "No user selected. Please select a user and try again.";
+                MessageBox.Show(msg);
+            };
+            
         }
 
         
