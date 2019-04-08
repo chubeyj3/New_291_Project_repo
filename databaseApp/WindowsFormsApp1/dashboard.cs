@@ -442,7 +442,7 @@ namespace WindowsFormsApp1
 
         private void btnDoctorDelete_Click(object sender, EventArgs e)
         {
-            //TODO: not sure how to delete the doctor entry since Consultant's foreign key references it
+            
             if (selectedRow < 0)
                 return;
             string child_delete = "DELETE from Consultant where DoctorID = " + dgDoctor.Rows[selectedRow].Cells[0].Value.ToString(); 
@@ -464,7 +464,18 @@ namespace WindowsFormsApp1
 
         private void btnPatientDelete_Click(object sender, EventArgs e)
         {
-            //TODO: The same as above, but sql modified for patients
+            
+            if (selectedRow < 0)
+                return;
+            // TODO: Like above. Delete all foreign key references first, then delete the patient itself
+
+            string final_delete = "DELETE from Patient where PID = " + dgPatient.Rows[selectedRow].Cells[0].Value.ToString();
+
+            patientBindingSource.ResetBindings(false);
+            this.patientTableAdapter.Fill(this._291ProjectDataSet.Patient);
+            dgPatient.Refresh();
+            string msg = "Patient " + dgPatient.Rows[selectedRow].Cells[1].Value.ToString() + " " + dgPatient.Rows[selectedRow].Cells[2].Value.ToString() + " successfully deleted.";
+            MessageBox.Show(msg);
         }
     }
 }
