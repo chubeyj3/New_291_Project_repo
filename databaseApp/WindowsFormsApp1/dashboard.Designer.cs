@@ -223,10 +223,10 @@
             // 
             this.container1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.container1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(61)))));
-            this.container1.Controls.Add(this.wardsPanel);
             this.container1.Controls.Add(this.doctorView);
             this.container1.Controls.Add(this.patientView);
             this.container1.Controls.Add(this.departmentPanel);
+            this.container1.Controls.Add(this.wardsPanel);
             this.container1.Controls.Add(this.usersView);
             this.container1.Location = new System.Drawing.Point(292, 0);
             this.container1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
