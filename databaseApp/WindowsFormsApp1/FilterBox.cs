@@ -68,7 +68,16 @@ namespace WindowsFormsApp1
             {
                 return String.Empty;
             }
-            this.filter = this.table.Columns[this.column].HeaderText.ToString() + " LIKE '%" + Text + "%'";
+
+            string search = String.Empty;
+            foreach(char c in Text)
+            {
+                if (char.IsLetterOrDigit(c))
+                {
+                    search += c;
+                }
+            }
+            this.filter = this.table.Columns[this.column].HeaderText.ToString() + " LIKE '%" + search + "%'";
             return this.filter;
         }
 
