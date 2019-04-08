@@ -26,7 +26,12 @@ namespace CMPT_291_Login_Page
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if(isValidUser())
+            login();
+        }
+
+        private void login()
+        {
+            if (isValidUser())
             {
                 var dash = new WindowsFormsApp1.dashboard();
                 dash.Show();
@@ -38,7 +43,13 @@ namespace CMPT_291_Login_Page
         {
             //TODO: Actually do login functionality here
             db = new DBManager(WindowsFormsApp1.Properties.Settings.Default._291ProjectConnectionString);
-            reader = db.query("SELECT * FROM MedSystemUser;");
+            try
+            {
+                reader = db.query("SELECT * FROM MedSystemUser;");
+            }
+            catch (System.InvalidOperationException e){
+                Application.Exit();
+            }
             while (reader.Read())
             {
                 if(reader.GetString(0) == this.usernameTextbox.Text && reader.GetString(1) == this.passwordTextbox.Text)
@@ -62,6 +73,14 @@ namespace CMPT_291_Login_Page
         private void LoginForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void LoginForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                login();
+            }
         }
     }
 }

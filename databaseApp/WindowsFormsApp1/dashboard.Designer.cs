@@ -38,11 +38,16 @@
             this.wardTableAdapter = new WindowsFormsApp1._291ProjectDataSetTableAdapters.WardTableAdapter();
             this.departmentTableAdapter = new WindowsFormsApp1._291ProjectDataSetTableAdapters.DepartmentTableAdapter();
             this.doctorTableAdapter = new WindowsFormsApp1._291ProjectDataSetTableAdapters.DoctorTableAdapter();
+
+            this.patientContactInfoTableAdapter1 = new WindowsFormsApp1._291ProjectDataSetTableAdapters.PatientContactInfoTableAdapter();
+            this.patientContactInfoTableAdapter2 = new WindowsFormsApp1._291ProjectDataSetTableAdapters.PatientContactInfoTableAdapter();
+
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userTableAdapter = new WindowsFormsApp1._291ProjectDataSetTableAdapters.UserTableAdapter();
             this.medSystemUserBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._291ProjectDataSet1 = new WindowsFormsApp1._291ProjectDataSet1();
             this.medSystemUserTableAdapter = new WindowsFormsApp1._291ProjectDataSet1TableAdapters.MedSystemUserTableAdapter();
+
             this.container1 = new WindowsFormsApp1.container();
             this.usersView = new WindowsFormsApp1.query_panel();
             this.dgUsers = new System.Windows.Forms.DataGridView();
@@ -188,6 +193,15 @@
             // 
             this.doctorTableAdapter.ClearBeforeFill = true;
             // 
+
+            // patientContactInfoTableAdapter1
+            // 
+            this.patientContactInfoTableAdapter1.ClearBeforeFill = true;
+            // 
+            // patientContactInfoTableAdapter2
+            // 
+            this.patientContactInfoTableAdapter2.ClearBeforeFill = true;
+
             // userBindingSource
             // 
             this.userBindingSource.DataMember = "User";
@@ -210,6 +224,7 @@
             // medSystemUserTableAdapter
             // 
             this.medSystemUserTableAdapter.ClearBeforeFill = true;
+
             // 
             // container1
             // 
@@ -414,29 +429,35 @@
             this.pnlAddDoctor.Controls.Add(this.lblDoctorFirstNameInput);
             this.pnlAddDoctor.Controls.Add(this.lblDoctorLastNameInput);
             this.pnlAddDoctor.Controls.Add(this.txbDoctorLastName);
+
             this.pnlAddDoctor.Location = new System.Drawing.Point(0, 438);
             this.pnlAddDoctor.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAddDoctor.Name = "pnlAddDoctor";
             this.pnlAddDoctor.Size = new System.Drawing.Size(1239, 261);
+
             this.pnlAddDoctor.TabIndex = 12;
             // 
             // lblDoctorDuties
             // 
             this.lblDoctorDuties.AutoSize = true;
             this.lblDoctorDuties.ForeColor = System.Drawing.SystemColors.ButtonFace;
+
             this.lblDoctorDuties.Location = new System.Drawing.Point(367, 172);
             this.lblDoctorDuties.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDoctorDuties.Name = "lblDoctorDuties";
             this.lblDoctorDuties.Size = new System.Drawing.Size(48, 17);
+
             this.lblDoctorDuties.TabIndex = 13;
             this.lblDoctorDuties.Text = "Duties";
             // 
             // txbDoctorDuties
             // 
+
             this.txbDoctorDuties.Location = new System.Drawing.Point(451, 169);
             this.txbDoctorDuties.Margin = new System.Windows.Forms.Padding(4);
             this.txbDoctorDuties.Name = "txbDoctorDuties";
             this.txbDoctorDuties.Size = new System.Drawing.Size(291, 22);
+
             this.txbDoctorDuties.TabIndex = 12;
             // 
             // btnExpandDoctor
@@ -452,10 +473,12 @@
             // 
             // btnDoctorSubmit
             // 
+
             this.btnDoctorSubmit.Location = new System.Drawing.Point(451, 201);
             this.btnDoctorSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnDoctorSubmit.Name = "btnDoctorSubmit";
             this.btnDoctorSubmit.Size = new System.Drawing.Size(292, 28);
+
             this.btnDoctorSubmit.TabIndex = 11;
             this.btnDoctorSubmit.Text = "Create New Doctor";
             this.btnDoctorSubmit.UseVisualStyleBackColor = true;
@@ -463,10 +486,12 @@
             // 
             // btnDoctorDelete
             // 
+
             this.btnDoctorDelete.Location = new System.Drawing.Point(611, 11);
             this.btnDoctorDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDoctorDelete.Name = "btnDoctorDelete";
             this.btnDoctorDelete.Size = new System.Drawing.Size(132, 28);
+
             this.btnDoctorDelete.TabIndex = 4;
             this.btnDoctorDelete.Text = "Delete Selected";
             this.btnDoctorDelete.UseVisualStyleBackColor = true;
@@ -475,38 +500,46 @@
             // 
             this.lblDoctorDepartmentSelect.AutoSize = true;
             this.lblDoctorDepartmentSelect.ForeColor = System.Drawing.SystemColors.ButtonFace;
+
             this.lblDoctorDepartmentSelect.Location = new System.Drawing.Point(365, 138);
             this.lblDoctorDepartmentSelect.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDoctorDepartmentSelect.Name = "lblDoctorDepartmentSelect";
             this.lblDoctorDepartmentSelect.Size = new System.Drawing.Size(82, 17);
+
             this.lblDoctorDepartmentSelect.TabIndex = 10;
             this.lblDoctorDepartmentSelect.Text = "Department";
             // 
             // txbDoctorFirstName
             // 
+
             this.txbDoctorFirstName.Location = new System.Drawing.Point(451, 69);
             this.txbDoctorFirstName.Margin = new System.Windows.Forms.Padding(4);
             this.txbDoctorFirstName.Name = "txbDoctorFirstName";
             this.txbDoctorFirstName.Size = new System.Drawing.Size(291, 22);
+
             this.txbDoctorFirstName.TabIndex = 5;
             // 
             // cmbDoctorDepartmentSelect
             // 
             this.cmbDoctorDepartmentSelect.FormattingEnabled = true;
+
             this.cmbDoctorDepartmentSelect.Location = new System.Drawing.Point(451, 134);
             this.cmbDoctorDepartmentSelect.Margin = new System.Windows.Forms.Padding(4);
             this.cmbDoctorDepartmentSelect.Name = "cmbDoctorDepartmentSelect";
             this.cmbDoctorDepartmentSelect.Size = new System.Drawing.Size(291, 24);
+
             this.cmbDoctorDepartmentSelect.TabIndex = 9;
             // 
             // lblDoctorFirstNameInput
             // 
             this.lblDoctorFirstNameInput.AutoSize = true;
             this.lblDoctorFirstNameInput.ForeColor = System.Drawing.SystemColors.ButtonFace;
+
             this.lblDoctorFirstNameInput.Location = new System.Drawing.Point(367, 73);
             this.lblDoctorFirstNameInput.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDoctorFirstNameInput.Name = "lblDoctorFirstNameInput";
             this.lblDoctorFirstNameInput.Size = new System.Drawing.Size(76, 17);
+
             this.lblDoctorFirstNameInput.TabIndex = 6;
             this.lblDoctorFirstNameInput.Text = "First Name";
             // 
@@ -514,19 +547,23 @@
             // 
             this.lblDoctorLastNameInput.AutoSize = true;
             this.lblDoctorLastNameInput.ForeColor = System.Drawing.SystemColors.ButtonFace;
+
             this.lblDoctorLastNameInput.Location = new System.Drawing.Point(367, 105);
             this.lblDoctorLastNameInput.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDoctorLastNameInput.Name = "lblDoctorLastNameInput";
             this.lblDoctorLastNameInput.Size = new System.Drawing.Size(76, 17);
+
             this.lblDoctorLastNameInput.TabIndex = 8;
             this.lblDoctorLastNameInput.Text = "Last Name";
             // 
             // txbDoctorLastName
             // 
+
             this.txbDoctorLastName.Location = new System.Drawing.Point(451, 101);
             this.txbDoctorLastName.Margin = new System.Windows.Forms.Padding(4);
             this.txbDoctorLastName.Name = "txbDoctorLastName";
             this.txbDoctorLastName.Size = new System.Drawing.Size(291, 22);
+
             this.txbDoctorLastName.TabIndex = 7;
             // 
             // lblDoctorViewTitle
@@ -559,8 +596,11 @@
             this.dgDoctor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgDoctor.Name = "dgDoctor";
             this.dgDoctor.ReadOnly = true;
+            this.dgDoctor.RowHeadersVisible = false;
             this.dgDoctor.RowTemplate.Height = 28;
+
             this.dgDoctor.Size = new System.Drawing.Size(1244, 359);
+
             this.dgDoctor.TabIndex = 1;
             this.dgDoctor.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgDoctor_CellClick);
             // 
@@ -623,18 +663,22 @@
             this.pnlAddPatient.Controls.Add(this.lblPatientFirstNameTxb);
             this.pnlAddPatient.Controls.Add(this.lblPatientLastNameTxb);
             this.pnlAddPatient.Controls.Add(this.txbPatientLastName);
+
             this.pnlAddPatient.Location = new System.Drawing.Point(4, 432);
             this.pnlAddPatient.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAddPatient.Name = "pnlAddPatient";
             this.pnlAddPatient.Size = new System.Drawing.Size(1239, 261);
+
             this.pnlAddPatient.TabIndex = 13;
             // 
             // btnExpandPatient
             // 
+
             this.btnExpandPatient.Location = new System.Drawing.Point(451, 11);
             this.btnExpandPatient.Margin = new System.Windows.Forms.Padding(4);
             this.btnExpandPatient.Name = "btnExpandPatient";
             this.btnExpandPatient.Size = new System.Drawing.Size(152, 28);
+
             this.btnExpandPatient.TabIndex = 4;
             this.btnExpandPatient.Text = "Expand Selection";
             this.btnExpandPatient.UseVisualStyleBackColor = true;
@@ -642,40 +686,48 @@
             // 
             // btnPatientSubmit
             // 
+
             this.btnPatientSubmit.Location = new System.Drawing.Point(451, 169);
             this.btnPatientSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnPatientSubmit.Name = "btnPatientSubmit";
             this.btnPatientSubmit.Size = new System.Drawing.Size(292, 28);
+
             this.btnPatientSubmit.TabIndex = 11;
             this.btnPatientSubmit.Text = "Create New Doctor";
             this.btnPatientSubmit.UseVisualStyleBackColor = true;
             // 
             // btnPatientDelete
             // 
+
             this.btnPatientDelete.Location = new System.Drawing.Point(611, 11);
             this.btnPatientDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnPatientDelete.Name = "btnPatientDelete";
             this.btnPatientDelete.Size = new System.Drawing.Size(132, 28);
+
             this.btnPatientDelete.TabIndex = 4;
             this.btnPatientDelete.Text = "Delete Selected";
             this.btnPatientDelete.UseVisualStyleBackColor = true;
             // 
             // txbPatientFirstName
             // 
+
             this.txbPatientFirstName.Location = new System.Drawing.Point(451, 69);
             this.txbPatientFirstName.Margin = new System.Windows.Forms.Padding(4);
             this.txbPatientFirstName.Name = "txbPatientFirstName";
             this.txbPatientFirstName.Size = new System.Drawing.Size(291, 22);
+
             this.txbPatientFirstName.TabIndex = 5;
             // 
             // lblPatientFirstNameTxb
             // 
             this.lblPatientFirstNameTxb.AutoSize = true;
             this.lblPatientFirstNameTxb.ForeColor = System.Drawing.SystemColors.ButtonFace;
+
             this.lblPatientFirstNameTxb.Location = new System.Drawing.Point(367, 73);
             this.lblPatientFirstNameTxb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPatientFirstNameTxb.Name = "lblPatientFirstNameTxb";
             this.lblPatientFirstNameTxb.Size = new System.Drawing.Size(76, 17);
+
             this.lblPatientFirstNameTxb.TabIndex = 6;
             this.lblPatientFirstNameTxb.Text = "First Name";
             // 
@@ -683,19 +735,23 @@
             // 
             this.lblPatientLastNameTxb.AutoSize = true;
             this.lblPatientLastNameTxb.ForeColor = System.Drawing.SystemColors.ButtonFace;
+
             this.lblPatientLastNameTxb.Location = new System.Drawing.Point(367, 105);
             this.lblPatientLastNameTxb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPatientLastNameTxb.Name = "lblPatientLastNameTxb";
             this.lblPatientLastNameTxb.Size = new System.Drawing.Size(76, 17);
+
             this.lblPatientLastNameTxb.TabIndex = 8;
             this.lblPatientLastNameTxb.Text = "Last Name";
             // 
             // txbPatientLastName
             // 
+
             this.txbPatientLastName.Location = new System.Drawing.Point(451, 101);
             this.txbPatientLastName.Margin = new System.Windows.Forms.Padding(4);
             this.txbPatientLastName.Name = "txbPatientLastName";
             this.txbPatientLastName.Size = new System.Drawing.Size(291, 22);
+
             this.txbPatientLastName.TabIndex = 7;
             // 
             // lblPatientViewTitle
@@ -731,6 +787,7 @@
             this.dgPatient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgPatient.Name = "dgPatient";
             this.dgPatient.ReadOnly = true;
+            this.dgPatient.RowHeadersVisible = false;
             this.dgPatient.RowTemplate.Height = 28;
             this.dgPatient.Size = new System.Drawing.Size(1244, 361);
             this.dgPatient.TabIndex = 0;
@@ -806,10 +863,12 @@
             // 
             // btnDepartmentDelete
             // 
+
             this.btnDepartmentDelete.Location = new System.Drawing.Point(633, 438);
             this.btnDepartmentDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDepartmentDelete.Name = "btnDepartmentDelete";
             this.btnDepartmentDelete.Size = new System.Drawing.Size(132, 28);
+
             this.btnDepartmentDelete.TabIndex = 7;
             this.btnDepartmentDelete.Text = "Delete Selected";
             this.btnDepartmentDelete.UseVisualStyleBackColor = true;
@@ -819,17 +878,21 @@
             this.lblDepartmentViewTitle.AutoSize = true;
             this.lblDepartmentViewTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.lblDepartmentViewTitle.ForeColor = System.Drawing.SystemColors.Control;
+
             this.lblDepartmentViewTitle.Location = new System.Drawing.Point(563, 11);
             this.lblDepartmentViewTitle.Name = "lblDepartmentViewTitle";
             this.lblDepartmentViewTitle.Size = new System.Drawing.Size(138, 29);
+
             this.lblDepartmentViewTitle.TabIndex = 6;
             this.lblDepartmentViewTitle.Text = "Department";
             this.lblDepartmentViewTitle.Visible = false;
             // 
             // btnExpandDept
             // 
+
             this.btnExpandDept.Location = new System.Drawing.Point(12, 438);
             this.btnExpandDept.Margin = new System.Windows.Forms.Padding(4);
+
             this.btnExpandDept.Name = "btnExpandDept";
             this.btnExpandDept.Size = new System.Drawing.Size(152, 28);
             this.btnExpandDept.TabIndex = 5;
@@ -883,10 +946,12 @@
             // 
             // btnWardDelete
             // 
+
             this.btnWardDelete.Location = new System.Drawing.Point(631, 438);
             this.btnWardDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnWardDelete.Name = "btnWardDelete";
             this.btnWardDelete.Size = new System.Drawing.Size(132, 28);
+
             this.btnWardDelete.TabIndex = 8;
             this.btnWardDelete.Text = "Delete Selected";
             this.btnWardDelete.UseVisualStyleBackColor = true;
@@ -896,17 +961,21 @@
             this.lblWardsViewTitle.AutoSize = true;
             this.lblWardsViewTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.lblWardsViewTitle.ForeColor = System.Drawing.SystemColors.Control;
+
             this.lblWardsViewTitle.Location = new System.Drawing.Point(560, 11);
             this.lblWardsViewTitle.Name = "lblWardsViewTitle";
             this.lblWardsViewTitle.Size = new System.Drawing.Size(82, 29);
             this.lblWardsViewTitle.TabIndex = 7;
             this.lblWardsViewTitle.Text = "Wards";
+
             this.lblWardsViewTitle.Visible = false;
             // 
             // btnExpandWard
             // 
+
             this.btnExpandWard.Location = new System.Drawing.Point(109, 7);
             this.btnExpandWard.Margin = new System.Windows.Forms.Padding(4);
+
             this.btnExpandWard.Name = "btnExpandWard";
             this.btnExpandWard.Size = new System.Drawing.Size(152, 28);
             this.btnExpandWard.TabIndex = 6;
@@ -974,7 +1043,9 @@
             this.sideBar1.Margin = new System.Windows.Forms.Padding(4);
             this.sideBar1.MaximumSize = new System.Drawing.Size(289, 1152);
             this.sideBar1.Name = "sideBar1";
+
             this.sideBar1.Size = new System.Drawing.Size(289, 692);
+
             this.sideBar1.TabIndex = 0;
             this.sideBar1.Paint += new System.Windows.Forms.PaintEventHandler(this.sideBar1_Paint);
             // 
@@ -1221,6 +1292,9 @@
         private System.Windows.Forms.ComboBox cmbDoctorDepartmentSelect;
         private System.Windows.Forms.Label lblDoctorDuties;
         private System.Windows.Forms.TextBox txbDoctorDuties;
+
+        private _291ProjectDataSetTableAdapters.PatientContactInfoTableAdapter patientContactInfoTableAdapter1;
+        private _291ProjectDataSetTableAdapters.PatientContactInfoTableAdapter patientContactInfoTableAdapter2;
         private query_panel usersView;
         private System.Windows.Forms.DataGridView dgUsers;
         private System.Windows.Forms.Panel pnlAddUser;
@@ -1242,6 +1316,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button deleteUserBtn;
         private System.Windows.Forms.Button createNewUserButton;
+
     }
 }
 

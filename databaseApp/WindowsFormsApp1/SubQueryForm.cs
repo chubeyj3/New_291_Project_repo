@@ -40,7 +40,9 @@ namespace WindowsFormsApp1
             dgv.DataSource = bind;
             dgv.Width = query_panel1.Width;
             dgv.Height = query_panel1.Height;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv.AutoResizeColumns();
+
             query_panel1.Controls.Add(dgv);
         }
 
