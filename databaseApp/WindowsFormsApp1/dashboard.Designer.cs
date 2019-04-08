@@ -314,6 +314,7 @@
             this.btnDoctorDelete.TabIndex = 4;
             this.btnDoctorDelete.Text = "Delete Selected";
             this.btnDoctorDelete.UseVisualStyleBackColor = true;
+            this.btnDoctorDelete.Click += new System.EventHandler(this.btnDoctorDelete_Click);
             // 
             // lblDoctorDepartmentSelect
             // 
@@ -495,6 +496,7 @@
             this.btnPatientDelete.TabIndex = 4;
             this.btnPatientDelete.Text = "Delete Selected";
             this.btnPatientDelete.UseVisualStyleBackColor = true;
+            this.btnPatientDelete.Click += new System.EventHandler(this.btnPatientDelete_Click);
             // 
             // txbPatientFirstName
             // 

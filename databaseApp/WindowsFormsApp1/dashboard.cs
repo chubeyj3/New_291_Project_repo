@@ -439,5 +439,32 @@ namespace WindowsFormsApp1
 
 
         }
+
+        private void btnDoctorDelete_Click(object sender, EventArgs e)
+        {
+            //TODO: not sure how to delete the doctor entry since Consultant's foreign key references it
+            if (selectedRow < 0)
+                return;
+            string child_delete = "DELETE from Consultant where DoctorID = " + dgDoctor.Rows[selectedRow].Cells[0].Value.ToString(); 
+            string delete_query = "DELETE from Doctor where DoctorID = " + dgDoctor.Rows[selectedRow].Cells[0].Value.ToString();
+            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            conn.Open();
+            SqlCommand comm = new SqlCommand(child_delete, conn);
+            comm.ExecuteNonQuery();
+            SqlCommand comm2 = new SqlCommand(delete_query, conn);
+            comm2.ExecuteNonQuery();
+            conn.Close();
+
+            doctorBindingSource.ResetBindings(false);
+            this.doctorTableAdapter.Fill(this._291ProjectDataSet.Doctor);
+            dgDoctor.Refresh();
+            string msg = "Doctor " + dgDoctor.Rows[selectedRow].Cells[1].Value.ToString() + " " + dgDoctor.Rows[selectedRow].Cells[2].Value.ToString() + " successfully deleted.";
+            MessageBox.Show(msg);
+        }
+
+        private void btnPatientDelete_Click(object sender, EventArgs e)
+        {
+            //TODO: The same as above, but sql modified for patients
+        }
     }
 }
