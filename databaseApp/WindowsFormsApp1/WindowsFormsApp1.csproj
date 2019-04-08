@@ -107,6 +107,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_291ProjectDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_291ProjectDataSetUpdated.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_291ProjectDataSetUpdated.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,6 +158,17 @@
     </None>
     <None Include="_291ProjectDataSet.xss">
       <DependentUpon>_291ProjectDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_291ProjectDataSetUpdated.xsc">
+      <DependentUpon>_291ProjectDataSetUpdated.xsd</DependentUpon>
+    </None>
+    <None Include="_291ProjectDataSetUpdated.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_291ProjectDataSetUpdated.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_291ProjectDataSetUpdated.xss">
+      <DependentUpon>_291ProjectDataSetUpdated.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

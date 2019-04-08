@@ -112,6 +112,10 @@ namespace WindowsFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the '_291ProjectDataSet1.MedSystemUser' table. You can move, or remove it, as needed.
+            this.medSystemUserTableAdapter.Fill(this._291ProjectDataSet1.MedSystemUser);
+            // TODO: This line of code loads data into the '_291ProjectDataSet.User' table. You can move, or remove it, as needed.
+            //this.userTableAdapter.Fill(this._291ProjectDataSet.User);
             // TODO: This line of code loads data into the '_291ProjectDataSet.Doctor' table. You can move, or remove it, as needed.
             this.doctorTableAdapter.Fill(this._291ProjectDataSet.Doctor);
             // TODO: This line of code loads data into the '_291ProjectDataSet.Ward' table. You can move, or remove it, as needed.
@@ -120,8 +124,6 @@ namespace WindowsFormsApp1
             this.departmentTableAdapter.Fill(this._291ProjectDataSet.Department);
             // TODO: This line of code loads data into the '_291ProjectDataSet.Patient' table. You can move, or remove it, as needed.
             this.patientTableAdapter.Fill(this._291ProjectDataSet.Patient);
-            // TODO: This line of code loads data into the '_291ProjectDataSet.Doctor' table. You can move, or remove it, as needed.
-            this.doctorTableAdapter.Fill(this._291ProjectDataSet.Doctor);
             
 
             // Initialise combox box for department selection
@@ -227,31 +229,11 @@ namespace WindowsFormsApp1
         private void departmentDashboardButton_Click(object sender, EventArgs e)
         {
             setView(departmentPanel);
-            dgDepartment.BringToFront();
-
-            string query = "SELECT DepartmentID, Name FROM Department";
-            SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
-            sqlConnection.Open();
-            SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, sqlConnection);
-            DataTable departmentTable = new DataTable();
-            sqlAdapter.Fill(departmentTable);
-
-            dgDepartment.DataSource = departmentTable;
         }
 
         private void wardDashboardButton_Click(object sender, EventArgs e)
         {
             setView(wardsPanel);
-            dgWards.BringToFront();
-
-            string query = "SELECT * FROM Ward";
-            SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
-            sqlConnection.Open();
-            SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, sqlConnection);
-            DataTable wardsTable = new DataTable();
-            sqlAdapter.Fill(wardsTable);
-
-            dgWards.DataSource = wardsTable;
         }
 
         private void btnExpandDoctor_Click(object sender, EventArgs e)
@@ -380,7 +362,6 @@ namespace WindowsFormsApp1
             doctorBindingSource.ResetBindings(false);
             this.doctorTableAdapter.Fill(this._291ProjectDataSet.Doctor);
         }
-
         private void filterDocName_KeyDown(object sender, KeyEventArgs e)
         {
             updateFilter(doctorBindingSource, filterDocFirstName, filterDocLastName, dgDoctor);
@@ -420,6 +401,11 @@ namespace WindowsFormsApp1
 
             bs.EndEdit();
             dg.Refresh();
+           }
+
+        private void usersDashboardBtn_Click(object sender, EventArgs e)
+        {
+            setView(usersView);
         }
     }
 }
