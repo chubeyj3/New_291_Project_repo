@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using WindowsFormsApp1;
+using CMPT291_Project;
 
 namespace WindowsFormsApp1
 {
@@ -22,6 +23,7 @@ namespace WindowsFormsApp1
         private FilterBox filterDocLastName;
         private FilterBox filterPatientFirstName;
         private FilterBox filterPatientLastName;
+        SqlDataReader reader;
         public dashboard()
         {
             InitializeComponent();
@@ -521,7 +523,29 @@ namespace WindowsFormsApp1
         private void createNewUserButton_Click(object sender, EventArgs e)
         {
             string accessLevel = "2";
-            if(accessLevelSubmissionTextbox.Text == "1")
+            SqlConnection connection = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            string checkUsernameQuery = "SELECT * FROM MedSystemUser where Username = '" + sanitizeQuery(usernameSubmissionTextbox.Text).ToString() + "';";
+            connection.Open();
+            SqlCommand command = new SqlCommand(checkUsernameQuery, connection);
+
+            try
+            {
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    string usernameInUserMsg = "Username already in use. Please choose a different Username and try again.";
+                    MessageBox.Show(usernameInUserMsg);
+                    return;
+                }
+            }
+            catch (System.InvalidOperationException)
+            {
+                Application.Exit();
+            }
+
+
+
+            if (accessLevelSubmissionTextbox.Text == "1")
             {
                 accessLevel = "1";
 
