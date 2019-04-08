@@ -180,10 +180,6 @@ namespace WindowsFormsApp1
             setView(doctorView);
         }
 
-        private void sideBar1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void dashboard_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -191,40 +187,11 @@ namespace WindowsFormsApp1
         }
 
 
-        private void fillToolStripButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void doctorView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dashboardButton2_Click(object sender, EventArgs e)
         {
             setView(patientView);
         }
 
-        private void DoctorBind_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void homepage_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void queryView_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void departmentDashboardButton_Click(object sender, EventArgs e)
         {
@@ -250,9 +217,13 @@ namespace WindowsFormsApp1
                 + "AND Patient.PID = PatientRegistration.PID "
                 + "AND Consultant.DoctorID = ";
             object contents = dgDoctor.Rows[selectedRow].Cells[0].Value;
+            
+
             sql_select += contents.ToString();
 
-            SubQueryForm sqf = new SubQueryForm("Doctor #" + contents.ToString() + "'s Patient History", sql_select);
+            string name = dgDoctor.Rows[selectedRow].Cells[1].Value.ToString() + " " + dgDoctor.Rows[selectedRow].Cells[2].Value.ToString();
+
+            SubQueryForm sqf = new SubQueryForm(name + "'s Patient History", sql_select);
             sqf.Show();
         }
 
@@ -267,7 +238,8 @@ namespace WindowsFormsApp1
             object contents = dgPatient.Rows[selectedRow].Cells[0].Value;
             sql_select += contents.ToString();
 
-            SubQueryForm sqf = new SubQueryForm("Patient #" + contents.ToString() + "'s Contact Information", sql_select);
+            string name = dgPatient.Rows[selectedRow].Cells[1].Value.ToString() + " " + dgPatient.Rows[selectedRow].Cells[2].Value.ToString();
+            SubQueryForm sqf = new SubQueryForm(name + "'s Contact Information", sql_select);
             sqf.Show();
 
         }
@@ -347,9 +319,9 @@ namespace WindowsFormsApp1
             string insert_doc_query = "INSERT INTO Doctor Values ("
                 + next_id.ToString() + ", "
                 + cmbDoctorDepartmentSelect.SelectedValue + ", '"
-                + txbDoctorDuties.Text + "', '"
-                + txbDoctorFirstName.Text + "', '"
-                + txbDoctorLastName.Text + "')";
+                + sanitizeQuery(txbDoctorDuties.Text) + "', '"
+                + sanitizeQuery(txbDoctorFirstName.Text) + "', '"
+                + sanitizeQuery(txbDoctorLastName.Text) + "')";
             lblDoctorViewTitle.Text = insert_doc_query;
 
             conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
@@ -361,6 +333,29 @@ namespace WindowsFormsApp1
 
             doctorBindingSource.ResetBindings(false);
             this.doctorTableAdapter.Fill(this._291ProjectDataSet.Doctor);
+
+            string msg = "Doctor " + txbDoctorFirstName.Text + " " + txbDoctorLastName.Text + " successfully added.";
+            MessageBox.Show(msg);
+            txbDoctorFirstName.Text = String.Empty;
+            txbDoctorLastName.Text = String.Empty;
+            txbDoctorDuties.Text = String.Empty;
+
+            
+
+        }
+
+        private string sanitizeQuery(string query)
+        {
+            string search = String.Empty;
+            foreach (char c in query)
+            {
+                if (char.IsLetterOrDigit(c))
+                {
+                    search += c;
+                }
+            }
+
+            return search;
         }
         private void filterDocName_KeyDown(object sender, KeyEventArgs e)
         {
@@ -406,6 +401,43 @@ namespace WindowsFormsApp1
         private void usersDashboardBtn_Click(object sender, EventArgs e)
         {
             setView(usersView);
+        }
+
+        private void btnPatientSubmit_Click(object sender, EventArgs e)
+        {
+            string max_id_query = "SELECT MAX(PID) FROM Patient";
+            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            conn.Open();
+            SqlCommand comm = new SqlCommand(max_id_query, conn);
+            SqlDataReader sql_reader = comm.ExecuteReader();
+            sql_reader.Read();
+            int next_id = (int)sql_reader[0];
+            next_id++;
+            sql_reader.Close();
+            conn.Close();
+
+            string insert_patient_query = "INSERT INTO Patient Values ("
+                + next_id.ToString() + ", "
+                + sanitizeQuery(lblPatientFirstNameTxb.Text) + "', '"
+                + sanitizeQuery(lblPatientLastNameTxb.Text) + "')";
+            lblDoctorViewTitle.Text = insert_patient_query;
+
+            conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            conn.Open();
+            comm = new SqlCommand(insert_patient_query, conn);
+            comm.ExecuteNonQuery();
+            conn.Close();
+
+
+            patientBindingSource.ResetBindings(false);
+            this.patientTableAdapter.Fill(this._291ProjectDataSet.Patient);
+
+            string msg = "Patient " + lblPatientFirstNameTxb.Text + " " + lblPatientLastNameTxb.Text + " successfully added.";
+            MessageBox.Show(msg);
+            lblPatientFirstNameTxb.Text = String.Empty;
+            lblPatientLastNameTxb.Text = String.Empty;
+
+
         }
     }
 }
