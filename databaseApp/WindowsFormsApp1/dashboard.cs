@@ -180,10 +180,6 @@ namespace WindowsFormsApp1
             setView(doctorView);
         }
 
-        private void sideBar1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void dashboard_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -191,40 +187,11 @@ namespace WindowsFormsApp1
         }
 
 
-        private void fillToolStripButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void doctorView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dashboardButton2_Click(object sender, EventArgs e)
         {
             setView(patientView);
         }
 
-        private void DoctorBind_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void homepage_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void queryView_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void departmentDashboardButton_Click(object sender, EventArgs e)
         {

@@ -414,7 +414,7 @@
             this.doctorView.Name = "doctorView";
             this.doctorView.Size = new System.Drawing.Size(1247, 706);
             this.doctorView.TabIndex = 3;
-            this.doctorView.Paint += new System.Windows.Forms.PaintEventHandler(this.queryView_Paint);
+
             // 
             // pnlAddDoctor
             // 
@@ -1047,7 +1047,7 @@
             this.sideBar1.Size = new System.Drawing.Size(289, 692);
 
             this.sideBar1.TabIndex = 0;
-            this.sideBar1.Paint += new System.Windows.Forms.PaintEventHandler(this.sideBar1_Paint);
+
             // 
             // usersDashboardBtn
             // 
