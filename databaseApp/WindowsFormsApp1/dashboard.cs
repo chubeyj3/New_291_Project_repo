@@ -23,7 +23,6 @@ namespace WindowsFormsApp1
         private FilterBox filterDocLastName;
         private FilterBox filterPatientFirstName;
         private FilterBox filterPatientLastName;
-        SqlDataReader reader;
         public dashboard()
         {
             InitializeComponent();
@@ -320,27 +319,34 @@ namespace WindowsFormsApp1
 
         private void btnDoctorSubmit_Click(object sender, EventArgs e)
         {
-            //string max_id_query = "SELECT MAX(DoctorID) FROM Doctor";
-            //SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
-            //conn.Open();
-            //SqlCommand comm = new SqlCommand(max_id_query, conn);
-            //SqlDataReader sql_reader = comm.ExecuteReader();
-            //sql_reader.Read();
-            //int next_id = (int) sql_reader[0];
-            //next_id++;
-            //sql_reader.Close();
-            //conn.Close();
+            if(txbDoctorFirstName.Text == "" || txbDoctorLastName.Text == "" || txbDoctorDuties.Text == "")
+            {
+                string noNullFieldsAllowed = "All fields must be entered. Please ensure all fields are entered and try again.";
+                MessageBox.Show(noNullFieldsAllowed);
+                return;
+            }
+            string max_id_query = "SELECT MAX(DoctorID) FROM Doctor";
+            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            conn.Open();
+            SqlCommand comm = new SqlCommand(max_id_query, conn);
+            SqlDataReader sql_reader = comm.ExecuteReader();
+            sql_reader.Read();
+            int next_id = (int)sql_reader[0];
+            next_id++;
+            sql_reader.Close();
+            conn.Close();
 
-            string insert_doc_query = "INSERT INTO Doctor (DepartmentID, DutyDetails, FirstName, LastName) Values ("
-                + cmbDoctorDepartmentSelect.SelectedValue + ", '"
+            string insert_doc_query = "INSERT INTO Doctor Values ('"
+                + sanitizeQuery(next_id.ToString()) + "', '"
+                + cmbDoctorDepartmentSelect.SelectedValue + "', '"
                 + sanitizeQuery(txbDoctorDuties.Text) + "', '"
                 + sanitizeQuery(txbDoctorFirstName.Text) + "', '"
                 + sanitizeQuery(txbDoctorLastName.Text) + "')";
             lblDoctorViewTitle.Text = insert_doc_query;
 
-            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
             conn.Open();
-            SqlCommand comm = new SqlCommand(insert_doc_query, conn);
+            comm = new SqlCommand(insert_doc_query, conn);
             comm.ExecuteNonQuery();
             conn.Close();
 
