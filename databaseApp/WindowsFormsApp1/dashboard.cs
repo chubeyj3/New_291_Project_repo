@@ -485,5 +485,32 @@ namespace WindowsFormsApp1
             string msg = "Patient " + dgPatient.Rows[selectedRow].Cells[1].Value.ToString() + " " + dgPatient.Rows[selectedRow].Cells[2].Value.ToString() + " successfully deleted.";
             MessageBox.Show(msg);
         }
+
+        private void createNewUserButton_Click(object sender, EventArgs e)
+        {
+
+            string insert_user_query = "INSERT INTO MedSystemUser Values ('"
+                + sanitizeQuery(usernameSubmissionTextbox.Text) + "', '"
+                + sanitizeQuery(passwordSubmissionTextbox.Text) + "', '"
+                + accessLevelSubmissionTextbox.Text.ToString() + "')";
+
+            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            conn.Open();
+            conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            conn.Open();
+            SqlCommand comm = new SqlCommand(insert_user_query, conn);
+            comm.ExecuteNonQuery();
+            conn.Close();
+
+
+            userBindingSource.ResetBindings(false);
+            this.medSystemUserTableAdapter.Fill(this._291ProjectDataSet1.MedSystemUser);
+
+            string msg = "User " + usernameSubmissionTextbox.Text + " successfully added.";
+            MessageBox.Show(msg);
+            usernameSubmissionTextbox.Text = String.Empty;
+            passwordSubmissionTextbox.Text = String.Empty;
+            accessLevelSubmissionTextbox.Text = String.Empty;
+        }
     }
 }

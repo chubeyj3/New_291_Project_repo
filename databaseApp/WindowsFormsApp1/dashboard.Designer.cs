@@ -109,12 +109,12 @@
             this.pnlAddUser = new System.Windows.Forms.Panel();
             this.deleteUserBtn = new System.Windows.Forms.Button();
             this.createNewUserButton = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.passwordLabel = new System.Windows.Forms.Label();
-            this.usernameLabel = new System.Windows.Forms.Label();
+            this.accessLevelSubmissionTextbox = new System.Windows.Forms.TextBox();
+            this.passwordSubmissionTextbox = new System.Windows.Forms.TextBox();
+            this.usernameSubmissionTextbox = new System.Windows.Forms.TextBox();
+            this.accessLevelSubmissionLbl = new System.Windows.Forms.Label();
+            this.passwordSubmissionLbl = new System.Windows.Forms.Label();
+            this.usernameSubmissionLbl = new System.Windows.Forms.Label();
             this.lblUserViewTitle = new System.Windows.Forms.Label();
             this.sideBar1 = new WindowsFormsApp1.sideBar();
             this.usersDashboardBtn = new WindowsFormsApp1.dashboardButton();
@@ -225,16 +225,16 @@
             // 
             this.container1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.container1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(61)))));
+            this.container1.Controls.Add(this.usersView);
             this.container1.Controls.Add(this.doctorView);
             this.container1.Controls.Add(this.patientView);
             this.container1.Controls.Add(this.departmentPanel);
             this.container1.Controls.Add(this.wardsPanel);
-            this.container1.Controls.Add(this.usersView);
-            this.container1.Location = new System.Drawing.Point(219, 0);
-            this.container1.Margin = new System.Windows.Forms.Padding(2);
-            this.container1.MaximumSize = new System.Drawing.Size(3333, 3250);
+            this.container1.Location = new System.Drawing.Point(292, 0);
+            this.container1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.container1.MaximumSize = new System.Drawing.Size(4444, 4000);
             this.container1.Name = "container1";
-            this.container1.Size = new System.Drawing.Size(951, 577);
+            this.container1.Size = new System.Drawing.Size(1268, 710);
             this.container1.TabIndex = 1;
             // 
             // doctorView
@@ -245,10 +245,11 @@
             this.doctorView.Controls.Add(this.lblDoctorViewTitle);
             this.doctorView.Controls.Add(this.dgDoctor);
             this.doctorView.Location = new System.Drawing.Point(0, 0);
-            this.doctorView.MaximumSize = new System.Drawing.Size(3333, 3250);
-            this.doctorView.MinimumSize = new System.Drawing.Size(854, 468);
+            this.doctorView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.doctorView.MaximumSize = new System.Drawing.Size(4444, 4000);
+            this.doctorView.MinimumSize = new System.Drawing.Size(1139, 576);
             this.doctorView.Name = "doctorView";
-            this.doctorView.Size = new System.Drawing.Size(935, 574);
+            this.doctorView.Size = new System.Drawing.Size(1247, 706);
             this.doctorView.TabIndex = 3;
             // 
             // pnlAddDoctor
@@ -264,33 +265,37 @@
             this.pnlAddDoctor.Controls.Add(this.lblDoctorFirstNameInput);
             this.pnlAddDoctor.Controls.Add(this.lblDoctorLastNameInput);
             this.pnlAddDoctor.Controls.Add(this.txbDoctorLastName);
-            this.pnlAddDoctor.Location = new System.Drawing.Point(0, 356);
+            this.pnlAddDoctor.Location = new System.Drawing.Point(0, 438);
+            this.pnlAddDoctor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlAddDoctor.Name = "pnlAddDoctor";
-            this.pnlAddDoctor.Size = new System.Drawing.Size(929, 212);
+            this.pnlAddDoctor.Size = new System.Drawing.Size(1239, 261);
             this.pnlAddDoctor.TabIndex = 12;
             // 
             // lblDoctorDuties
             // 
             this.lblDoctorDuties.AutoSize = true;
             this.lblDoctorDuties.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblDoctorDuties.Location = new System.Drawing.Point(275, 140);
+            this.lblDoctorDuties.Location = new System.Drawing.Point(367, 172);
+            this.lblDoctorDuties.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDoctorDuties.Name = "lblDoctorDuties";
-            this.lblDoctorDuties.Size = new System.Drawing.Size(37, 13);
+            this.lblDoctorDuties.Size = new System.Drawing.Size(48, 17);
             this.lblDoctorDuties.TabIndex = 13;
             this.lblDoctorDuties.Text = "Duties";
             // 
             // txbDoctorDuties
             // 
-            this.txbDoctorDuties.Location = new System.Drawing.Point(338, 137);
+            this.txbDoctorDuties.Location = new System.Drawing.Point(451, 169);
+            this.txbDoctorDuties.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbDoctorDuties.Name = "txbDoctorDuties";
-            this.txbDoctorDuties.Size = new System.Drawing.Size(219, 20);
+            this.txbDoctorDuties.Size = new System.Drawing.Size(291, 22);
             this.txbDoctorDuties.TabIndex = 12;
             // 
             // btnExpandDoctor
             // 
-            this.btnExpandDoctor.Location = new System.Drawing.Point(338, 9);
+            this.btnExpandDoctor.Location = new System.Drawing.Point(451, 11);
+            this.btnExpandDoctor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExpandDoctor.Name = "btnExpandDoctor";
-            this.btnExpandDoctor.Size = new System.Drawing.Size(114, 23);
+            this.btnExpandDoctor.Size = new System.Drawing.Size(152, 28);
             this.btnExpandDoctor.TabIndex = 3;
             this.btnExpandDoctor.Text = "Expand Selection";
             this.btnExpandDoctor.UseVisualStyleBackColor = true;
@@ -298,9 +303,10 @@
             // 
             // btnDoctorSubmit
             // 
-            this.btnDoctorSubmit.Location = new System.Drawing.Point(338, 163);
+            this.btnDoctorSubmit.Location = new System.Drawing.Point(451, 201);
+            this.btnDoctorSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDoctorSubmit.Name = "btnDoctorSubmit";
-            this.btnDoctorSubmit.Size = new System.Drawing.Size(219, 23);
+            this.btnDoctorSubmit.Size = new System.Drawing.Size(292, 28);
             this.btnDoctorSubmit.TabIndex = 11;
             this.btnDoctorSubmit.Text = "Create New Doctor";
             this.btnDoctorSubmit.UseVisualStyleBackColor = true;
@@ -308,9 +314,10 @@
             // 
             // btnDoctorDelete
             // 
-            this.btnDoctorDelete.Location = new System.Drawing.Point(458, 9);
+            this.btnDoctorDelete.Location = new System.Drawing.Point(611, 11);
+            this.btnDoctorDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDoctorDelete.Name = "btnDoctorDelete";
-            this.btnDoctorDelete.Size = new System.Drawing.Size(99, 23);
+            this.btnDoctorDelete.Size = new System.Drawing.Size(132, 28);
             this.btnDoctorDelete.TabIndex = 4;
             this.btnDoctorDelete.Text = "Delete Selected";
             this.btnDoctorDelete.UseVisualStyleBackColor = true;
@@ -320,34 +327,38 @@
             // 
             this.lblDoctorDepartmentSelect.AutoSize = true;
             this.lblDoctorDepartmentSelect.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblDoctorDepartmentSelect.Location = new System.Drawing.Point(274, 112);
+            this.lblDoctorDepartmentSelect.Location = new System.Drawing.Point(365, 138);
+            this.lblDoctorDepartmentSelect.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDoctorDepartmentSelect.Name = "lblDoctorDepartmentSelect";
-            this.lblDoctorDepartmentSelect.Size = new System.Drawing.Size(62, 13);
+            this.lblDoctorDepartmentSelect.Size = new System.Drawing.Size(82, 17);
             this.lblDoctorDepartmentSelect.TabIndex = 10;
             this.lblDoctorDepartmentSelect.Text = "Department";
             // 
             // txbDoctorFirstName
             // 
-            this.txbDoctorFirstName.Location = new System.Drawing.Point(338, 56);
+            this.txbDoctorFirstName.Location = new System.Drawing.Point(451, 69);
+            this.txbDoctorFirstName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbDoctorFirstName.Name = "txbDoctorFirstName";
-            this.txbDoctorFirstName.Size = new System.Drawing.Size(219, 20);
+            this.txbDoctorFirstName.Size = new System.Drawing.Size(291, 22);
             this.txbDoctorFirstName.TabIndex = 5;
             // 
             // cmbDoctorDepartmentSelect
             // 
             this.cmbDoctorDepartmentSelect.FormattingEnabled = true;
-            this.cmbDoctorDepartmentSelect.Location = new System.Drawing.Point(338, 109);
+            this.cmbDoctorDepartmentSelect.Location = new System.Drawing.Point(451, 134);
+            this.cmbDoctorDepartmentSelect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbDoctorDepartmentSelect.Name = "cmbDoctorDepartmentSelect";
-            this.cmbDoctorDepartmentSelect.Size = new System.Drawing.Size(219, 21);
+            this.cmbDoctorDepartmentSelect.Size = new System.Drawing.Size(291, 24);
             this.cmbDoctorDepartmentSelect.TabIndex = 9;
             // 
             // lblDoctorFirstNameInput
             // 
             this.lblDoctorFirstNameInput.AutoSize = true;
             this.lblDoctorFirstNameInput.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblDoctorFirstNameInput.Location = new System.Drawing.Point(275, 59);
+            this.lblDoctorFirstNameInput.Location = new System.Drawing.Point(367, 73);
+            this.lblDoctorFirstNameInput.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDoctorFirstNameInput.Name = "lblDoctorFirstNameInput";
-            this.lblDoctorFirstNameInput.Size = new System.Drawing.Size(57, 13);
+            this.lblDoctorFirstNameInput.Size = new System.Drawing.Size(76, 17);
             this.lblDoctorFirstNameInput.TabIndex = 6;
             this.lblDoctorFirstNameInput.Text = "First Name";
             // 
@@ -355,17 +366,19 @@
             // 
             this.lblDoctorLastNameInput.AutoSize = true;
             this.lblDoctorLastNameInput.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblDoctorLastNameInput.Location = new System.Drawing.Point(275, 85);
+            this.lblDoctorLastNameInput.Location = new System.Drawing.Point(367, 105);
+            this.lblDoctorLastNameInput.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDoctorLastNameInput.Name = "lblDoctorLastNameInput";
-            this.lblDoctorLastNameInput.Size = new System.Drawing.Size(58, 13);
+            this.lblDoctorLastNameInput.Size = new System.Drawing.Size(76, 17);
             this.lblDoctorLastNameInput.TabIndex = 8;
             this.lblDoctorLastNameInput.Text = "Last Name";
             // 
             // txbDoctorLastName
             // 
-            this.txbDoctorLastName.Location = new System.Drawing.Point(338, 82);
+            this.txbDoctorLastName.Location = new System.Drawing.Point(451, 101);
+            this.txbDoctorLastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbDoctorLastName.Name = "txbDoctorLastName";
-            this.txbDoctorLastName.Size = new System.Drawing.Size(219, 20);
+            this.txbDoctorLastName.Size = new System.Drawing.Size(291, 22);
             this.txbDoctorLastName.TabIndex = 7;
             // 
             // lblDoctorViewTitle
@@ -373,10 +386,9 @@
             this.lblDoctorViewTitle.AutoSize = true;
             this.lblDoctorViewTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.lblDoctorViewTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblDoctorViewTitle.Location = new System.Drawing.Point(421, 3);
-            this.lblDoctorViewTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDoctorViewTitle.Location = new System.Drawing.Point(561, 4);
             this.lblDoctorViewTitle.Name = "lblDoctorViewTitle";
-            this.lblDoctorViewTitle.Size = new System.Drawing.Size(65, 24);
+            this.lblDoctorViewTitle.Size = new System.Drawing.Size(84, 29);
             this.lblDoctorViewTitle.TabIndex = 2;
             this.lblDoctorViewTitle.Text = "Doctor";
             this.lblDoctorViewTitle.Visible = false;
@@ -395,13 +407,13 @@
             this.nameDataGridViewTextBoxColumn,
             this.dutyDetailsDataGridViewTextBoxColumn});
             this.dgDoctor.DataSource = this.doctorBindingSource;
-            this.dgDoctor.Location = new System.Drawing.Point(0, 59);
-            this.dgDoctor.Margin = new System.Windows.Forms.Padding(2);
+            this.dgDoctor.Location = new System.Drawing.Point(0, 73);
+            this.dgDoctor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgDoctor.Name = "dgDoctor";
             this.dgDoctor.ReadOnly = true;
             this.dgDoctor.RowHeadersVisible = false;
             this.dgDoctor.RowTemplate.Height = 28;
-            this.dgDoctor.Size = new System.Drawing.Size(933, 292);
+            this.dgDoctor.Size = new System.Drawing.Size(1244, 359);
             this.dgDoctor.TabIndex = 1;
             this.dgDoctor.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgDoctor_CellClick);
             // 
@@ -447,11 +459,12 @@
             this.patientView.Controls.Add(this.pnlAddPatient);
             this.patientView.Controls.Add(this.lblPatientViewTitle);
             this.patientView.Controls.Add(this.dgPatient);
-            this.patientView.Location = new System.Drawing.Point(3, 2);
-            this.patientView.MaximumSize = new System.Drawing.Size(3333, 3250);
-            this.patientView.MinimumSize = new System.Drawing.Size(854, 468);
+            this.patientView.Location = new System.Drawing.Point(4, 2);
+            this.patientView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.patientView.MaximumSize = new System.Drawing.Size(4444, 4000);
+            this.patientView.MinimumSize = new System.Drawing.Size(1139, 576);
             this.patientView.Name = "patientView";
-            this.patientView.Size = new System.Drawing.Size(935, 571);
+            this.patientView.Size = new System.Drawing.Size(1247, 703);
             this.patientView.TabIndex = 4;
             // 
             // pnlAddPatient
@@ -463,16 +476,18 @@
             this.pnlAddPatient.Controls.Add(this.lblPatientFirstNameTxb);
             this.pnlAddPatient.Controls.Add(this.lblPatientLastNameTxb);
             this.pnlAddPatient.Controls.Add(this.txbPatientLastName);
-            this.pnlAddPatient.Location = new System.Drawing.Point(3, 351);
+            this.pnlAddPatient.Location = new System.Drawing.Point(4, 432);
+            this.pnlAddPatient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlAddPatient.Name = "pnlAddPatient";
-            this.pnlAddPatient.Size = new System.Drawing.Size(929, 212);
+            this.pnlAddPatient.Size = new System.Drawing.Size(1239, 261);
             this.pnlAddPatient.TabIndex = 13;
             // 
             // btnExpandPatient
             // 
-            this.btnExpandPatient.Location = new System.Drawing.Point(338, 9);
+            this.btnExpandPatient.Location = new System.Drawing.Point(451, 11);
+            this.btnExpandPatient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExpandPatient.Name = "btnExpandPatient";
-            this.btnExpandPatient.Size = new System.Drawing.Size(114, 23);
+            this.btnExpandPatient.Size = new System.Drawing.Size(152, 28);
             this.btnExpandPatient.TabIndex = 4;
             this.btnExpandPatient.Text = "Expand Selection";
             this.btnExpandPatient.UseVisualStyleBackColor = true;
@@ -480,9 +495,10 @@
             // 
             // btnPatientSubmit
             // 
-            this.btnPatientSubmit.Location = new System.Drawing.Point(338, 137);
+            this.btnPatientSubmit.Location = new System.Drawing.Point(451, 169);
+            this.btnPatientSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPatientSubmit.Name = "btnPatientSubmit";
-            this.btnPatientSubmit.Size = new System.Drawing.Size(219, 23);
+            this.btnPatientSubmit.Size = new System.Drawing.Size(292, 28);
             this.btnPatientSubmit.TabIndex = 11;
             this.btnPatientSubmit.Text = "Create New Doctor";
             this.btnPatientSubmit.UseVisualStyleBackColor = true;
@@ -490,9 +506,10 @@
             // 
             // btnPatientDelete
             // 
-            this.btnPatientDelete.Location = new System.Drawing.Point(458, 9);
+            this.btnPatientDelete.Location = new System.Drawing.Point(611, 11);
+            this.btnPatientDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPatientDelete.Name = "btnPatientDelete";
-            this.btnPatientDelete.Size = new System.Drawing.Size(99, 23);
+            this.btnPatientDelete.Size = new System.Drawing.Size(132, 28);
             this.btnPatientDelete.TabIndex = 4;
             this.btnPatientDelete.Text = "Delete Selected";
             this.btnPatientDelete.UseVisualStyleBackColor = true;
@@ -500,18 +517,20 @@
             // 
             // txbPatientFirstName
             // 
-            this.txbPatientFirstName.Location = new System.Drawing.Point(338, 56);
+            this.txbPatientFirstName.Location = new System.Drawing.Point(451, 69);
+            this.txbPatientFirstName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbPatientFirstName.Name = "txbPatientFirstName";
-            this.txbPatientFirstName.Size = new System.Drawing.Size(219, 20);
+            this.txbPatientFirstName.Size = new System.Drawing.Size(291, 22);
             this.txbPatientFirstName.TabIndex = 5;
             // 
             // lblPatientFirstNameTxb
             // 
             this.lblPatientFirstNameTxb.AutoSize = true;
             this.lblPatientFirstNameTxb.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblPatientFirstNameTxb.Location = new System.Drawing.Point(275, 59);
+            this.lblPatientFirstNameTxb.Location = new System.Drawing.Point(367, 73);
+            this.lblPatientFirstNameTxb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPatientFirstNameTxb.Name = "lblPatientFirstNameTxb";
-            this.lblPatientFirstNameTxb.Size = new System.Drawing.Size(57, 13);
+            this.lblPatientFirstNameTxb.Size = new System.Drawing.Size(76, 17);
             this.lblPatientFirstNameTxb.TabIndex = 6;
             this.lblPatientFirstNameTxb.Text = "First Name";
             // 
@@ -519,17 +538,19 @@
             // 
             this.lblPatientLastNameTxb.AutoSize = true;
             this.lblPatientLastNameTxb.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblPatientLastNameTxb.Location = new System.Drawing.Point(275, 85);
+            this.lblPatientLastNameTxb.Location = new System.Drawing.Point(367, 105);
+            this.lblPatientLastNameTxb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPatientLastNameTxb.Name = "lblPatientLastNameTxb";
-            this.lblPatientLastNameTxb.Size = new System.Drawing.Size(58, 13);
+            this.lblPatientLastNameTxb.Size = new System.Drawing.Size(76, 17);
             this.lblPatientLastNameTxb.TabIndex = 8;
             this.lblPatientLastNameTxb.Text = "Last Name";
             // 
             // txbPatientLastName
             // 
-            this.txbPatientLastName.Location = new System.Drawing.Point(338, 82);
+            this.txbPatientLastName.Location = new System.Drawing.Point(451, 101);
+            this.txbPatientLastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbPatientLastName.Name = "txbPatientLastName";
-            this.txbPatientLastName.Size = new System.Drawing.Size(219, 20);
+            this.txbPatientLastName.Size = new System.Drawing.Size(291, 22);
             this.txbPatientLastName.TabIndex = 7;
             // 
             // lblPatientViewTitle
@@ -538,10 +559,9 @@
             this.lblPatientViewTitle.AutoSize = true;
             this.lblPatientViewTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.lblPatientViewTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblPatientViewTitle.Location = new System.Drawing.Point(419, 7);
-            this.lblPatientViewTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPatientViewTitle.Location = new System.Drawing.Point(559, 9);
             this.lblPatientViewTitle.Name = "lblPatientViewTitle";
-            this.lblPatientViewTitle.Size = new System.Drawing.Size(66, 24);
+            this.lblPatientViewTitle.Size = new System.Drawing.Size(87, 29);
             this.lblPatientViewTitle.TabIndex = 3;
             this.lblPatientViewTitle.Text = "Patient";
             this.lblPatientViewTitle.Visible = false;
@@ -562,13 +582,13 @@
             this.streetAddressDataGridViewTextBoxColumn,
             this.postalCodeDataGridViewTextBoxColumn});
             this.dgPatient.DataSource = this.patientBindingSource;
-            this.dgPatient.Location = new System.Drawing.Point(0, 57);
-            this.dgPatient.Margin = new System.Windows.Forms.Padding(2);
+            this.dgPatient.Location = new System.Drawing.Point(0, 70);
+            this.dgPatient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgPatient.Name = "dgPatient";
             this.dgPatient.ReadOnly = true;
             this.dgPatient.RowHeadersVisible = false;
             this.dgPatient.RowTemplate.Height = 28;
-            this.dgPatient.Size = new System.Drawing.Size(933, 293);
+            this.dgPatient.Size = new System.Drawing.Size(1244, 361);
             this.dgPatient.TabIndex = 0;
             this.dgPatient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPatient_CellClick);
             // 
@@ -635,16 +655,17 @@
             this.departmentPanel.Controls.Add(this.btnExpandDept);
             this.departmentPanel.Controls.Add(this.dgDepartment);
             this.departmentPanel.Location = new System.Drawing.Point(0, 0);
-            this.departmentPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.departmentPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.departmentPanel.Name = "departmentPanel";
-            this.departmentPanel.Size = new System.Drawing.Size(935, 571);
+            this.departmentPanel.Size = new System.Drawing.Size(1247, 703);
             this.departmentPanel.TabIndex = 3;
             // 
             // btnDepartmentDelete
             // 
-            this.btnDepartmentDelete.Location = new System.Drawing.Point(465, 365);
+            this.btnDepartmentDelete.Location = new System.Drawing.Point(620, 449);
+            this.btnDepartmentDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDepartmentDelete.Name = "btnDepartmentDelete";
-            this.btnDepartmentDelete.Size = new System.Drawing.Size(99, 23);
+            this.btnDepartmentDelete.Size = new System.Drawing.Size(132, 28);
             this.btnDepartmentDelete.TabIndex = 7;
             this.btnDepartmentDelete.Text = "Delete Selected";
             this.btnDepartmentDelete.UseVisualStyleBackColor = true;
@@ -654,19 +675,19 @@
             this.lblDepartmentViewTitle.AutoSize = true;
             this.lblDepartmentViewTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.lblDepartmentViewTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblDepartmentViewTitle.Location = new System.Drawing.Point(422, 9);
-            this.lblDepartmentViewTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDepartmentViewTitle.Location = new System.Drawing.Point(563, 11);
             this.lblDepartmentViewTitle.Name = "lblDepartmentViewTitle";
-            this.lblDepartmentViewTitle.Size = new System.Drawing.Size(107, 24);
+            this.lblDepartmentViewTitle.Size = new System.Drawing.Size(138, 29);
             this.lblDepartmentViewTitle.TabIndex = 6;
             this.lblDepartmentViewTitle.Text = "Department";
             this.lblDepartmentViewTitle.Visible = false;
             // 
             // btnExpandDept
             // 
-            this.btnExpandDept.Location = new System.Drawing.Point(335, 365);
+            this.btnExpandDept.Location = new System.Drawing.Point(447, 449);
+            this.btnExpandDept.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExpandDept.Name = "btnExpandDept";
-            this.btnExpandDept.Size = new System.Drawing.Size(114, 23);
+            this.btnExpandDept.Size = new System.Drawing.Size(152, 28);
             this.btnExpandDept.TabIndex = 5;
             this.btnExpandDept.Text = "Expand Selection";
             this.btnExpandDept.UseVisualStyleBackColor = true;
@@ -683,12 +704,12 @@
             this.departmentIDDataGridViewTextBoxColumn1,
             this.nameDataGridViewTextBoxColumn1});
             this.dgDepartment.DataSource = this.departmentBindingSource;
-            this.dgDepartment.Location = new System.Drawing.Point(0, 59);
-            this.dgDepartment.Margin = new System.Windows.Forms.Padding(2);
-            this.dgDepartment.MaximumSize = new System.Drawing.Size(933, 537);
+            this.dgDepartment.Location = new System.Drawing.Point(0, 73);
+            this.dgDepartment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgDepartment.MaximumSize = new System.Drawing.Size(1244, 661);
             this.dgDepartment.Name = "dgDepartment";
             this.dgDepartment.RowTemplate.Height = 24;
-            this.dgDepartment.Size = new System.Drawing.Size(933, 293);
+            this.dgDepartment.Size = new System.Drawing.Size(1244, 361);
             this.dgDepartment.TabIndex = 0;
             this.dgDepartment.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgDepartment_CellClick);
             // 
@@ -710,17 +731,18 @@
             this.wardsPanel.Controls.Add(this.lblWardsViewTitle);
             this.wardsPanel.Controls.Add(this.btnExpandWard);
             this.wardsPanel.Controls.Add(this.dgWards);
-            this.wardsPanel.Location = new System.Drawing.Point(2, 0);
-            this.wardsPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.wardsPanel.Location = new System.Drawing.Point(3, 0);
+            this.wardsPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.wardsPanel.Name = "wardsPanel";
-            this.wardsPanel.Size = new System.Drawing.Size(935, 574);
+            this.wardsPanel.Size = new System.Drawing.Size(1247, 706);
             this.wardsPanel.TabIndex = 3;
             // 
             // btnWardDelete
             // 
-            this.btnWardDelete.Location = new System.Drawing.Point(465, 365);
+            this.btnWardDelete.Location = new System.Drawing.Point(620, 449);
+            this.btnWardDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnWardDelete.Name = "btnWardDelete";
-            this.btnWardDelete.Size = new System.Drawing.Size(99, 23);
+            this.btnWardDelete.Size = new System.Drawing.Size(132, 28);
             this.btnWardDelete.TabIndex = 8;
             this.btnWardDelete.Text = "Delete Selected";
             this.btnWardDelete.UseVisualStyleBackColor = true;
@@ -730,19 +752,19 @@
             this.lblWardsViewTitle.AutoSize = true;
             this.lblWardsViewTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.lblWardsViewTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblWardsViewTitle.Location = new System.Drawing.Point(420, 9);
-            this.lblWardsViewTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblWardsViewTitle.Location = new System.Drawing.Point(560, 11);
             this.lblWardsViewTitle.Name = "lblWardsViewTitle";
-            this.lblWardsViewTitle.Size = new System.Drawing.Size(64, 24);
+            this.lblWardsViewTitle.Size = new System.Drawing.Size(82, 29);
             this.lblWardsViewTitle.TabIndex = 7;
             this.lblWardsViewTitle.Text = "Wards";
             this.lblWardsViewTitle.Visible = false;
             // 
             // btnExpandWard
             // 
-            this.btnExpandWard.Location = new System.Drawing.Point(335, 365);
+            this.btnExpandWard.Location = new System.Drawing.Point(447, 449);
+            this.btnExpandWard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExpandWard.Name = "btnExpandWard";
-            this.btnExpandWard.Size = new System.Drawing.Size(114, 23);
+            this.btnExpandWard.Size = new System.Drawing.Size(152, 28);
             this.btnExpandWard.TabIndex = 6;
             this.btnExpandWard.Text = "Expand Selection";
             this.btnExpandWard.UseVisualStyleBackColor = true;
@@ -760,11 +782,11 @@
             this.typeIDDataGridViewTextBoxColumn,
             this.statusDataGridViewTextBoxColumn});
             this.dgWards.DataSource = this.wardBindingSource;
-            this.dgWards.Location = new System.Drawing.Point(0, 59);
-            this.dgWards.Margin = new System.Windows.Forms.Padding(2);
+            this.dgWards.Location = new System.Drawing.Point(0, 73);
+            this.dgWards.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgWards.Name = "dgWards";
             this.dgWards.RowTemplate.Height = 24;
-            this.dgWards.Size = new System.Drawing.Size(933, 292);
+            this.dgWards.Size = new System.Drawing.Size(1244, 359);
             this.dgWards.TabIndex = 0;
             this.dgWards.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgWards_CellClick);
             // 
@@ -800,10 +822,11 @@
             this.usersView.Controls.Add(this.pnlAddUser);
             this.usersView.Controls.Add(this.lblUserViewTitle);
             this.usersView.Location = new System.Drawing.Point(1, 0);
-            this.usersView.MaximumSize = new System.Drawing.Size(3333, 3250);
-            this.usersView.MinimumSize = new System.Drawing.Size(854, 468);
+            this.usersView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usersView.MaximumSize = new System.Drawing.Size(4444, 4000);
+            this.usersView.MinimumSize = new System.Drawing.Size(1139, 576);
             this.usersView.Name = "usersView";
-            this.usersView.Size = new System.Drawing.Size(935, 574);
+            this.usersView.Size = new System.Drawing.Size(1247, 706);
             this.usersView.TabIndex = 13;
             // 
             // dgUsers
@@ -818,12 +841,12 @@
             this.passwordDataGridViewTextBoxColumn,
             this.accessLevelDataGridViewTextBoxColumn});
             this.dgUsers.DataSource = this.medSystemUserBindingSource;
-            this.dgUsers.Location = new System.Drawing.Point(0, 59);
-            this.dgUsers.Margin = new System.Windows.Forms.Padding(2);
+            this.dgUsers.Location = new System.Drawing.Point(0, 73);
+            this.dgUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgUsers.Name = "dgUsers";
             this.dgUsers.ReadOnly = true;
             this.dgUsers.RowTemplate.Height = 24;
-            this.dgUsers.Size = new System.Drawing.Size(933, 292);
+            this.dgUsers.Size = new System.Drawing.Size(1244, 359);
             this.dgUsers.TabIndex = 0;
             // 
             // usernameDataGridViewTextBoxColumn
@@ -851,98 +874,102 @@
             // 
             this.pnlAddUser.Controls.Add(this.deleteUserBtn);
             this.pnlAddUser.Controls.Add(this.createNewUserButton);
-            this.pnlAddUser.Controls.Add(this.textBox3);
-            this.pnlAddUser.Controls.Add(this.textBox2);
-            this.pnlAddUser.Controls.Add(this.textBox1);
-            this.pnlAddUser.Controls.Add(this.label4);
-            this.pnlAddUser.Controls.Add(this.passwordLabel);
-            this.pnlAddUser.Controls.Add(this.usernameLabel);
-            this.pnlAddUser.Location = new System.Drawing.Point(0, 356);
+            this.pnlAddUser.Controls.Add(this.accessLevelSubmissionTextbox);
+            this.pnlAddUser.Controls.Add(this.passwordSubmissionTextbox);
+            this.pnlAddUser.Controls.Add(this.usernameSubmissionTextbox);
+            this.pnlAddUser.Controls.Add(this.accessLevelSubmissionLbl);
+            this.pnlAddUser.Controls.Add(this.passwordSubmissionLbl);
+            this.pnlAddUser.Controls.Add(this.usernameSubmissionLbl);
+            this.pnlAddUser.Location = new System.Drawing.Point(0, 438);
+            this.pnlAddUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlAddUser.Name = "pnlAddUser";
-            this.pnlAddUser.Size = new System.Drawing.Size(929, 212);
+            this.pnlAddUser.Size = new System.Drawing.Size(1239, 261);
             this.pnlAddUser.TabIndex = 2;
             // 
             // deleteUserBtn
             // 
-            this.deleteUserBtn.Location = new System.Drawing.Point(398, 9);
+            this.deleteUserBtn.Location = new System.Drawing.Point(531, 11);
+            this.deleteUserBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.deleteUserBtn.Name = "deleteUserBtn";
-            this.deleteUserBtn.Size = new System.Drawing.Size(99, 23);
+            this.deleteUserBtn.Size = new System.Drawing.Size(132, 28);
             this.deleteUserBtn.TabIndex = 7;
             this.deleteUserBtn.Text = "Delete Selected";
             this.deleteUserBtn.UseVisualStyleBackColor = true;
             // 
             // createNewUserButton
             // 
-            this.createNewUserButton.Location = new System.Drawing.Point(338, 161);
-            this.createNewUserButton.Margin = new System.Windows.Forms.Padding(2);
+            this.createNewUserButton.Location = new System.Drawing.Point(451, 198);
+            this.createNewUserButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.createNewUserButton.Name = "createNewUserButton";
-            this.createNewUserButton.Size = new System.Drawing.Size(219, 23);
+            this.createNewUserButton.Size = new System.Drawing.Size(292, 28);
             this.createNewUserButton.TabIndex = 6;
             this.createNewUserButton.Text = "Create New User";
             this.createNewUserButton.UseVisualStyleBackColor = true;
+            this.createNewUserButton.Click += new System.EventHandler(this.createNewUserButton_Click);
             // 
-            // textBox3
+            // accessLevelSubmissionTextbox
             // 
-            this.textBox3.Location = new System.Drawing.Point(338, 126);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(219, 20);
-            this.textBox3.TabIndex = 5;
+            this.accessLevelSubmissionTextbox.Location = new System.Drawing.Point(451, 155);
+            this.accessLevelSubmissionTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.accessLevelSubmissionTextbox.Name = "accessLevelSubmissionTextbox";
+            this.accessLevelSubmissionTextbox.Size = new System.Drawing.Size(291, 22);
+            this.accessLevelSubmissionTextbox.TabIndex = 5;
             // 
-            // textBox2
+            // passwordSubmissionTextbox
             // 
-            this.textBox2.Location = new System.Drawing.Point(338, 91);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(219, 20);
-            this.textBox2.TabIndex = 4;
+            this.passwordSubmissionTextbox.Location = new System.Drawing.Point(451, 112);
+            this.passwordSubmissionTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.passwordSubmissionTextbox.Name = "passwordSubmissionTextbox";
+            this.passwordSubmissionTextbox.Size = new System.Drawing.Size(291, 22);
+            this.passwordSubmissionTextbox.TabIndex = 4;
             // 
-            // textBox1
+            // usernameSubmissionTextbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(338, 56);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(219, 20);
-            this.textBox1.TabIndex = 3;
+            this.usernameSubmissionTextbox.Location = new System.Drawing.Point(451, 69);
+            this.usernameSubmissionTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usernameSubmissionTextbox.Name = "usernameSubmissionTextbox";
+            this.usernameSubmissionTextbox.Size = new System.Drawing.Size(291, 22);
+            this.usernameSubmissionTextbox.TabIndex = 3;
             // 
-            // label4
+            // accessLevelSubmissionLbl
             // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(267, 126);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Access Level";
+            this.accessLevelSubmissionLbl.AutoSize = true;
+            this.accessLevelSubmissionLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.accessLevelSubmissionLbl.Location = new System.Drawing.Point(356, 155);
+            this.accessLevelSubmissionLbl.Name = "accessLevelSubmissionLbl";
+            this.accessLevelSubmissionLbl.Size = new System.Drawing.Size(91, 17);
+            this.accessLevelSubmissionLbl.TabIndex = 2;
+            this.accessLevelSubmissionLbl.Text = "Access Level";
             // 
-            // passwordLabel
+            // passwordSubmissionLbl
             // 
-            this.passwordLabel.AutoSize = true;
-            this.passwordLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.passwordLabel.Location = new System.Drawing.Point(284, 91);
-            this.passwordLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(53, 13);
-            this.passwordLabel.TabIndex = 1;
-            this.passwordLabel.Text = "Password";
+            this.passwordSubmissionLbl.AutoSize = true;
+            this.passwordSubmissionLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.passwordSubmissionLbl.Location = new System.Drawing.Point(379, 112);
+            this.passwordSubmissionLbl.Name = "passwordSubmissionLbl";
+            this.passwordSubmissionLbl.Size = new System.Drawing.Size(69, 17);
+            this.passwordSubmissionLbl.TabIndex = 1;
+            this.passwordSubmissionLbl.Text = "Password";
             // 
-            // usernameLabel
+            // usernameSubmissionLbl
             // 
-            this.usernameLabel.AutoSize = true;
-            this.usernameLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.usernameLabel.Location = new System.Drawing.Point(280, 56);
-            this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(55, 13);
-            this.usernameLabel.TabIndex = 0;
-            this.usernameLabel.Text = "Username";
+            this.usernameSubmissionLbl.AutoSize = true;
+            this.usernameSubmissionLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.usernameSubmissionLbl.Location = new System.Drawing.Point(373, 69);
+            this.usernameSubmissionLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.usernameSubmissionLbl.Name = "usernameSubmissionLbl";
+            this.usernameSubmissionLbl.Size = new System.Drawing.Size(73, 17);
+            this.usernameSubmissionLbl.TabIndex = 0;
+            this.usernameSubmissionLbl.Text = "Username";
             // 
             // lblUserViewTitle
             // 
             this.lblUserViewTitle.AutoSize = true;
             this.lblUserViewTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.lblUserViewTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblUserViewTitle.Location = new System.Drawing.Point(421, 3);
-            this.lblUserViewTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUserViewTitle.Location = new System.Drawing.Point(561, 4);
             this.lblUserViewTitle.Name = "lblUserViewTitle";
-            this.lblUserViewTitle.Size = new System.Drawing.Size(58, 24);
+            this.lblUserViewTitle.Size = new System.Drawing.Size(76, 29);
             this.lblUserViewTitle.TabIndex = 1;
             this.lblUserViewTitle.Text = "Users";
             this.lblUserViewTitle.Visible = false;
@@ -960,9 +987,10 @@
             this.sideBar1.Controls.Add(this.btnDoctorView);
             this.sideBar1.Controls.Add(this.btnPatientView);
             this.sideBar1.Location = new System.Drawing.Point(0, 0);
-            this.sideBar1.MaximumSize = new System.Drawing.Size(217, 936);
+            this.sideBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sideBar1.MaximumSize = new System.Drawing.Size(289, 1152);
             this.sideBar1.Name = "sideBar1";
-            this.sideBar1.Size = new System.Drawing.Size(217, 562);
+            this.sideBar1.Size = new System.Drawing.Size(289, 692);
             this.sideBar1.TabIndex = 0;
             // 
             // usersDashboardBtn
@@ -973,10 +1001,10 @@
             this.usersDashboardBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.usersDashboardBtn.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.usersDashboardBtn.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.usersDashboardBtn.Location = new System.Drawing.Point(2, 353);
-            this.usersDashboardBtn.Margin = new System.Windows.Forms.Padding(2, 3, 3, 3);
+            this.usersDashboardBtn.Location = new System.Drawing.Point(3, 434);
+            this.usersDashboardBtn.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
             this.usersDashboardBtn.Name = "usersDashboardBtn";
-            this.usersDashboardBtn.Size = new System.Drawing.Size(212, 69);
+            this.usersDashboardBtn.Size = new System.Drawing.Size(283, 85);
             this.usersDashboardBtn.TabIndex = 5;
             this.usersDashboardBtn.Text = "Users";
             this.usersDashboardBtn.UseVisualStyleBackColor = false;
@@ -989,10 +1017,10 @@
             this.wardDashboardButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.wardDashboardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.wardDashboardButton.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.wardDashboardButton.Location = new System.Drawing.Point(2, 283);
-            this.wardDashboardButton.Margin = new System.Windows.Forms.Padding(2);
+            this.wardDashboardButton.Location = new System.Drawing.Point(3, 348);
+            this.wardDashboardButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.wardDashboardButton.Name = "wardDashboardButton";
-            this.wardDashboardButton.Size = new System.Drawing.Size(212, 69);
+            this.wardDashboardButton.Size = new System.Drawing.Size(283, 85);
             this.wardDashboardButton.TabIndex = 4;
             this.wardDashboardButton.Text = "Wards";
             this.wardDashboardButton.UseVisualStyleBackColor = false;
@@ -1006,10 +1034,10 @@
             this.departmentDashboardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.departmentDashboardButton.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.departmentDashboardButton.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.departmentDashboardButton.Location = new System.Drawing.Point(2, 209);
-            this.departmentDashboardButton.Margin = new System.Windows.Forms.Padding(2);
+            this.departmentDashboardButton.Location = new System.Drawing.Point(3, 257);
+            this.departmentDashboardButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.departmentDashboardButton.Name = "departmentDashboardButton";
-            this.departmentDashboardButton.Size = new System.Drawing.Size(212, 69);
+            this.departmentDashboardButton.Size = new System.Drawing.Size(283, 85);
             this.departmentDashboardButton.TabIndex = 3;
             this.departmentDashboardButton.Text = "Department";
             this.departmentDashboardButton.UseVisualStyleBackColor = false;
@@ -1024,9 +1052,10 @@
             this.backButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.backButton.Location = new System.Drawing.Point(164, 536);
+            this.backButton.Location = new System.Drawing.Point(219, 660);
+            this.backButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(42, 23);
+            this.backButton.Size = new System.Drawing.Size(56, 28);
             this.backButton.TabIndex = 2;
             this.backButton.Text = "Back";
             this.backButton.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -1039,9 +1068,10 @@
             this.label1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label1.Location = new System.Drawing.Point(10, 9);
+            this.label1.Location = new System.Drawing.Point(13, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(203, 32);
+            this.label1.Size = new System.Drawing.Size(250, 41);
             this.label1.TabIndex = 0;
             this.label1.Text = "Highland Medical";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -1054,10 +1084,10 @@
             this.btnDoctorView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDoctorView.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDoctorView.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.btnDoctorView.Location = new System.Drawing.Point(2, 59);
-            this.btnDoctorView.Margin = new System.Windows.Forms.Padding(2, 3, 3, 3);
+            this.btnDoctorView.Location = new System.Drawing.Point(3, 73);
+            this.btnDoctorView.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
             this.btnDoctorView.Name = "btnDoctorView";
-            this.btnDoctorView.Size = new System.Drawing.Size(212, 69);
+            this.btnDoctorView.Size = new System.Drawing.Size(283, 85);
             this.btnDoctorView.TabIndex = 1;
             this.btnDoctorView.Text = "Doctors";
             this.btnDoctorView.UseVisualStyleBackColor = false;
@@ -1071,10 +1101,10 @@
             this.btnPatientView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPatientView.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPatientView.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.btnPatientView.Location = new System.Drawing.Point(2, 134);
-            this.btnPatientView.Margin = new System.Windows.Forms.Padding(2, 3, 3, 3);
+            this.btnPatientView.Location = new System.Drawing.Point(3, 165);
+            this.btnPatientView.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
             this.btnPatientView.Name = "btnPatientView";
-            this.btnPatientView.Size = new System.Drawing.Size(212, 69);
+            this.btnPatientView.Size = new System.Drawing.Size(283, 85);
             this.btnPatientView.TabIndex = 2;
             this.btnPatientView.Text = "Patients";
             this.btnPatientView.UseVisualStyleBackColor = false;
@@ -1082,13 +1112,14 @@
             // 
             // dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1157, 570);
+            this.ClientSize = new System.Drawing.Size(1543, 702);
             this.Controls.Add(this.container1);
             this.Controls.Add(this.sideBar1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "dashboard";
             this.Text = "Hospital Database";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.dashboard_FormClosing);
@@ -1221,12 +1252,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn accessLevelDataGridViewTextBoxColumn;
         private dashboardButton usersDashboardBtn;
-        private System.Windows.Forms.Label usernameLabel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label passwordLabel;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label usernameSubmissionLbl;
+        private System.Windows.Forms.TextBox usernameSubmissionTextbox;
+        private System.Windows.Forms.Label accessLevelSubmissionLbl;
+        private System.Windows.Forms.Label passwordSubmissionLbl;
+        private System.Windows.Forms.TextBox accessLevelSubmissionTextbox;
+        private System.Windows.Forms.TextBox passwordSubmissionTextbox;
         private System.Windows.Forms.Button deleteUserBtn;
         private System.Windows.Forms.Button createNewUserButton;
 
