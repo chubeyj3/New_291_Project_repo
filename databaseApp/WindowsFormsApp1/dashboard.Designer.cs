@@ -46,14 +46,6 @@
             this._291ProjectDataSet1 = new WindowsFormsApp1._291ProjectDataSet1();
             this.medSystemUserTableAdapter = new WindowsFormsApp1._291ProjectDataSet1TableAdapters.MedSystemUserTableAdapter();
             this.container1 = new WindowsFormsApp1.container();
-            this.wardsPanel = new WindowsFormsApp1.query_panel();
-            this.lblWardsViewTitle = new System.Windows.Forms.Label();
-            this.btnExpandWard = new System.Windows.Forms.Button();
-            this.dgWards = new System.Windows.Forms.DataGridView();
-            this.wardIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.capacityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.doctorView = new WindowsFormsApp1.query_panel();
             this.pnlAddDoctor = new System.Windows.Forms.Panel();
             this.lblDoctorDuties = new System.Windows.Forms.Label();
@@ -99,6 +91,14 @@
             this.dgDepartment = new System.Windows.Forms.DataGridView();
             this.departmentIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wardsPanel = new WindowsFormsApp1.query_panel();
+            this.lblWardsViewTitle = new System.Windows.Forms.Label();
+            this.btnExpandWard = new System.Windows.Forms.Button();
+            this.dgWards = new System.Windows.Forms.DataGridView();
+            this.wardIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.capacityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usersView = new WindowsFormsApp1.query_panel();
             this.dgUsers = new System.Windows.Forms.DataGridView();
             this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -131,8 +131,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.medSystemUserBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._291ProjectDataSet1)).BeginInit();
             this.container1.SuspendLayout();
-            this.wardsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgWards)).BeginInit();
             this.doctorView.SuspendLayout();
             this.pnlAddDoctor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDoctor)).BeginInit();
@@ -141,6 +139,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgPatient)).BeginInit();
             this.departmentPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDepartment)).BeginInit();
+            this.wardsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgWards)).BeginInit();
             this.usersView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgUsers)).BeginInit();
             this.pnlAddUser.SuspendLayout();
@@ -223,8 +223,8 @@
             // 
             this.container1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.container1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(61)))));
-            this.container1.Controls.Add(this.doctorView);
             this.container1.Controls.Add(this.patientView);
+            this.container1.Controls.Add(this.doctorView);
             this.container1.Controls.Add(this.departmentPanel);
             this.container1.Controls.Add(this.wardsPanel);
             this.container1.Controls.Add(this.usersView);
@@ -234,84 +234,6 @@
             this.container1.Name = "container1";
             this.container1.Size = new System.Drawing.Size(1268, 710);
             this.container1.TabIndex = 1;
-            // 
-            // wardsPanel
-            // 
-            this.wardsPanel.Controls.Add(this.lblWardsViewTitle);
-            this.wardsPanel.Controls.Add(this.btnExpandWard);
-            this.wardsPanel.Controls.Add(this.dgWards);
-            this.wardsPanel.Location = new System.Drawing.Point(3, 0);
-            this.wardsPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.wardsPanel.Name = "wardsPanel";
-            this.wardsPanel.Size = new System.Drawing.Size(1247, 706);
-            this.wardsPanel.TabIndex = 3;
-            // 
-            // lblWardsViewTitle
-            // 
-            this.lblWardsViewTitle.AutoSize = true;
-            this.lblWardsViewTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lblWardsViewTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblWardsViewTitle.Location = new System.Drawing.Point(560, 11);
-            this.lblWardsViewTitle.Name = "lblWardsViewTitle";
-            this.lblWardsViewTitle.Size = new System.Drawing.Size(82, 29);
-            this.lblWardsViewTitle.TabIndex = 7;
-            this.lblWardsViewTitle.Text = "Wards";
-            this.lblWardsViewTitle.Visible = false;
-            // 
-            // btnExpandWard
-            // 
-            this.btnExpandWard.Location = new System.Drawing.Point(547, 449);
-            this.btnExpandWard.Margin = new System.Windows.Forms.Padding(4);
-            this.btnExpandWard.Name = "btnExpandWard";
-            this.btnExpandWard.Size = new System.Drawing.Size(152, 28);
-            this.btnExpandWard.TabIndex = 6;
-            this.btnExpandWard.Text = "Expand Selection";
-            this.btnExpandWard.UseVisualStyleBackColor = true;
-            this.btnExpandWard.Click += new System.EventHandler(this.btnExpandWard_Click);
-            // 
-            // dgWards
-            // 
-            this.dgWards.AutoGenerateColumns = false;
-            this.dgWards.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgWards.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgWards.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgWards.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.wardIDDataGridViewTextBoxColumn,
-            this.capacityDataGridViewTextBoxColumn,
-            this.typeIDDataGridViewTextBoxColumn,
-            this.statusDataGridViewTextBoxColumn});
-            this.dgWards.DataSource = this.wardBindingSource;
-            this.dgWards.Location = new System.Drawing.Point(0, 73);
-            this.dgWards.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgWards.Name = "dgWards";
-            this.dgWards.RowTemplate.Height = 24;
-            this.dgWards.Size = new System.Drawing.Size(1244, 359);
-            this.dgWards.TabIndex = 0;
-            this.dgWards.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgWards_CellClick);
-            // 
-            // wardIDDataGridViewTextBoxColumn
-            // 
-            this.wardIDDataGridViewTextBoxColumn.DataPropertyName = "WardID";
-            this.wardIDDataGridViewTextBoxColumn.HeaderText = "WardID";
-            this.wardIDDataGridViewTextBoxColumn.Name = "wardIDDataGridViewTextBoxColumn";
-            // 
-            // capacityDataGridViewTextBoxColumn
-            // 
-            this.capacityDataGridViewTextBoxColumn.DataPropertyName = "Capacity";
-            this.capacityDataGridViewTextBoxColumn.HeaderText = "Capacity";
-            this.capacityDataGridViewTextBoxColumn.Name = "capacityDataGridViewTextBoxColumn";
-            // 
-            // typeIDDataGridViewTextBoxColumn
-            // 
-            this.typeIDDataGridViewTextBoxColumn.DataPropertyName = "TypeID";
-            this.typeIDDataGridViewTextBoxColumn.HeaderText = "TypeID";
-            this.typeIDDataGridViewTextBoxColumn.Name = "typeIDDataGridViewTextBoxColumn";
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             // 
             // doctorView
             // 
@@ -576,7 +498,7 @@
             this.btnPatientSubmit.Name = "btnPatientSubmit";
             this.btnPatientSubmit.Size = new System.Drawing.Size(292, 28);
             this.btnPatientSubmit.TabIndex = 11;
-            this.btnPatientSubmit.Text = "Create New Doctor";
+            this.btnPatientSubmit.Text = "Add New Patient";
             this.btnPatientSubmit.UseVisualStyleBackColor = true;
             this.btnPatientSubmit.Click += new System.EventHandler(this.btnPatientSubmit_Click);
             // 
@@ -789,6 +711,84 @@
             this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
             this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            // 
+            // wardsPanel
+            // 
+            this.wardsPanel.Controls.Add(this.lblWardsViewTitle);
+            this.wardsPanel.Controls.Add(this.btnExpandWard);
+            this.wardsPanel.Controls.Add(this.dgWards);
+            this.wardsPanel.Location = new System.Drawing.Point(3, 0);
+            this.wardsPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.wardsPanel.Name = "wardsPanel";
+            this.wardsPanel.Size = new System.Drawing.Size(1247, 706);
+            this.wardsPanel.TabIndex = 3;
+            // 
+            // lblWardsViewTitle
+            // 
+            this.lblWardsViewTitle.AutoSize = true;
+            this.lblWardsViewTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lblWardsViewTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblWardsViewTitle.Location = new System.Drawing.Point(560, 11);
+            this.lblWardsViewTitle.Name = "lblWardsViewTitle";
+            this.lblWardsViewTitle.Size = new System.Drawing.Size(82, 29);
+            this.lblWardsViewTitle.TabIndex = 7;
+            this.lblWardsViewTitle.Text = "Wards";
+            this.lblWardsViewTitle.Visible = false;
+            // 
+            // btnExpandWard
+            // 
+            this.btnExpandWard.Location = new System.Drawing.Point(547, 449);
+            this.btnExpandWard.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExpandWard.Name = "btnExpandWard";
+            this.btnExpandWard.Size = new System.Drawing.Size(152, 28);
+            this.btnExpandWard.TabIndex = 6;
+            this.btnExpandWard.Text = "Expand Selection";
+            this.btnExpandWard.UseVisualStyleBackColor = true;
+            this.btnExpandWard.Click += new System.EventHandler(this.btnExpandWard_Click);
+            // 
+            // dgWards
+            // 
+            this.dgWards.AutoGenerateColumns = false;
+            this.dgWards.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgWards.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgWards.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgWards.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.wardIDDataGridViewTextBoxColumn,
+            this.capacityDataGridViewTextBoxColumn,
+            this.typeIDDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn});
+            this.dgWards.DataSource = this.wardBindingSource;
+            this.dgWards.Location = new System.Drawing.Point(0, 73);
+            this.dgWards.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgWards.Name = "dgWards";
+            this.dgWards.RowTemplate.Height = 24;
+            this.dgWards.Size = new System.Drawing.Size(1244, 359);
+            this.dgWards.TabIndex = 0;
+            this.dgWards.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgWards_CellClick);
+            // 
+            // wardIDDataGridViewTextBoxColumn
+            // 
+            this.wardIDDataGridViewTextBoxColumn.DataPropertyName = "WardID";
+            this.wardIDDataGridViewTextBoxColumn.HeaderText = "WardID";
+            this.wardIDDataGridViewTextBoxColumn.Name = "wardIDDataGridViewTextBoxColumn";
+            // 
+            // capacityDataGridViewTextBoxColumn
+            // 
+            this.capacityDataGridViewTextBoxColumn.DataPropertyName = "Capacity";
+            this.capacityDataGridViewTextBoxColumn.HeaderText = "Capacity";
+            this.capacityDataGridViewTextBoxColumn.Name = "capacityDataGridViewTextBoxColumn";
+            // 
+            // typeIDDataGridViewTextBoxColumn
+            // 
+            this.typeIDDataGridViewTextBoxColumn.DataPropertyName = "TypeID";
+            this.typeIDDataGridViewTextBoxColumn.HeaderText = "TypeID";
+            this.typeIDDataGridViewTextBoxColumn.Name = "typeIDDataGridViewTextBoxColumn";
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             // 
             // usersView
             // 
@@ -1113,9 +1113,6 @@
             ((System.ComponentModel.ISupportInitialize)(this._291ProjectDataSet1)).EndInit();
             this.container1.ResumeLayout(false);
             this.container1.PerformLayout();
-            this.wardsPanel.ResumeLayout(false);
-            this.wardsPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgWards)).EndInit();
             this.doctorView.ResumeLayout(false);
             this.doctorView.PerformLayout();
             this.pnlAddDoctor.ResumeLayout(false);
@@ -1129,6 +1126,9 @@
             this.departmentPanel.ResumeLayout(false);
             this.departmentPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDepartment)).EndInit();
+            this.wardsPanel.ResumeLayout(false);
+            this.wardsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgWards)).EndInit();
             this.usersView.ResumeLayout(false);
             this.usersView.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgUsers)).EndInit();

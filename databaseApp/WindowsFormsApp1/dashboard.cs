@@ -39,6 +39,7 @@ namespace WindowsFormsApp1
             {
                 wardDashboardButton.Hide();
                 pnlAddDoctor.Hide();
+                usersDashboardBtn.Hide();
             }
         }
 
@@ -317,28 +318,27 @@ namespace WindowsFormsApp1
 
         private void btnDoctorSubmit_Click(object sender, EventArgs e)
         {
-            string max_id_query = "SELECT MAX(DoctorID) FROM Doctor";
-            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
-            conn.Open();
-            SqlCommand comm = new SqlCommand(max_id_query, conn);
-            SqlDataReader sql_reader = comm.ExecuteReader();
-            sql_reader.Read();
-            int next_id = (int) sql_reader[0];
-            next_id++;
-            sql_reader.Close();
-            conn.Close();
+            //string max_id_query = "SELECT MAX(DoctorID) FROM Doctor";
+            //SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            //conn.Open();
+            //SqlCommand comm = new SqlCommand(max_id_query, conn);
+            //SqlDataReader sql_reader = comm.ExecuteReader();
+            //sql_reader.Read();
+            //int next_id = (int) sql_reader[0];
+            //next_id++;
+            //sql_reader.Close();
+            //conn.Close();
 
-            string insert_doc_query = "INSERT INTO Doctor Values ("
-                + next_id.ToString() + ", "
+            string insert_doc_query = "INSERT INTO Doctor (DepartmentID, DutyDetails, FirstName, LastName) Values ("
                 + cmbDoctorDepartmentSelect.SelectedValue + ", '"
                 + sanitizeQuery(txbDoctorDuties.Text) + "', '"
                 + sanitizeQuery(txbDoctorFirstName.Text) + "', '"
                 + sanitizeQuery(txbDoctorLastName.Text) + "')";
             lblDoctorViewTitle.Text = insert_doc_query;
 
-            conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
             conn.Open();
-            comm = new SqlCommand(insert_doc_query, conn);
+            SqlCommand comm = new SqlCommand(insert_doc_query, conn);
             comm.ExecuteNonQuery();
             conn.Close();
 
@@ -416,8 +416,14 @@ namespace WindowsFormsApp1
         }
 
         private void btnPatientSubmit_Click(object sender, EventArgs e)
-        {
-            string max_id_query = "SELECT MAX(PID) FROM Patient";
+        {   
+            if(txbPatientFirstName.Text == "" || txbPatientLastName.Text == "")
+            {
+                string notAllowedMsg = "Both fields must be entered. Please enter first name and last name.";
+                MessageBox.Show(notAllowedMsg);
+                return;
+            }
+            string max_id_query = "SELECT MAX(PID) FROM Patient;";
             SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
             conn.Open();
             SqlCommand comm = new SqlCommand(max_id_query, conn);
@@ -428,10 +434,10 @@ namespace WindowsFormsApp1
             sql_reader.Close();
             conn.Close();
 
-            string insert_patient_query = "INSERT INTO Patient Values ("
-                + next_id.ToString() + ", "
-                + sanitizeQuery(lblPatientFirstNameTxb.Text) + "', '"
-                + sanitizeQuery(lblPatientLastNameTxb.Text) + "')";
+            string insert_patient_query = "INSERT INTO Patient (PID, FirstName, LastName) Values ('"
+                + next_id.ToString() + "', '"
+                + sanitizeQuery(txbPatientFirstName.Text) + "', '"
+                + sanitizeQuery(txbPatientLastName.Text) + "')";
             lblDoctorViewTitle.Text = insert_patient_query;
 
             conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
@@ -444,58 +450,79 @@ namespace WindowsFormsApp1
             patientBindingSource.ResetBindings(false);
             this.patientTableAdapter.Fill(this._291ProjectDataSet.Patient);
 
-            string msg = "Patient " + lblPatientFirstNameTxb.Text + " " + lblPatientLastNameTxb.Text + " successfully added.";
+            string msg = "Patient " + txbPatientFirstName.Text + " " + txbPatientLastName.Text + " successfully added.";
             MessageBox.Show(msg);
-            lblPatientFirstNameTxb.Text = String.Empty;
-            lblPatientLastNameTxb.Text = String.Empty;
+            txbPatientFirstName.Text = String.Empty;
+            txbPatientLastName.Text = String.Empty;
 
 
         }
 
         private void btnDoctorDelete_Click(object sender, EventArgs e)
         {
-            
-            if (selectedRow < 0)
-                return;
-            string child_delete = "DELETE from Consultant where DoctorID = " + dgDoctor.Rows[selectedRow].Cells[0].Value.ToString(); 
-            string delete_query = "DELETE from Doctor where DoctorID = " + dgDoctor.Rows[selectedRow].Cells[0].Value.ToString();
-            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
-            conn.Open();
-            SqlCommand comm = new SqlCommand(child_delete, conn);
-            comm.ExecuteNonQuery();
-            SqlCommand comm2 = new SqlCommand(delete_query, conn);
-            comm2.ExecuteNonQuery();
-            conn.Close();
+            string msg;
+            try
+            {
+                if (selectedRow < 0)
+                    return;
+                string child_delete = "DELETE from Consultant where DoctorID = " + dgDoctor.Rows[selectedRow].Cells[0].Value.ToString();
+                string delete_query = "DELETE from Doctor where DoctorID = " + dgDoctor.Rows[selectedRow].Cells[0].Value.ToString();
+                SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+                conn.Open();
+                SqlCommand comm = new SqlCommand(child_delete, conn);
+                comm.ExecuteNonQuery();
+                SqlCommand comm2 = new SqlCommand(delete_query, conn);
+                comm2.ExecuteNonQuery();
+                conn.Close();
 
-            doctorBindingSource.ResetBindings(false);
-            this.doctorTableAdapter.Fill(this._291ProjectDataSet.Doctor);
-            dgDoctor.Refresh();
-            string msg = "Doctor " + dgDoctor.Rows[selectedRow].Cells[1].Value.ToString() + " " + dgDoctor.Rows[selectedRow].Cells[2].Value.ToString() + " successfully deleted.";
-            MessageBox.Show(msg);
+                doctorBindingSource.ResetBindings(false);
+                this.doctorTableAdapter.Fill(this._291ProjectDataSet.Doctor);
+                dgDoctor.Refresh();
+                msg = "Doctor " + dgDoctor.Rows[selectedRow].Cells[1].Value.ToString() + " " + dgDoctor.Rows[selectedRow].Cells[2].Value.ToString() + " successfully deleted.";
+                MessageBox.Show(msg);
+            }
+            catch (NullReferenceException)
+            {
+                msg = "No doctors selected. Please select a doctor and try again.";
+                MessageBox.Show(msg);
+            }
+            
         }
 
         private void btnPatientDelete_Click(object sender, EventArgs e)
         {
-            
-            if (selectedRow < 0)
-                return;
+            try
+            {
+                if (selectedRow < 0)
+                    return;
 
-            SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
-            conn.Open();
-            // TODO: Like above. Delete all foreign key references first, then delete the patient itself
-            // patient registration and patientcontactinfo for sure
+                SqlConnection conn = new SqlConnection(Properties.Settings.Default._291ProjectConnectionString);
+                conn.Open();
+                //string patient_info_delete = "DELETE from PatientContactInfo where PID = " + dgPatient.Rows[selectedRow].Cells[0].Value.ToString();
+                //string consultant_delete = "DELETE from Consultant where PatientRegNum = " + dgPatient.Rows[selectedRow].Cells[0].Value.ToString();
+                //string patient_registration_delete = "DELETE from PatientRegistration where PID = " + dgPatient.Rows[selectedRow].Cells[0].Value.ToString();
+                string patient_delete = "DELETE from Patient where PID = " + dgPatient.Rows[selectedRow].Cells[0].Value.ToString();
+                //SqlCommand comm1 = new SqlCommand(patient_info_delete, conn);
+                //comm1.ExecuteNonQuery();
+                //SqlCommand comm2 = new SqlCommand(consultant_delete, conn);
+                //comm2.ExecuteNonQuery();
+                //SqlCommand comm3 = new SqlCommand(patient_registration_delete, conn);
+                //comm3.ExecuteNonQuery();
+                SqlCommand comm4 = new SqlCommand(patient_delete, conn);
+                comm4.ExecuteNonQuery();
+                conn.Close();
 
-            string final_delete = "DELETE from Patient where PID = " + dgPatient.Rows[selectedRow].Cells[0].Value.ToString();
-            //uncomment these lines when finished
-            //SqlCommand final = new SqlCommand(final_delete, conn);
-            //final.ExecuteNonQuery();
-            //conn.Close();
-
-            patientBindingSource.ResetBindings(false);
-            this.patientTableAdapter.Fill(this._291ProjectDataSet.Patient);
-            dgPatient.Refresh();
-            string msg = "Patient " + dgPatient.Rows[selectedRow].Cells[1].Value.ToString() + " " + dgPatient.Rows[selectedRow].Cells[2].Value.ToString() + " successfully deleted.";
-            MessageBox.Show(msg);
+                patientBindingSource.ResetBindings(false);
+                this.patientTableAdapter.Fill(this._291ProjectDataSet.Patient);
+                dgPatient.Refresh();
+                string msg = "Patient " + dgPatient.Rows[selectedRow].Cells[1].Value.ToString() + " " + dgPatient.Rows[selectedRow].Cells[2].Value.ToString() + " successfully deleted.";
+                MessageBox.Show(msg);
+            }
+            catch (NullReferenceException)
+            {
+                string invalidDelete = "No patient selected. Please select a patient and try again.";
+                MessageBox.Show(invalidDelete);
+            }
         }
 
         private void createNewUserButton_Click(object sender, EventArgs e)
